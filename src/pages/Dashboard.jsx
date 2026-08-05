@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 function Dashboard() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();

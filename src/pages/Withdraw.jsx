@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Withdraw.css";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 function Withdraw() {
     const navigate = useNavigate();
   return (

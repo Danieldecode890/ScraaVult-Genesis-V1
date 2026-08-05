@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/RecoveryPhrase.css";
 import logo from "../assets/scraavult-logo.png";
+import "../styles/Responsive.css";
 
 
 function RecoveryPhrase() {

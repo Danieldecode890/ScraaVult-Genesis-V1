@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/VaultSuccess.css";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 
 function VaultSuccess() {
   const navigate = useNavigate();

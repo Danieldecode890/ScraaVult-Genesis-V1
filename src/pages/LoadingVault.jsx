@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoadingVault.css";
 import logo from "../assets/logo.png";
+import "../styles/Responsive.css";
 function LoadingVault() {
 
     const navigate = useNavigate();

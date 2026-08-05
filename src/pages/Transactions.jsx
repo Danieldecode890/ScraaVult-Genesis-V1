@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/TransactionHistory.css";
+import "../styles/Responsive.css";
 
 function Transactions() {
     const navigate = useNavigate();

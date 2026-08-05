@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import "../styles/Portfolio.css";
+import "../styles/Responsive.css";
 
 function Portfolio() {
     

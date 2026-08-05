@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 
 function EnterVault() {
   const navigate = useNavigate();

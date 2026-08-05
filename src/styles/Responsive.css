@@ -70,7 +70,7 @@ color:#f7b94a;
 
 .menu-btn{
 
-display:block;
+display:none;
 
 background:none;
 
@@ -92,7 +92,7 @@ padding:0;
 
 .nav-links{
 
-display:none;
+display:flex;
 
 position:absolute;
 

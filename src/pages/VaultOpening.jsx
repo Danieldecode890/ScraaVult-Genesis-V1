@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VaultSVG from "../components/VaultSVG";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 
 function VaultOpening() {
       const SPEED = 1000;

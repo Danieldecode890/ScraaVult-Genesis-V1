@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Dashboard.css";
+import "../styles/Responsive.css";
 function Deposit() {
     const walletAddress =
     "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxx";

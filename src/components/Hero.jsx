@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/scraavult-logo.png";
-import "../styles/Responsiive.css";
+import "../styles/Responsive.css";
 function Hero() {
 
   return (

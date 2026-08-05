@@ -1,5 +1,6 @@
 import "./../styles/SecurityCenter.css";
 import logo from "../assets/logo.png";
+import "../styles/Responsive.css";
 
 function VaultSecurity() {
   return (

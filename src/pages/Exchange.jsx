@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/Exchange.css";
+import "../styles/Responsive.css";
 
 function Exchange() {
   const [amount, setAmount] = useState("");
