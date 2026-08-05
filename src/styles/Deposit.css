@@ -1,0 +1,454 @@
+/* ===================================
+        SCRAAVAULT DEPOSIT
+=================================== */
+
+.page{
+
+    min-height:100vh;
+
+    padding:40px 25px;
+
+    background:
+    radial-gradient(circle at top,
+    rgba(20,60,105,.25),
+    transparent 45%),
+
+    linear-gradient(
+    180deg,
+    #061018,
+    #0d1f37,
+    #07131f);
+
+    color:white;
+
+}
+
+.deposit-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.deposit-title{
+
+    font-size:2.3rem;
+
+    color:#f7b94a;
+
+    margin-bottom:8px;
+
+}
+
+.deposit-subtitle{
+
+    color:#d6dfeb;
+
+}
+
+.deposit-status{
+
+    background:#11253b;
+
+    color:#42d392;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(247,185,74,.18);
+
+    font-weight:bold;
+
+}
+
+.deposit-card{
+
+    background:rgba(17,33,53,.94);
+
+    border-radius:26px;
+
+    padding:35px;
+
+    border:1px solid rgba(247,185,74,.18);
+
+    box-shadow:
+
+    0 0 40px rgba(0,0,0,.35);
+
+}
+
+.deposit-summary{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.deposit-summary h2{
+
+    color:#f7b94a;
+
+    margin-bottom:8px;
+
+}
+
+.deposit-summary p{
+
+    color:#c7d4e6;
+
+}
+
+.secure-badge{
+
+    background:#1d7f49;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+.deposit-label{
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+    color:#f7b94a;
+
+    font-weight:600;
+
+}
+
+select{
+
+    width:100%;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(247,185,74,.18);
+
+    background:#132d48;
+
+    color:white;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+select:focus{
+
+    border-color:#f7b94a;
+
+    box-shadow:
+    0 0 15px rgba(247,185,74,.25);
+
+}
+
+.premium-address{
+
+    margin-top:12px;
+
+    background:#132d48;
+
+    border:1px dashed rgba(247,185,74,.35);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:#f7b94a;
+
+    font-family:monospace;
+
+    word-break:break-all;
+
+}
+
+.view-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#08131f;
+
+    background:
+    linear-gradient(
+    135deg,
+    #f7b94a,
+    #d89b2b);
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 12px 24px rgba(247,185,74,.28);
+
+}
+.premium-qr{
+
+margin-top:35px;
+
+padding:30px;
+
+background:#132d48;
+
+border-radius:22px;
+
+border:1px solid rgba(247,185,74,.15);
+
+text-align:center;
+
+}
+
+.premium-qr h3{
+
+color:#f7b94a;
+
+margin-bottom:20px;
+
+}
+
+.fake-qr{
+
+    width:180px;
+
+    height:180px;
+
+    background:white;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    font-weight:bold;
+
+}
+.premium-info{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:18px;
+
+}
+
+.info-item{
+
+background:#0f243c;
+
+padding:18px;
+
+border-radius:16px;
+
+text-align:center;
+
+border:1px solid rgba(247,185,74,.15);
+
+}
+
+.info-item strong{
+
+display:block;
+
+color:#f7b94a;
+
+margin-bottom:10px;
+
+}
+
+.info-item span{
+
+color:white;
+
+}
+
+.premium-info p{
+
+    margin:12px 0;
+
+    color:#d6dfeb;
+
+}
+.premium-security{
+
+    margin-top:30px;
+
+    background:rgba(247,185,74,.08);
+
+    border-left:5px solid #f7b94a;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+.premium-security h3{
+
+    color:#f7b94a;
+
+    margin-bottom:15px;
+
+}
+
+.premium-security p{
+
+    color:#d6dfeb;
+
+    line-height:1.7;
+
+    margin-bottom:10px;
+
+}
+@media(max-width:768px){
+
+.deposit-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.deposit-summary{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.deposit-card{
+
+padding:25px;
+
+}
+
+.deposit-title{
+
+font-size:2rem;
+
+}
+
+.fake-qr{
+
+width:150px;
+
+height:150px;
+
+}
+
+}
+.deposit-card,
+.premium-info,
+.premium-security{
+
+animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+.address-label{
+
+display:block;
+
+margin-bottom:12px;
+
+color:#f7b94a;
+
+font-size:14px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+}
+
+.wallet-address{
+
+font-family:monospace;
+
+font-size:18px;
+
+color:white;
+
+word-break:break-all;
+
+margin:0;
+
+}

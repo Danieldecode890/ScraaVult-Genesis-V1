@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../styles/Exchange.css";
 
 function Exchange() {
   const [amount, setAmount] = useState("");
@@ -115,12 +116,65 @@ if (loading) {
 
 return (
   <div className="page">
-    <h1>💱 Exchange Center</h1>
+    <div className="exchange-header">
 
-    <div className="wallet-card">
-      <h2>Convert {coin}</h2>
+    <div>
 
-      <label>From</label>
+        <h1 className="exchange-title">
+
+            Exchange Center
+
+        </h1>
+
+        <p className="exchange-subtitle">
+
+            Convert digital assets using live market prices.
+
+        </p>
+
+    </div>
+
+    <div className="market-status">
+
+        🟢 Live Market
+
+    </div>
+
+</div>
+
+    <div className="wallet-card
+    exchange-card">
+      <div className="exchange-summary">
+
+    <div>
+
+        <h2>
+
+            Convert {coin}
+
+        </h2>
+
+        <p>
+
+            Live exchange powered by ScraaVault.
+
+        </p>
+
+    </div>
+
+    <div className="live-badge">
+
+        LIVE
+
+    </div>
+
+</div>
+
+
+      <label className="exchange-label">
+        From
+
+      </label>
 
       <select
         value={coin}
@@ -135,7 +189,10 @@ return (
       <br />
       <br />
 
-      <label>To</label>
+      <label className="exchange-label">
+        Convert To
+
+      </label>
 
       <select
         value={currency}
@@ -150,7 +207,11 @@ return (
       <br />
       <br />
 
-      <label>Amount</label>
+      <label className="exchange-label">
+
+        Amount
+        
+        </label>
 
       <input
         type="number"
@@ -180,7 +241,9 @@ return (
 
       <hr />
 
-      <h3>Recent Exchanges</h3>
+      <h3 className="history-title">
+        Exchanges History
+        </h3>
 
       <button onClick={clearHistory}>
         🗑️ Clear History
@@ -192,7 +255,7 @@ return (
         history.map((item, index) => (
           <div
             key={index}
-            className="history-card"
+            className="history-card premium-history"
           >
             <strong>{item.coin}</strong> → {item.currency}
 

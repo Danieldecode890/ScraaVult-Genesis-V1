@@ -1,0 +1,363 @@
+.vault-svg {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  margin: auto;
+}
+
+.vault-frame {
+  fill: url(#steelGradient);
+  stroke: #5a5a5a;
+  stroke-width: 10;
+  
+
+animation:metalShine 6s linear infinite;
+}
+
+.door-seam {
+  stroke: #2b2b2b;
+  stroke-width: 4;
+}
+
+.left-door,
+.right-door{
+
+    fill:url(#steelGradient);
+
+    stroke:#6b6b6b;
+
+    stroke-width:4;
+
+    transition:
+        transform 2.2s cubic-bezier(.18,.89,.32,1.28);
+
+}
+
+.left-door {
+  transform-origin: 150px 250px;
+}
+
+.right-door {
+  transform-origin: 350px 250px;
+}
+.left-door.open {
+  animation: openLeftDoor 1.8s forwards ease-in-out;
+}
+
+.right-door.open {
+  animation: openRightDoor 1.8s forwards ease-in-out;
+}
+
+@keyframes openLeftDoor {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-95px);
+  }
+}
+
+@keyframes openRightDoor {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(95px);
+  }
+}
+.left-door.open{
+
+    transform:translateX(-105px);
+
+}
+
+.right-door.open{
+
+    transform:translateX(105px);
+
+}
+
+.left-door,
+.right-door{
+
+    fill:url(#steelGradient);
+
+    stroke:#7a7a7a;
+
+    stroke-width:3;
+
+    transition:transform 1.5s cubic-bezier(.22,1,.36,1);
+
+}
+
+.vault-frame{
+
+    fill:url(#steelGradient);
+
+    stroke:#5f5f5f;
+
+    stroke-width:10;
+
+    filter:drop-shadow(0 0 18px rgba(0,0,0,.7));
+
+}
+
+.vault-svg{
+    width:520px;
+    max-width:90vw;
+    overflow:visible;
+}
+
+.vault-opening{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at center,#2b2b2b 0%,#111111 55%,#050505 100%);
+    overflow:hidden;
+}
+
+.vault-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+}
+
+.vault-content h2{
+    color:#f5f5f5;
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-shadow:0 0 18px rgba(255,180,0,.35);
+}
+/* ===========================
+   VAULT WHEEL
+=========================== */
+
+
+.vault-wheel{
+
+    transform-origin:250px 250px;
+
+    transition:transform 2.8s ease-in-out;
+
+}
+
+.vault-wheel.spin{
+
+    transform:rotate(1080deg);
+
+}
+
+
+.wheel-ring{
+
+    fill:#393939;
+
+    stroke:#ff9800;
+
+    stroke-width:8;
+
+    filter:drop-shadow(0 0 10px rgba(255,170,0,.45));
+
+}
+
+.wheel-spoke{
+
+    stroke:#ffb347;
+
+    stroke-width:6;
+
+    stroke-linecap:round;
+
+}
+.wheel-center{
+
+    fill:#c9c9c9;
+
+    stroke:#888;
+
+    stroke-width:4;
+
+}
+/* ===========================
+   GOLD VAULT GLOW
+=========================== */
+
+
+
+ .vault-light{
+
+fill:#FFD54A;
+
+opacity:0;
+
+transition:opacity 1.5s ease;
+
+}
+
+.vault-light.visible{
+
+opacity:1;
+
+animation:
+goldPulse 2.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes goldPulse{
+
+0%{
+
+filter:blur(5px);
+
+opacity:.35;
+
+}
+
+50%{
+
+filter:blur(12px);
+
+opacity:.75;
+
+}
+
+100%{
+
+filter:blur(20px);
+
+opacity:1;
+
+}
+
+}
+
+
+@keyframes metalShine{
+
+0%{
+
+filter:brightness(1);
+
+}
+
+50%{
+
+filter:brightness(1.12);
+
+}
+
+100%{
+
+filter:brightness(1);
+
+}
+
+}
+
+.bitcoin-logo{
+
+fill:#f7931a;
+
+font-size:82px;
+
+font-weight:bold;
+
+opacity:0;
+
+animation:bitcoinReveal 1.5s forwards;
+
+}
+
+@keyframes bitcoinReveal{
+
+0%{
+
+
+
+opacity:0;
+
+transform:scale(.2);
+
+}
+
+
+100%{
+
+
+opacity:1;
+transform:scale(1);
+
+}
+
+}
+/* ==========================
+   LIGHT RAYS
+========================== */
+
+.light-rays{
+
+    opacity:0;
+
+    animation:lightBurst .8s forwards;
+
+}
+
+.light-ray{
+
+    stroke:#FFD54A;
+
+    stroke-width:4;
+
+    stroke-linecap:round;
+
+    filter:drop-shadow(0 0 12px gold);
+
+}
+
+@keyframes lightBurst{
+
+    from{
+
+        opacity:0;
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+.vault-svg{
+
+    animation:vaultReveal .8s ease;
+
+}
+
+@keyframes vaultReveal{
+
+    from{
+
+        opacity:0;
+        transform:scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}

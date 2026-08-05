@@ -1,109 +1,162 @@
+import "./../styles/SecurityCenter.css";
+import logo from "../assets/logo.png";
+
 function VaultSecurity() {
   return (
-    <div className="page">
-      <div className="wallet-card">
+    <div className="security-page">
 
-      <h1>🔐 Security Center</h1>
+      <div className="security-container">
 
-      <p>
-     Your vault is protected with enterprise-grade security.
-     </p>
+        <div className="security-header">
 
-     
-      <p className="vault-status">
-      🟢 Security Score: 92%
-     </p>
+          <img
+            src={logo}
+            alt="ScraaVult"
+            className="security-logo"
+          />
 
-      <div className="gold-line"></div>
-      <div className="wallet-card">
-            <div className="wallet-card">
+          <h1>Security Center</h1>
 
-     <h2>🛡️ Security Summary</h2>
-
-     <p>🟢 Vault Status: Protected</p>
-
-     <p>🟢 Encryption: Active</p>
-
-     <p>🟢 Identity: Verified</p>
-
-     <p>🟢 Recovery: Ready</p>
-
-     <h1>92%</h1>
-
-     <p>Security Score</p>
-     </div>
-     
-        <h2>🛡️ Vault Staus</h2>
-        <p>🟢 Protected</p>
-
-        <hr />
-
-        <h2>🆔 Identity Verification</h2>
-        <p>✅ Verified</p>
-
-        <hr />
-
-        <h2>Vault PIN</h2>
-        <p>*******</p>
-
-        <hr />
-
-        <h2>Trusted Device</h2>
-          💻 Windows Laptop
-        <p>Last Active:Today</p>
-        <p>Location:Trusted Device</p>
-        <hr />
-
-       <h2>🧩 Recovery</h2>
-
-       <p>✅ Recovery phrase backed up</p>
-
-       <button className="view-btn">
-        📄 View Recovery Status
-       </button>
-
-       <br /><br />
-
-        <button className="view-btn">
-          🔑 Change Vault PIN
-        </button>
-
-        <br /><br />
-
-        <button className="view-btn">
-          👆 Enable Fingerprint
-        </button>
-
-        <br /><br />
-
-        <button className="view-btn">
-          Enable Face ID
-        </button>
-
-        <br /><br />
-
-        <button className="view-btn">
-          Emergency Lock
-        </button>
-
-        <hr />
+          <p>
+            Your vault is protected with enterprise-grade encryption.
+          </p>
 
         </div>
 
-        <h2>📜 Recent Security Activity</h2>
+        <div className="security-score">
 
-        <p>✅ Vault created successfully</p>
+          <h2>Overall Security</h2>
 
-        <p>💻 Trusted device recongnised</p>
-        
-        <p>🔑 Password verified</p>
+          <div className="score-circle">
 
-        <p>🕒 Last login: Today</p>
+            <span>98%</span>
 
-       <p>🟢 No suspicious activity detected</p>
+          </div>
+
+          <div className="score-bar">
+
+            <div className="score-fill"></div>
+
+          </div>
+
+          <p className="score-status">
+
+            Excellent Protection
+
+          </p>
+
+        </div>
+
+        <div className="security-card">
+
+          <h2>🛡 Vault Protection</h2>
+
+          <div className="security-item">
+            <span>Vault Status</span>
+            <span className="active">Protected</span>
+          </div>
+
+          <div className="security-item">
+            <span>Encryption</span>
+            <span className="active">AES-256 Active</span>
+          </div>
+
+          <div className="security-item">
+            <span>Identity</span>
+            <span className="active">Verified</span>
+          </div>
+
+          <div className="security-item">
+            <span>Recovery</span>
+            <span className="active">Ready</span>
+          </div>
+
+        </div>
+        <div className="security-card">
+
+          <h2>💻 Trusted Device</h2>
+
+          <div className="security-item">
+            <span>Device</span>
+            <span>Windows Laptop</span>
+          </div>
+
+          <div className="security-item">
+            <span>Last Active</span>
+            <span>Today</span>
+          </div>
+
+          <div className="security-item">
+            <span>Status</span>
+            <span className="active">Trusted</span>
+          </div>
+
+          <button className="gold-btn">
+            Manage Devices
+          </button>
+
+        </div>
+
+        <div className="security-card">
+
+          <h2>🔑 Recovery Kit</h2>
+
+          <div className="security-item">
+            <span>Recovery Phrase</span>
+            <span className="active">Backed Up</span>
+          </div>
+
+          <div className="security-item">
+            <span>Recovery Status</span>
+            <span className="active">100% Secure</span>
+          </div>
+
+          <button className="gold-btn">
+            View Recovery Status
+          </button>
+
+        </div>
+
+        <div className="security-card">
+
+          <h2>⚙ Security Controls</h2>
+
+          <button className="gold-btn">
+            Change Vault PIN
+          </button>
+
+          <button className="gold-btn">
+            Enable Fingerprint
+          </button>
+
+          <button className="gold-btn">
+            Enable Face ID
+          </button>
+
+          <button className="danger-btn">
+            Emergency Lock
+          </button>
+
+        </div>
+
+        <div className="security-card">
+
+          <h2>📜 Recent Security Activity</h2>
+
+          <p>✅ Vault Created Successfully</p>
+
+          <p>🔑 Password Verified</p>
+
+          <p>💻 Trusted Device Connected</p>
+
+          <p>🟢 No Suspicious Activity Detected</p>
+
+        </div>
+
       </div>
 
     </div>
+
   );
 }
 

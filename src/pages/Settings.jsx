@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/Settings.css"
 
 function Settings({ theme, toggleTheme }){
 
@@ -6,33 +7,108 @@ function Settings({ theme, toggleTheme }){
 
       return (
     <div className="page">
-      <h1>⚙️ Settings</h1>
-      <h2>🛡️ Security Score</h2>
+     <div className="settings-header">
 
-    <h1 style={{ color: "#4CAF50" }}>92%</h1>
+    <div>
 
-    <p>✅ Identity Verified</p>
+        <h1 className="settings-title">
 
-    <p>✅ Trusted Device</p>
+            Settings
 
-    <p>✅ Strong Vault PIN</p>
+        </h1>
+        <br></br>
 
-    <p>⚠️ Fingerprint Disabled</p>
+        <p className="settings-subtitle">
 
-    <br />
+            Personalize and secure your ScraaVault experience.
+
+        </p>
+
+    </div>
+
+    <div className="settings-status">
+
+        🟢 Protected
+
+    </div>
+
+</div>
+      <div className="security-summary">
+
+    <div>
+
+        <h2>
+
+            Security Score
+
+        </h2>
+
+        <p>
+
+            Your vault security is in excellent condition.
+
+        </p>
+
+    </div>
+
+    <div className="score-circle">
+
+        92%
+
+    </div>
+
+</div>
+
+<div className="security-checks">
+
+    <div className="check success">
+
+        ✅ Identity Verified
+
+    </div>
+
+    <div className="check success">
+
+        ✅ Trusted Device
+
+    </div>
+
+    <div className="check success">
+
+        ✅ Strong Vault PIN
+
+    </div>
+
+    <div className="check warning">
+
+        ⚠ Fingerprint Authentication Disabled
+
+    </div>
+
+</div>
+
+<div className="security-tip">
+
+    <h3>
+
+        💡 Recommendation
+
+    </h3>
 
     <p>
-    Improve your security score by enabling fingerprint authentication.
+
+        Enable fingerprint authentication to increase your Security Score and provide faster, more secure access to your vault.
+
     </p>
 
-    <hr />
+</div>
 
     <br />
 
-      <div className="wallet-card">
+      <div className="wallet-card settings-card">
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={toggleTheme}
         >
          {theme === "dark"
@@ -43,7 +119,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/language")}
         >
           🌍 Language
@@ -52,7 +128,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/currency")}
         >
           💵 Preferred Currency
@@ -61,7 +137,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/notifications")}
         >
           🔔 Notification Preferences
@@ -70,7 +146,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/privacy")}
         >
           🔒 Privacy Settings
@@ -79,7 +155,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/trusted-devices")}
         >
           📱 Trusted Devices
@@ -88,7 +164,7 @@ function Settings({ theme, toggleTheme }){
         <br /><br />
 
         <button 
-        className="view-btn"
+        className="settings-btn"
         onClick={() => navigate("/about")}
         >
           ℹ️ About ScraaVult

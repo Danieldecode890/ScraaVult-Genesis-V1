@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import "../styles/Portfolio.css";
 
 function Portfolio() {
     
@@ -16,24 +17,54 @@ const [assets] = useState([
     );
   return (
     <div className="page">
-      <h1>💼 Portfolio</h1>
-      <p>Your digital assets at a glance.</p>
-      <div className="gold-line"></div>
+     <div className="portfolio-header">
+
+    <div>
+
+        <h1 className="portfolio-title">
+
+            Portfolio
+
+        </h1>
+
+        <p className="portfolio-subtitle">
+
+            Securely manage your digital wealth.
+
+        </p>
+
+    </div>
+
+    <div className="portfolio-status">
+
+        🛡 Protected
+
+    </div>
+
+</div>
 
       <div className="portfolio-card">
-     <div className="portfolio-summary">
+     <div className="portfolio-summary
+     premium-summary">
 
     <p>Total Portfolio Value</p>
    
-       <h2>*********</h2> 
+       <h1 className="portfolio-balance">
+        *********
+            </h1> 
     
-    <h3>Verify identity to View Balance</h3>
+    <p className="verify-text">
+      Verify your identity to reveal your portfolio
+      balaance.
+     </p>
 
     <button className="verify-btn">
         🔐 Verify Identity 
     </button>
 
-    <div className="portfolio-stats">
+    <div className="portfolio-stats
+    premium-stats">
+      
     <div className="stat-card">
   <h2>4</h2>
   <p>Assets</p>
@@ -57,13 +88,24 @@ const [assets] = useState([
     <h2>Your Assets</h2>
 
     {assets.map((asset, index) => (
- <div key={index} className="asset-card">
+ <div key={index} className="asset-card 
+ premium-asset">
 
-  <h2>{asset.name}</h2>
+ <div className="asset-header">
 
-  <p>
-    <strong>Symbol:</strong> {asset.symbol}
-  </p>
+<h2>
+
+{asset.name}
+
+</h2>
+
+<span>
+
+{asset.symbol}
+
+</span>
+
+</div>
 
   <p>
     <strong>Balance:</strong> ********

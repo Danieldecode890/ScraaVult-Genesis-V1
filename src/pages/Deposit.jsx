@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Dashboard.css";
 function Deposit() {
     const walletAddress =
     "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -17,10 +18,64 @@ function Deposit() {
 
   return (
     <div className="page">
-      <h1>📥 Deposit Crypto</h1>
+      <div className="deposit-header">
 
-      <div className="wallet-card">
-        <h2>Select Coin</h2>
+    <div>
+
+        <h1 className="deposit-title">
+
+            Deposit Crypto
+
+        </h1>
+         <br></br>
+        <p className="deposit-subtitle">
+
+            Securely receive cryptocurrency into your ScraaVault.
+
+        </p>
+
+    </div>
+
+    <div className="deposit-status">
+
+        🟢 Deposit Ready
+
+    </div>
+
+</div>
+
+      <div className="wallet-card deposit-card">
+        <div className="deposit-summary">
+
+    <div>
+
+        <h2>
+
+            Receive Cryptocurrency
+
+        </h2>
+
+        <p>
+
+            Select an asset to generate a secure deposit address.
+
+        </p>
+
+    </div>
+
+    <div className="secure-badge">
+
+       🔒 AES-256
+
+    </div>
+
+      </div>
+
+    <label className="deposit-label">
+
+    Select Asset
+
+    </label>
 
         <select className="input">
           <option>Bitcoin (BTC)</option>
@@ -31,11 +86,26 @@ function Deposit() {
 
         <br /><br />
 
-        <h2>Deposit Address</h2>
+        <label className="deposit-label">
+          Deposit Address
+          </label> 
+           
+          <div className="address-box premium-address">
 
-        <div className="address-box">
-          {walletAddress}
-        </div>
+    <span className="address-label">
+
+        Secure Wallet Address
+
+    </span>
+
+    <p className="wallet-address">
+
+        {walletAddress}
+
+    </p>
+
+</div>
+    
 
         <br />
 
@@ -45,22 +115,42 @@ function Deposit() {
         >
          {copied ?"✅ Address Copied" : "📋 Copy Address"}
         </button>
-        <div className="qr-box">
+        <div className="qr-box premium-qr">
+          <h3>
+            Scan QR Code
+          </h3>
             <div className="fake-qr">
              QR CODE
             </div>
             </div>
-        <div className="deposit-info">
-            <p><strong>Network:</strong>Bitcoin</p>
-            <p><strong>Minimum Deposit:</strong>0.0001 
-            BTC</p>
-            <p><strong>Confirmations:</strong>3</p>
+          <div className="info-item">
 
-        </div>
+<strong>Network</strong>
+
+<span>Bitcoin</span>
+
+</div>
+
+<div className="info-item">
+
+<strong>Minimum Deposit</strong>
+
+<span>0.0001 BTC</span>
+
+</div>
+
+<div className="info-item">
+
+<strong>Confirmations</strong>
+
+<span>3 Required</span>
+
+</div>
 
         <br /><br />
-        <div className="security-notice">
-  <h3>🛡 Security Notice</h3>
+        <div className="security-notice premium-security">
+  <h3>
+    🛡ScraaVault Security Notice</h3>
 
   <p>
     Only send the selected cryptocurrency to this address.

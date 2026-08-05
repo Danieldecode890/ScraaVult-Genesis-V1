@@ -1,35 +1,65 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import logo from "../assets/scraavult-logo.png";
 function Hero() {
+
   return (
-    <div className="hero">
 
-      <h1>🛡️ ScraaVult</h1>
+    <section className="hero">
 
-      <h2>Your Premium Digital Vault</h2>
+      <span className="hero-tag">
+        PRIVACY • SECURITY • CONFIDENCE
+      </span>
 
-      <p>
-        Store.
+     <img
+     src={logo}
+     alt="ScraaVult Logo"
+     className="hero-logo"
+     />
+      <h1>
+        ScraaVult
+      </h1>
+
+      <h2>
+        YOUR BITCOIN.
         <br />
-        Protect.
+        YOUR KEYS.
         <br />
-        Grow your digital assets with confidence.
+        YOUR VAULT.
+      </h2>
+
+            <p className="hero-text">
+       Protect your Bitcoin with institutional-grade 
+       privacy, security, and complete ownership.
+       Built for people who believe their keys 
+       should never leave their hands. 
+        
+        
+
       </p>
 
-      <p className="motto">
-    Military Grade Security • Privacy First • Built for Bitcoin
-    </p>
-    
       <div className="buttons">
+
         <Link to="/create-vault">
-          <button>🔐 Create Your Vault</button>
+          <button>
+            Create Vault
+          </button>
         </Link>
+
         <Link to="/enter-vault">
-          <button>🔓 Enter Vault</button>
+          <button>
+            Enter Vault
+          </button>
         </Link>
+
       </div>
 
-    </div>
+      <div className="trust-grid">
+      </div>
+
+    </section>
+
   );
+
 }
 
 export default Hero;

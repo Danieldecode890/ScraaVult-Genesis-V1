@@ -3,18 +3,72 @@ function VerifyIdentity() {
     const navigate = useNavigate();
   return (
     <div className="page">
-      <h1>🛡 Verify Identity</h1>
+       <div className="verify-header">
 
-      <div className="wallet-card">
-        <h2>ScraaVult Security Check</h2>
+    <div>
 
-        <p>
-          Please verify your identity before viewing balances
-          or completing sensitive transactions.
+        <h1 className="verify-title">
+
+            Identity Verification
+
+        </h1>
+
+        <p className="verify-subtitle">
+
+            Confirm your identity before accessing protected vault features.
+
         </p>
 
+    </div>
+
+    <div className="verify-status">
+
+        🔒 Secure Access
+
+    </div>
+
+</div>
+
+      <div className="wallet-card verify-card">
+       <div className="verify-summary">
+
+    <div>
+
+        <h2>
+
+            ScraaVault Security Check
+
+        </h2>
+
+        <p>
+
+            Complete one verification method to continue securely.
+
+        </p>
+
+    </div>
+
+    <div className="verify-badge">
+
+        Level 2 Security
+
+     </div>
+
+    </div>
+
+       <div className="verify-message">
+
+    <p>
+
+        Your portfolio, balances and sensitive transactions
+         remain protected until verification is completed.
+
+    </p>
+
+</div>
+
         <button 
-        className="view-btn"
+        className="view-btn biometric-btn"
         onClick={() => navigate("/security")}
         >
           👆 Verify with Biometrics
@@ -23,7 +77,7 @@ function VerifyIdentity() {
         <br /><br />
 
         <button 
-         className="view-btn"
+         className="view-btn password-btn"
         onClick={() => navigate("/security")}
         >
           🔑 Verify with Vault Password
@@ -31,9 +85,15 @@ function VerifyIdentity() {
 
         <br /><br />
 
-        <p className="security-notice">
+        <div className="security-notice
+        premium-security">
+          <h3>
+            Security Notice
+          </h3>
+          <p>
           Your assets remain hidden until verification is completed.
         </p>
+        </div>
       </div>
     </div>
   );

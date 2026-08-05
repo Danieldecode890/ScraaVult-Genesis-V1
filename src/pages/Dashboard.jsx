@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/Dashboard.css";
 function Dashboard() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -19,60 +20,103 @@ const handleLogout = () => {
 
   return (
     <div className="page">
-      <h1>
-      Welcome Back, {user?.username?.charAt(0).toUpperCase() + user?.username?.slice(1) || "Guardian"}👋
-     </h1>
 
-    <p>
-        Your vault is protected with 256-bit encryption.
-      </p>
-     <div className="gold-line"></div>
-     <p className="vault-status">
-      🟢 Vault Status: Fully Protected
-      </p>
+<div className="dashboard-header">
 
-       <br />
+    <div>
 
-     <input
-     type="text"
-     className="input"
-     placeholder="🔍 Search Vault..."
-     />
+        <h1 className="dashboard-title">
+
+            Welcome Back,
+            {user?.username?.charAt(0).toUpperCase() +
+            user?.username?.slice(1) || "Guardian"} 👋
+
+        </h1>
+
+        <p className="dashboard-subtitle">
+
+            Your digital vault is active and protected.
+
+        </p>
+
+    </div>
+
+    <div className="vault-online">
+
+        <span className="online-dot"></span>
+
+        Vault Online
+
+    </div>
+
+</div>
+
+<div className="dashboard-search">
+
+<input
+type="text"
+className="input"
+placeholder="Search your vault..."
+/>
+
+</div>
      <br /><br />
      
       <div className="wallet-card">
-        
-
-      <h2>🛡 Vault Security</h2>
-
-      <p>🟢 Encryption Active</p>
-
-      <p>🟢 Recovery Ready</p>
-
-      <p>🟢 Vault Locked</p>
       
-      <h3>Security Score</h3>
+      <div className="dashboard-overview">
 
-        <h2>92%</h2>
-      <button
-      className="view-btn"
-      onClick={() => navigate("/security")}
-      >
-       🛡️ Manage Security
-      </button>
-       </div>
+    <div className="balance-card">
 
-      <div className="wallet-card">
+        <h2>Vault Balance</h2>
 
-     <h2>💰 Portfolio</h2>
+        <h1>₿ 0.00000000</h1>
 
-      <h1>₿ 0.00000000</h1>
+        <p>≈ $0.00 USD</p>
 
-     <h3>≈ $0.00</h3>
+        <span>
 
-     <p>Genesis Portfolio</p>
+            Genesis Portfolio
 
-      <br />
+        </span>
+
+    </div>
+      
+
+     
+    <div className="security-card">
+
+        <h2>
+
+            Security Score
+
+        </h2>
+
+        <div className="security-percent">
+
+            92%
+
+        </div>
+
+        <p>
+
+            Excellent Protection
+
+        </p>
+
+        <button
+        className="view-btn"
+        onClick={() => navigate("/security")}
+        >
+
+        Open Security Center
+
+        </button>
+
+    </div>
+
+</div>
+        <br />
 
     <button
     className="view-btn"

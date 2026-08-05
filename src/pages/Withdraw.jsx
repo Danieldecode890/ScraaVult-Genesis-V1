@@ -1,12 +1,61 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/Withdraw.css";
 function Withdraw() {
     const navigate = useNavigate();
   return (
     <div className="page">
-      <h1>💸 Withdraw</h1>
+      <div className="withdraw-header">
 
-      <div className="wallet-card">
-        <h2>Secure Withdrawal</h2>
+    <div>
+
+        <h1 className="withdraw-title">
+
+            Withdraw Crypto
+
+        </h1>
+
+        <p className="withdraw-subtitle">
+
+            Transfer your digital assets securely from your ScraaVault.
+
+        </p>
+
+    </div>
+
+    <div className="withdraw-status">
+
+        🔒 Protected
+
+    </div>
+
+</div>
+
+      <div className="wallet-card withdraw-card">
+        <div className="withdraw-summary">
+
+    <div>
+
+        <h2>
+
+            Secure Withdrawal
+
+        </h2>
+
+        <p>
+
+            Every withdrawal passes through multiple security checks.
+
+        </p>
+
+     </div>
+
+      <div className="verify-badge">
+
+        KYC Required
+
+     </div>
+
+    </div>
 
         <p>
           Withdrawals require identity verification before any transaction can
@@ -15,7 +64,9 @@ function Withdraw() {
 
         <hr />
 
-        <label>Select Asset</label>
+        <label className="withdraw-label">
+          Select Asset
+          </label>
         <select>
           <option>Bitcoin (BTC)</option>
           <option>Ethereum (ETH)</option>
@@ -25,7 +76,9 @@ function Withdraw() {
 
         <br /><br />
 
-        <label>Recipient Address</label>
+        <label className="withdraw-label">
+          Recipient Wallet Address
+          </label>
         <input
           type="text"
           placeholder="Enter wallet address"
@@ -33,19 +86,25 @@ function Withdraw() {
 
         <br /><br />
 
-        <label>Amount</label>
+        <label className="withdraw-label">
+          Withdrawal Amount
+          </label>
         <input
           type="number"
           placeholder="{0.00000000000 BTC}    {MAX}"
         />
         <br /><br />
+        <div className="balance-card">
         <p className="balance">
             Available Balance:
             <strong>******* BTC</strong>
         </p>
+        </div>
 <hr />
 
-<h2>Withdrawal Summary</h2>
+<h2 className="summary-title">
+  Transaction Summary
+  </h2>
 
 <p>
   <strong>Network Fee:</strong> Calculated automatically
@@ -58,9 +117,12 @@ function Withdraw() {
 <p>
   <strong>Security:</strong> Identity Verification Required
 </p>
-    <div className="security-notice">
+    <div className="security-notice
+    premium-security">
 
-<h3>⚠ Withdrawal Notice</h3>
+<h3>🛡️ScraaVault Security Notice
+
+</h3>
 
 <p>
 Always verify the recipient address before sending.
@@ -79,7 +141,7 @@ ScraaVult protects your assets but cannot recover funds sent to the wrong addres
 
 
         <button 
-        className="view-btn"
+        className="view-btn withdraw-btn"
         onClick={() => navigate("/kyc")}
         >
           Complete identity verification (KYC)
