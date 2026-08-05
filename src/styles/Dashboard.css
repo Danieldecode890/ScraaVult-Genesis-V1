@@ -1,11 +1,17 @@
 .page{
+    width:100%;
+
     min-height:100vh;
-    padding:40px 30px;
 
-    background:
-    radial-gradient(circle at top,#15385f 0%,#0d2138 45%,#07131f 100%);
+    padding:20px;
 
-    color:#ffffff;
+    margin:0;
+
+    background:#08111f;
+
+    color:white;
+
+    box-sizing:border-box;
 }
 
 /* Header */
@@ -89,22 +95,22 @@
 
 /* Main Wallet Card */
 
-.wallet-card{
+   .dashboard-page{
+    width:100%;
+    min-height:100vh;
+    max-width:none;
 
-    background:rgba(18,36,58,.95);
+    margin:0;
 
-    border:1px solid rgba(247,185,74,.18);
+    padding:24px;
 
-    border-radius:24px;
+    border-radius:0;
 
-    padding:30px;
+    box-shadow:none;
 
-    margin-bottom:30px;
-
-    box-shadow:
-    0 0 40px rgba(0,0,0,.35),
-    0 0 20px rgba(247,185,74,.05);
+    background:#08111f;
 }
+
 
 /* Balance + Security */
 
@@ -112,9 +118,9 @@
 
     display:grid;
 
-    grid-template-columns:2fr 1fr;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-    gap:25px;
+    gap:20px;
 }
 
 .balance-card,
@@ -124,11 +130,13 @@
 
     border-radius:20px;
 
-    padding:30px;
+    padding:24px;
 
     border:1px solid rgba(247,185,74,.18);
 
     transition:.3s;
+
+    width:100%;
 }
 
 .balance-card:hover,
@@ -151,7 +159,7 @@
 
 .balance-card h1{
 
-    font-size:3rem;
+    font-size:2.6rem;
 
     margin:10px 0;
 }
@@ -210,24 +218,14 @@
 ================================ */
 
 .wallet-card{
-
     background:rgba(17,33,53,.92);
-
     border:1px solid rgba(247,185,74,.12);
-
     border-radius:22px;
-
     padding:28px;
-
     margin-bottom:28px;
-
     transition:.35s;
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,.25);
-
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
-
 .wallet-card:hover{
 
     transform:translateY(-4px);
