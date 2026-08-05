@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/Responsiive.css";
 function AssetDetails() {
     const navigate = useNavigate();
   return (

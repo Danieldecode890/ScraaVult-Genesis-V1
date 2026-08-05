@@ -1,6 +1,7 @@
 import{ useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/KYC.css"
+import "../styles/Responsiive.css";
 function KYC() {
   const navigate = useNavigate();
   const [submitted,setSubmitted] =

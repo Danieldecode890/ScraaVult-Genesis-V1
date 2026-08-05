@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/scraavult-logo.png";
+import "../styles/Responsiive.css";
 function Navbar({ theme, toggleTheme }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="navbar">
 
@@ -14,7 +17,14 @@ function Navbar({ theme, toggleTheme }) {
             </div>
       </div>
 
-      <div className="nav-links">
+      <button
+      className="menu-btn"
+      onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+          </button>
+
+      <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
         <Link to="/">
           <button>Home</button>

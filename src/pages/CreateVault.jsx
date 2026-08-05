@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import vaultDoor from"../assets/hero.png";
+import "../styles/Responsiive.css";
 
 import {
   FaUser,

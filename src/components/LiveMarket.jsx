@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/Responsiive.css";
 function LiveMarket() {
     const[market, setMarket]= useState(null);
     const isPositive = market && market.price_change_percentage_24h >= 0;

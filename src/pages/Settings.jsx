@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Settings.css"
+import "../styles/Responsiive.css";
 
 function Settings({ theme, toggleTheme }){
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/TransactionDetails.css";
+import "../styles/Responsiive.css";
 function TransactionDetails() {
     const txid = "8f7a2c9d0a4b7e6c123456789abcdef";
 
