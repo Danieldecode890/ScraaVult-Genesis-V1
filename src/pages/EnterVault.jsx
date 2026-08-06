@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Responsive.css";
+import vaultDoor from"../assets/hero.png";
 
 function EnterVault() {
   const navigate = useNavigate();
-  const[email, setEmail] = useState("");
-  const[password, setPassword] = useState("");
-  const[message, setMessage] = useState("");
+   const[message, setMessage] = useState("");
   const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
+   });
 
  const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +33,18 @@ function EnterVault() {
 
   return (
     <div className="page">
+      <section className="enter-vault-layout">
+        <div className="vault-left">
+             <div className="vault-background">
+               <img
+          src={vaultDoor}
+          alt="Vault Door"
+          className="vault-door"
+          />
+        </div>
+        </div>
+        <div className="login-panel">
+
       <h1>Enter Your Vault</h1>
       <p>Welcome back to ScraaVault.</p>
       
@@ -45,7 +54,8 @@ function EnterVault() {
       <div className="gold-line"></div>
       {message && <p>{message}</p>}
 
-      <form className="vault-form" onSubmit={handleSubmit}>
+      <form className="vault-form" 
+      onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email Address"
@@ -82,14 +92,17 @@ function EnterVault() {
             <input type="checkbox" />
             Remember this device
           </label>
-          <a herf="#">Forgot Password?</a>
+          <a href="#">Forgot Password?</a>
         </div>
         <button type="submit">
           🔓 Enter  Secure Vault
         </button>
       </form>
+      </div>
+      </section>
     </div>
   );
+  
 }
 
 export default EnterVault;

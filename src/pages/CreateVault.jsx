@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import vaultDoor from"../assets/hero.png";
+import logo from "../assets/logo.png";
 import "../styles/Responsive.css";
 
 import {
@@ -59,18 +60,27 @@ function CreateVault() {
 
   return (
     <div className="page">
-  <section className="vault-hero">
-
-   <div className="vault-background">
-    <img
+      <img
+    src={logo}
+    alt="ScraaVult Logo"
+    className="hero-logo"
+    />
+       
+    <section className="vault-hero">
+       <div className="vault-background">
+         <img
     src={vaultDoor}
     alt="Vault Door"
     className="vault-door"
     />
-   </div>
 
+      
+        </div>
   <div className="hero-overlay">
-
+ 
+   
+      
+      
      
       <h1 className="vault-title">
           Create Your
@@ -89,9 +99,7 @@ function CreateVault() {
 
       <div className="gold-line"></div>
 
-  </div>
-
-</section>
+  
 
 <div className="security-grid">
 
@@ -268,7 +276,9 @@ password === confirmPassword
       {loading ? "Creating Vault..." : "🔐 Create Secure Vault"}
     </button>
   </form>
+     </div>
 
+</section>
     </div>
   );
 }

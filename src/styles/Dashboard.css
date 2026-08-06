@@ -95,23 +95,7 @@
 
 /* Main Wallet Card */
 
-   .dashboard-page{
-    width:100%;
-    min-height:100vh;
-    max-width:none;
-
-    margin:0;
-
-    padding:24px;
-
-    border-radius:0;
-
-    box-shadow:none;
-
-    background:#08111f;
-}
-
-
+  
 /* Balance + Security */
 
 .dashboard-overview{

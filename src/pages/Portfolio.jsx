@@ -59,7 +59,10 @@ const [assets] = useState([
       balaance.
      </p>
 
-    <button className="verify-btn">
+    <button
+     className="verify-btn"
+      onClick={() => navigate ("/verify-identity")}
+      >
         🔐 Verify Identity 
     </button>
 
