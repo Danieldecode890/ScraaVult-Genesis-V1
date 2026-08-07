@@ -1,3 +1,6 @@
+import "../styles/WhyChoose.css";
+import "../styles/Responsive.css";
+
 function WhyChoose() {
   const features = [
     {

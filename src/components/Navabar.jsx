@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/scraavult-logo.png";
 import "../styles/Responsive.css";
+import "../styles/Navabar.css";
 function Navbar({ theme, toggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (

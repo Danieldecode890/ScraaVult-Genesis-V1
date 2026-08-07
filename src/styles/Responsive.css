@@ -2,10 +2,53 @@
         SCRAAVAULT RESPONSIVE V2
 =================================================== */
 
-@media screen and (max-width:768px){
 
 /* APP */
+/* ================================================= */
+/*               HERO RESPONSIVE                     */
+/* ================================================= */
 
+@media (max-width:768px){
+
+    .hero{
+
+        min-height:auto;
+
+        padding:100px 20px 70px;
+    }
+
+    .hero-logo{
+
+        width:320px;
+
+        opacity:.07;
+    }
+
+    .hero h1{
+
+        font-size:46px;
+    }
+
+    .hero h2{
+
+        font-size:34px;
+
+        line-height:1.3;
+    }
+
+    .hero-text{
+
+        font-size:17px;
+
+        line-height:1.8;
+    }
+
+    .buttons{
+
+        max-width:100%;
+    }
+
+}
 .app{
 
 padding:15px;
@@ -22,172 +65,188 @@ padding:25px 15px;
 
 }
 
-/* ==========================
-   MOBILE NAVBAR
-========================== */
 
-.navbar{
+/* ================================================= */
+/*              NAVBAR RESPONSIVE                    */
+/* ================================================= */
 
-display:flex;
+@media (max-width:768px){
 
-justify-content:space-between;
+   .navbar{
 
-align-items:center;
+    padding:16px 18px;
 
-padding:15px 18px;
+    display:flex;
 
-position:relative;
+    justify-content:space-between;
 
+    align-items:center;
+
+    position:relative;
+
+    gap:12px;
 }
 
-.logo-section{
+.logo{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:10px;
-
+    gap:10px;
 }
 
 .logo img{
 
-width:42px;
+    width:40px;
 
-height:42px;
-
+    height:40px;
 }
 
 .logo span{
 
-font-size:22px;
+    font-size:26px;
 
-font-weight:700;
-
-color:#f7b94a;
-
+    font-weight:700;
 }
 
 .menu-btn{
 
-display:none;
+    display:flex;
 
-background:none;
+    align-items:center;
 
-border:none;
+    justify-content:center;
 
-color:#f7b94a;
+    width:45px;
 
-font-size:32px;
+    height:45px;
 
-cursor:pointer;
-
-width:auto;
-
-min-height:auto;
-
-padding:0;
-
+    border-radius:12px;
 }
 
 .nav-links{
 
-display:none;
+    position:absolute;
 
-position:absolute;
+    top:82px;
 
-top:75px;
+    left:0;
 
-left:25px;
+    width:100%;
 
-right:25px;
+    background:#0d1830;
 
-background:rgba(9,18,35,.92);
-backdrop-filter:blur(12px);
+    display:flex;
 
-border:1px solid rgba(247,185,74,.18);
+    flex-direction:column;
 
-border-radius:20px;
+    gap:18px;
 
-padding:12px;
+    padding:25px;
 
-flex-direction:column;
+    border-radius:0 0 18px 18px;
 
-gap:12px;
+    transform:translateY(-20px);
 
-box-shadow:0 15px 35px rgba(0,0,0,.35);
+    opacity:0;
 
-z-index:999;
+    visibility:hidden;
 
+    transition:.35s ease;
 }
 
 .nav-links.active{
 
-display:flex;
+    transform:translateY(0);
 
-animation:slideDown .25s ease;
+    opacity:1;
 
+    visibility:visible;
 }
 
 .nav-links a{
 
-width:100%;
+    width:100%;
 
+    text-align:center;
 }
 
 .nav-links button{
 
-width:100%;
-
-height:46px;
-
-font-size:15px;
-
-border-radius:12px;
-
+    width:100%;
 }
 
-/* HERO */
+.menu-btn{
 
-.hero{
-
-padding:70px 18px 60px;
-
+    cursor:pointer;
 }
+
+.nav-links a:hover{
+
+    transform:none;
+}
+
+/* ================================================= */
+/*               HERO RESPONSIVE                     */
+/* ================================================= */
+
+@media (max-width:768px){
 
 .hero h1{
 
-font-size:42px;
-
-line-height:1.15;
-
+    font-size:3rem !important;
 }
 
 .hero h2{
 
-font-size:26px;
+    font-size:2.4rem !important;
 
+    line-height:1.15;
 }
 
-.hero p{
+.hero-text{
 
-font-size:16px;
+    font-size:1rem !important;
 
-line-height:1.8;
+    line-height:1.8;
 
+    max-width:330px;
+
+    margin:auto;
+}
+
+.hero-tag{
+
+    font-size:.78rem !important;
+
+    letter-spacing:3px;
+}
+
+.hero-logo{
+
+    width:240px !important;
+
+    opacity:.08;
 }
 
 .buttons{
 
-width:100%;
+    width:100%;
 
-max-width:100%;
+    flex-direction:column;
 
+    gap:15px;
 }
 
 .buttons button{
 
-width:100%;
+    width:100%;
+
+    max-width:300px;
+
+    margin:auto;
+}
 
 }
 
@@ -198,6 +257,684 @@ width:100%;
 width:280px;
 
 opacity:.06;
+
+}
+
+/* ===========================
+   VAULT PROMISE - MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+  .promise-section{
+    padding: 70px 18px;
+  }
+
+  .promise-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .promise-card{
+    width:100%;
+    min-height:170px;
+
+    padding:28px 22px;
+
+    border-radius:20px;
+  }
+
+}
+
+.promise-card h3{
+    font-size:1.45rem;
+}
+
+.promise-card p{
+    font-size:.95rem;
+    line-height:1.7;
+}
+
+.promise-card svg,
+.promise-card i{
+    font-size:2rem;
+    margin-bottom:16px;
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (min-width:769px) and (max-width:1024px){
+
+    .promise-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        max-width:850px;
+
+        margin:auto;
+
+        gap:22px;
+
+    }
+
+}
+
+/* ==========================================
+   WHY CHOOSE RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.why-choose{
+
+    padding:70px 18px;
+}
+
+.why-choose h2{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+    text-align:center;
+}
+
+.section-tag{
+
+    font-size:.75rem;
+
+    letter-spacing:3px;
+}
+
+.why-text{
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:340px;
+
+    margin:20px auto 45px;
+
+    text-align:center;
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:430px;
+
+    margin:0 auto;
+}
+
+.feature-card{
+
+    padding:22px 18px;
+
+    border-radius:18px;
+
+    min-height:180px;
+}
+
+.feature-icon{
+
+    font-size:2rem;
+}
+
+.feature-card h3{
+
+    font-size:1.15rem;
+
+    margin:12px 0;
+}
+
+.feature-card p{
+
+    font-size:.88rem;
+
+    line-height:1.5;
+}
+
+}
+/* ==========================================
+   JOURNEY RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.journey-section{
+
+    padding:70px 18px;
+}
+
+.journey-section h2{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+    text-align:center;
+}
+
+.journey-text{
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:340px;
+
+    margin:20px auto 45px;
+
+    text-align:center;
+}
+
+.journey-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:430px;
+
+    margin:0 auto;
+}
+
+.journey-card{
+
+    min-height:210px;
+
+    padding:22px 18px;
+
+    border-radius:18px;
+}
+
+.journey-number{
+
+    width:34px;
+
+    height:34px;
+
+    font-size:1rem;
+
+    margin-bottom:12px;
+}
+
+.journey-icon{
+
+    font-size:2rem;
+
+    margin-bottom:12px;
+}
+
+.journey-card h3{
+
+    font-size:1.1rem;
+
+    margin-bottom:10px;
+}
+
+.journey-card p{
+
+    font-size:.88rem;
+
+    line-height:1.5;
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.journey-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+
+    max-width:800px;
+
+    margin:0 auto;
+}
+
+}
+
+/* ==========================================
+   LIVE MARKET RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.live-market{
+
+    padding:70px 18px;
+
+}
+
+.market-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.market-header h2{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+}
+
+.market-header p{
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:340px;
+
+    margin:18px auto 0;
+
+}
+
+.market-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    max-width:430px;
+
+    margin:0 auto;
+
+}
+
+.market-card{
+
+    padding:22px 16px;
+
+    border-radius:18px;
+
+    min-height:150px;
+
+}
+
+.market-card h3{
+
+    font-size:1rem;
+
+    margin-bottom:15px;
+
+}
+
+.market-value{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    word-break:break-word;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.market-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+}
+
+/* ==========================================
+   BITCOIN CHART RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.bitcoin-chart{
+
+    padding:70px 18px;
+
+    text-align:center;
+
+}
+
+.bitcoin-chart h2{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+}
+
+.chart-subtitle{
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    max-width:340px;
+
+    margin:18px auto 35px;
+
+}
+
+.chart-card{
+
+    width:100%;
+
+    max-width:430px;
+
+    margin:0 auto;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    height:300px;
+
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.chart-card{
+
+    max-width:700px;
+
+    height:380px;
+
+    margin:0 auto;
+
+}
+
+}
+
+/* ==========================================
+   BITCOIN NEWS RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.bitcoin-news{
+
+    padding:70px 18px;
+
+}
+
+.bitcoin-news h2{
+
+    font-size:2rem;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.news-card{
+
+    width:100%;
+
+    max-width:430px;
+
+    margin:0 auto 20px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+}
+
+.news-card h3{
+
+    font-size:1.05rem;
+
+    line-height:1.5;
+
+}
+
+.news-card p{
+
+    font-size:.92rem;
+
+    line-height:1.6;
+
+}
+
+.news-card a{
+
+    font-size:.92rem;
+
+}
+
+.news-footer{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+.view-news-btn{
+
+    width:100%;
+
+    max-width:280px;
+
+    height:52px;
+
+    font-size:15px;
+
+    border-radius:14px;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.news-card{
+
+    max-width:700px;
+
+    margin:0 auto 25px;
+
+}
+
+}
+
+/* ==========================================
+   FEAR & GREED RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.fear-greed{
+
+    padding:70px 18px;
+
+    text-align:center;
+
+}
+
+.fear-greed h2{
+
+    font-size:2rem;
+
+    margin-bottom:35px;
+
+    line-height:1.2;
+
+}
+
+.fear-card{
+
+    width:100%;
+
+    max-width:320px;
+
+    margin:0 auto;
+
+    padding:30px 20px;
+
+    border-radius:20px;
+
+}
+
+.fear-card h3{
+
+    font-size:3rem;
+
+    margin-bottom:12px;
+
+}
+
+.fear-card p{
+
+    font-size:1rem;
+
+    line-height:1.6;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.fear-card{
+
+    max-width:400px;
+
+    margin:0 auto;
+
+}
+
+}
+
+/* ==========================================
+   FOOTER RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+.footer{
+
+    padding:60px 20px 30px;
+
+    text-align:center;
+
+}
+
+.footer-brand{
+
+    max-width:340px;
+
+    margin:0 auto 40px;
+
+}
+
+.footer-brand h2{
+
+    font-size:2rem;
+
+}
+
+.footer-brand p{
+
+    font-size:1rem;
+
+    margin:15px 0;
+
+}
+
+.footer-brand span{
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+.footer-links{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+
+    text-align:center;
+
+}
+
+.footer-links h3{
+
+    font-size:1.2rem;
+
+    margin-bottom:15px;
+
+}
+
+.footer-links a{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-size:.95rem;
+
+}
+
+.footer-bottom{
+
+    margin-top:35px;
+
+    font-size:.9rem;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.footer-links{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:40px;
+
+}
 
 }
 
@@ -305,6 +1042,7 @@ font-size:34px;
 
 }
 
+
 /* BUTTONS */
 
 button,
@@ -350,7 +1088,63 @@ height:140px;
 }
 
 }
+/* ===========================
+   CREATE & ENTER VAULT
+=========================== */
 
+.create-vault-page,
+.enter-vault-page{
+    padding:20px 15px;
+    min-height:100vh;
+}
+
+.create-vault-hero,
+.enter-vault-hero{
+    width:100%;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.create-vault-hero h1,
+.enter-vault-hero h1{
+    font-size:38px;
+    line-height:1.15;
+}
+
+.create-vault-hero p,
+.enter-vault-hero p{
+    font-size:16px;
+}
+
+.hero-logo{
+    width:300px;
+    max-width:90%;
+    opacity:.12;
+}
+
+.vault-form{
+    width:100%;
+    max-width:100%;
+    margin:auto;
+}
+
+.vault-form input{
+    width:100%;
+}
+
+.password-box{
+    width:100%;
+}
+
+.remember-box{
+    flex-direction:column;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.vault-form button{
+    width:100%;
+}
 @keyframes slideDown{
 
 from{
@@ -368,6 +1162,7 @@ opacity:1;
 transform:translateY(0);
 
 }
+
 
 }
 @media(min-width:769px){

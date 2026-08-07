@@ -1,7 +1,7 @@
 import "../styles/Responsive.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import "../styles/FearGreed.css";
 function FearGreed() {
   const [fearGreed, setFearGreed] = useState(null);
 

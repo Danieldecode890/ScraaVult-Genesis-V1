@@ -1,3 +1,5 @@
+import "../styles/VaultPromises.css";
+import "../styles/Responsive.css";
 function VaultPromise() {
   return (
     <section className="vault-promise">

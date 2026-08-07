@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Responsive.css";
+import "../styles/BitcoinNews.css"
 
 function BitcoinNews() {
     const navigate = useNavigate();
@@ -54,7 +55,7 @@ function BitcoinNews() {
           </a>
         </div>
       ))}
-      <div clasName="news-footer">
+      <div className="news-footer">
         <button 
         className="view-news-btn"
         onClick={() => navigate("/news")}

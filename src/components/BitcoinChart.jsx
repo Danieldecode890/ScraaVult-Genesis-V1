@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
+import "../styles/Responsive.css";
+import "../styles/BitcoinChart.css";
 import {
   Chart as ChartJS,
   CategoryScale,

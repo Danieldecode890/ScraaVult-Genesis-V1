@@ -1,3 +1,6 @@
+import "../styles/Responsive.css";
+import "../styles/Journey.css"
+
 function Journey() {
   const steps = [
     {

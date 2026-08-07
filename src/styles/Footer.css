@@ -1,0 +1,147 @@
+/* =============================================== */
+/*                    FOOTER                        */
+/* =============================================== */
+
+.footer{
+
+    margin-top:120px;
+
+    padding:80px 30px 30px;
+
+    background:#0b1220;
+
+    border-top:1px solid rgba(247,185,74,.12);
+}
+
+/* =============================================== */
+/*                MAIN LAYOUT                       */
+/* =============================================== */
+
+.footer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:60px;
+}
+
+/* =============================================== */
+/*               BRAND SECTION                      */
+/* =============================================== */
+
+.footer-brand{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+.footer-brand h2{
+
+    color:#f7b94a;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+}
+
+.footer-brand p{
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.footer-brand span{
+
+    color:#cfd6df;
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+
+/* =============================================== */
+/*                LINKS SECTION                     */
+/* =============================================== */
+
+.footer-links{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:40px;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    width:100%;
+}
+
+.footer-links h3{
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+    font-size:22px;
+}
+
+.footer-links a{
+
+    display:block;
+
+    color:#cfd6df;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.30s ease;
+}
+
+.footer-links a:hover{
+
+    color:#f7b94a;
+
+    transform:translateX(6px);
+}
+
+/* =============================================== */
+/*              BOTTOM SECTION                      */
+/* =============================================== */
+
+.footer-bottom{
+
+    text-align:center;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#9aa5b5;
+
+    font-size:15px;
+}
+
+/* =============================================== */
+/*                  HOVER EFFECT                    */
+/* =============================================== */
+
+.footer:hover{
+
+    box-shadow:
+    0 -10px 40px rgba(247,185,74,.08);
+}

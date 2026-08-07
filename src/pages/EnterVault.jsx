@@ -6,6 +6,7 @@ import vaultDoor from"../assets/hero.png";
 function EnterVault() {
   const navigate = useNavigate();
    const[message, setMessage] = useState("");
+   const[showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({
    });
 
@@ -32,26 +33,35 @@ function EnterVault() {
   };
 
   return (
-    <div className="page">
-      <section className="enter-vault-layout">
-        <div className="vault-left">
-             <div className="vault-background">
-               <img
-          src={vaultDoor}
-          alt="Vault Door"
-          className="vault-door"
-          />
-        </div>
-        </div>
-        <div className="login-panel">
 
-      <h1>Enter Your Vault</h1>
-      <p>Welcome back to ScraaVault.</p>
-      
-      <p>
-       🛡️ 256-bit Encryption • Privacy First • Non-custodial 
-      </p>
-      <div className="gold-line"></div>
+        <div className="enter-vault-page">
+<section className="enter-vault-hero">
+
+<div className="vault-background">
+    <img
+        src={vaultDoor}
+        alt="Vault Door"
+        className="vault-door"
+    />
+</div>
+
+<div className="hero-overlay">
+
+<h1 className="vault-title">
+    Enter Your
+    <br />
+    <span>Secure Bitcoin Vault</span>
+</h1>
+
+<p className="vault-tagline">
+    Welcome back to ScraaVault
+</p>
+
+<p className="vault-description">
+    256-bit Encryption • Privacy First • Non-Custodial
+</p>
+
+<div className="gold-line"></div>
       {message && <p>{message}</p>}
 
       <form className="vault-form" 
@@ -67,25 +77,27 @@ function EnterVault() {
             })
           }
         />
-        <div className="password-box">
-        <input
-          type="password"
-          placeholder="Password"
-          value={loginData.password}
-          onChange={(e) =>
-            setLoginData({
-              ...loginData,
-              password: e.target.value,
-            })
-          }
-        />
-        <button
-        type="button"
-        className="show-password-btn"
-        >
-        👁
-        </button>
-        </div>
+       <div className="password-box">
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Password"
+    value={loginData.password}
+    onChange={(e) =>
+      setLoginData({
+        ...loginData,
+        password: e.target.value,
+      })
+    }
+  />
+
+  <button
+    type="button"
+    className="show-password-btn"
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    👁
+  </button>
+</div>
 
         <div className="remember-box">
           <label>

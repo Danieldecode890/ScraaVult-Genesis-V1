@@ -32,6 +32,7 @@ import LiveMarket from"./components/LiveMarket";
 import BitcoinChart from"./components/BitcoinChart";
 import FearGreed from"./components/FearGreed";
 import BitcoinNews from"./components/BitcoinNews";
+import Footer from"./components/Footer";
 import News from"./pages/News";
 import RecoveryPhrase from"./pages/RecoveryPhrase";
 import VaultOpening from"./pages/VaultOpening";
@@ -78,6 +79,8 @@ const toggleTheme = () => {
             <FearGreed />
 
             <BitcoinNews />
+
+            <Footer />
 
           </div>
         }

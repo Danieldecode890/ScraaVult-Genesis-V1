@@ -1,0 +1,86 @@
+/* =============================================== */
+/*                FEAR & GREED                     */
+/* =============================================== */
+
+.fear-greed{
+
+    padding:120px 20px;
+
+    text-align:center;
+}
+
+.fear-greed h2{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    color:#ffffff;
+
+    margin-bottom:60px;
+}
+
+/* ---------- CARD ---------- */
+
+.fear-card{
+
+    max-width:420px;
+
+    margin:auto;
+
+    padding:45px;
+
+    background:
+    rgba(17,25,40,.82);
+
+    border:1px solid
+    rgba(247,185,74,.12);
+
+    border-radius:24px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 18px 45px
+    rgba(0,0,0,.22);
+
+    transition:.35s ease;
+}
+
+.fear-card:hover{
+
+    transform:
+    translateY(-8px);
+
+    border-color:#f7b94a;
+
+    box-shadow:
+    0 22px 55px
+    rgba(247,185,74,.18);
+}
+
+/* ---------- VALUE ---------- */
+
+.fear-card h3{
+
+    font-size:72px;
+
+    color:#f7b94a;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+}
+
+/* ---------- LABEL ---------- */
+
+.fear-card p{
+
+    color:#d2d7df;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    margin:0;
+}
