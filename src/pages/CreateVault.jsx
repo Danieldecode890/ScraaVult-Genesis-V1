@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import vaultDoor from"../assets/hero.png";
 import logo from "../assets/logo.png";
+import "../styles/CreateVault.css";
 import "../styles/Responsive.css";
 
 import {
@@ -63,18 +64,12 @@ function CreateVault() {
       <img
     src={logo}
     alt="ScraaVult Logo"
-    className="hero-logo"
+    className="vault-logo"
     />
        
     <section className="vault-hero">
        <div className="vault-background">
-         <img
-    src={vaultDoor}
-    alt="Vault Door"
-    className="vault-door"
-    />
-
-      
+             
         </div>
   <div className="hero-overlay">
  

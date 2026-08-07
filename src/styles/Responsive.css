@@ -1192,3 +1192,238 @@ flex-direction:row;
 }
 
 }
+
+/* =============================================== */
+/*         CREATE VAULT RESPONSIVE                 */
+/* =============================================== */
+
+@media (max-width:768px){
+
+.page{
+
+    overflow-x:hidden;
+
+}
+
+.vault-hero{
+
+    padding:110px 18px 70px;
+
+}
+
+.vault-logo{
+
+    width:70px;
+
+    height:70px;
+
+    top:20px;
+
+}
+
+.vault-door{
+
+    width:280px;
+
+    opacity:.06;
+
+}
+
+.vault-title{
+
+    font-size:2.4rem;
+
+    line-height:1.15;
+
+}
+
+.vault-tagline{
+
+    font-size:.85rem;
+
+    letter-spacing:2px;
+
+}
+
+.vault-description{
+
+    font-size:1rem;
+
+    max-width:340px;
+
+    line-height:1.7;
+
+    margin:auto;
+
+}
+
+.gold-line{
+
+    width:90px;
+
+    margin:35px auto 50px;
+
+}
+}
+
+@media (max-width:768px){
+
+.security-grid{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+}
+
+.security-card{
+
+    padding:24px;
+
+}
+
+.security-card h3{
+
+    font-size:1.3rem;
+
+}
+
+.security-card p{
+
+    font-size:.95rem;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.security-warning{
+
+    padding:24px;
+
+    margin-bottom:40px;
+
+}
+
+.security-warning h3{
+
+    font-size:1.5rem;
+
+}
+
+.security-warning p{
+
+    font-size:.95rem;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.vault-form{
+
+    padding:28px 22px;
+
+    border-radius:20px;
+
+}
+
+.form-title{
+
+    font-size:2rem;
+
+}
+
+.form-subtitle{
+
+    font-size:.95rem;
+
+}
+
+.input-group input{
+
+    height:54px;
+
+    font-size:15px;
+
+}
+
+.input-label{
+
+    font-size:.9rem;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.password-checklist{
+
+    padding:18px;
+
+}
+
+.check{
+
+    font-size:.9rem;
+
+}
+
+.password-strength{
+
+    font-size:.9rem;
+
+}
+
+.password-match{
+
+    font-size:.9rem;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.view-btn{
+
+    height:56px;
+
+    font-size:16px;
+
+}
+
+.vault-form button[type="button"]{
+
+    width:46px;
+
+    height:46px;
+
+}
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+.vault-hero{
+
+    padding:120px 30px 80px;
+
+}
+
+.security-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.vault-form{
+
+    max-width:720px;
+
+}
+
+}
