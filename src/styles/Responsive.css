@@ -964,33 +964,11 @@ font-size:16px;
 
 .card,
 
-.history-card,
-
-.portfolio-card,
-
-.portfolio-summary{
+.history-card{
 
 padding:22px;
 
 border-radius:20px;
-
-}
-
-/* ASSET CARD */
-
-.asset-card{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-gap:18px;
-
-}
-
-.asset-card h2{
-
-font-size:28px;
 
 }
 
@@ -1025,23 +1003,6 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 
 }
-
-/* PORTFOLIO */
-
-.portfolio-stats{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.portfolio-balance{
-
-font-size:34px;
-
-}
-
 
 /* BUTTONS */
 
