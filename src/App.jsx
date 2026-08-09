@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import "./styles/PagesResponsive.css";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navabar";
 import { Routes, Route } from "react-router-dom";
