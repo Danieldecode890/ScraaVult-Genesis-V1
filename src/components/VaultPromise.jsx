@@ -1,64 +1,51 @@
-import "../styles/VaultPromises.css";
-import "../styles/Responsive.css";
+import { FiLock, FiShield, FiCheckCircle } from 'react-icons/fi'
+import './SectionCards.css'
+
 function VaultPromise() {
+  const promises = [
+    {
+      icon: <FiLock />,
+      title: 'Privacy',
+      text: 'Your information belongs to you. Always.',
+    },
+    {
+      icon: <FiShield />,
+      title: 'Security',
+      text: 'Protection comes before convenience.',
+    },
+    {
+      icon: <FiCheckCircle />,
+      title: 'Confidence',
+      text: 'Every interaction should inspire trust.',
+    },
+  ]
+
   return (
-    <section className="vault-promise">
-
-      <span className="promise-tag">
-        OUR PROMISE
-      </span>
-
-      <h2>
-        Built on Three Non-Negotiable Principles
+    <section className="sv-section sv-promise">
+      <span className="sv-eyebrow">Our Promise</span>
+      <h2 className="sv-heading">
+        Built on Three
+        <br />
+        Non-Negotiable Principles
       </h2>
-
-      <p>
-        At ScraaVult, we believe your Bitcoin should
-        always remain under your control.
-        Every feature we design follows three
-        principles that define who we are.
+      <p className="sv-description">
+        At ScraaVult, we believe your Bitcoin should always remain under your
+        control. Every feature we design follows three principles that define
+        who we are.
       </p>
 
-      <div className="promise-grid">
-
-        <div className="promise-card">
-          <div className="promise-icon">🔒</div>
-
-          <h3>Privacy</h3>
-
-          <p>
-            Your information belongs to you.
-            Always.
-          </p>
-
-        </div>
-
-        <div className="promise-card">
-          <div className="promise-icon">🛡</div>
-
-          <h3>Security</h3>
-
-          <p>
-            Protection comes before convenience.
-          </p>
-
-        </div>
-
-        <div className="promise-card">
-          <div className="promise-icon">✨</div>
-
-          <h3>Confidence</h3>
-
-          <p>
-            Every interaction should inspire trust.
-          </p>
-
-        </div>
-
+      <div className="sv-promise-grid">
+        {promises.map((item, i) => (
+          <div className="sv-promise-card" key={i}>
+            <div className="sv-card-accent" />
+            <div className="sv-card-icon">{item.icon}</div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
-
     </section>
-  );
+  )
 }
 
-export default VaultPromise;
+export default VaultPromise

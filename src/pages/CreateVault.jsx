@@ -1,281 +1,193 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import vaultDoor from"../assets/hero.png";
-import logo from "../assets/logo.png";
-import "../styles/CreateVault.css";
-import "../styles/Responsive.css";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { FiShield, FiLock, FiCheck, FiArrowRight, FiInfo } from 'react-icons/fi'
+import './VaultPages.css'
 
-import {
-  FaUser,
-  FaEnvelope,
-  FaLock,
-  FaEye,
-  FaEyeSlash,
-  FaShieldAlt
-} from "react-icons/fa";
 function CreateVault() {
-  
-    const navigate = useNavigate();
-    const[formData, setFormData] =useState({
-        username:"",
-        email:"",
-        password:"",
-        confirmPassword:"",
-    });
-    const[message,setMessage] = useState("");
-    const[showPassword, setShowPassword] = useState(false);
-    const[password, setPassword] = useState("");
-    const[confirmPassword, setConfirmPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [vaultCreated, setVaultCreated] = useState(false);
-    
-    const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [step, setStep] = useState(1)
+  const [vaultName, setVaultName] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [accepted, setAccepted] = useState(false)
+  const [error, setError] = useState('')
+  const [created, setCreated] = useState(false)
 
-      setLoading(true);
-
-      await new Promise(resolve =>
-        setTimeout(resolve, 2000)
-      );    
-       
-        setLoading(false);
-
-    if (formData.password !== formData.confirmPassword) {
-        setMessage("❌Passwords do not match!");
-        setLoading(false);
-        return;
+  const handleNext = () => {
+    setError('')
+    if (step === 1 && !vaultName.trim()) {
+      setError('Please enter a vault name.')
+      return
     }
+    if (step === 2) {
+      if (password.length < 8) {
+        setError('Password must be at least 8 characters.')
+        return
+      }
+      if (password !== confirmPassword) {
+        setError('Passwords do not match.')
+        return
+      }
+    }
+    if (step === 3 && !accepted) {
+      setError('Please accept the security terms to continue.')
+      return
+    }
+    setStep((s) => Math.min(s + 1, 4))
+  }
 
-  setMessage("✅Your vault has been created successfully!");
-  
-  localStorage.setItem(
-    "vaultUser", 
-    JSON.stringify(formData)
- );
- console.log(formData);
- console.log(localStorage.getItem("vaultUser"));
+  const handleBack = () => {
+    setError('')
+    setStep((s) => Math.max(s - 1, 1))
+  }
 
-      navigate("/loading-vault");
-    
-    };
+  const handleCreate = () => {
+    setCreated(true)
+  }
+
+  if (created) {
+    return (
+      <div className="sv-vault-page">
+        <div className="sv-vault-card sv-vault-success">
+          <div className="sv-vault-success-icon">
+            <FiCheck />
+          </div>
+          <h1>Vault Created</h1>
+          <p>
+            Your vault <strong>{vaultName}</strong> has been created. Store your
+            recovery phrase securely — it is the only way to restore access.
+          </p>
+          <div className="sv-vault-warning">
+            <FiInfo className="sv-vault-warning-icon" />
+            <span>Never share your recovery phrase with anyone.</span>
+          </div>
+          <div className="sv-vault-actions">
+            <Link to="/enter-vault" className="sv-btn-primary">
+              Enter Vault
+              <FiArrowRight />
+            </Link>
+            <Link to="/" className="sv-btn-secondary">
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className="page">
-      <img
-    src={logo}
-    alt="ScraaVult Logo"
-    className="vault-logo"
-    />
-       
-    <section className="vault-hero">
-       <div className="vault-background">
-             
+    <div className="sv-vault-page">
+      <div className="sv-vault-card">
+        <div className="sv-vault-header">
+          <div className="sv-vault-header-icon">
+            <FiShield />
+          </div>
+          <span className="sv-eyebrow" style={{ marginBottom: '12px' }}>Secure Setup</span>
+          <h1>Create Your Vault</h1>
+          <p className="sv-vault-subtitle">
+            Your keys. Your coins. Your rules.
+          </p>
         </div>
-  <div className="hero-overlay">
- 
-   
-      
-      
-     
-      <h1 className="vault-title">
-          Create Your
-          <br />
-          <span>Secure Bitcoin Vault</span>
-      </h1>
 
-      <p className="vault-tagline">
-          Privacy by Design • Security by Default • Freedom by Choice
-      </p>
+        <div className="sv-vault-steps">
+          {[1, 2, 3].map((s) => (
+            <div
+              key={s}
+              className={`sv-vault-step-dot ${step >= s ? 'active' : ''} ${step > s ? 'done' : ''}`}
+            >
+              {step > s ? <FiCheck /> : s}
+            </div>
+          ))}
+        </div>
 
-      <p className="vault-description">
-          Create your secure Bitcoin vault in under a minute.
-          Your private keys stay yours. Your privacy stays protected.
-      </p>
+        <div className="sv-vault-form">
+          {step === 1 && (
+            <div className="sv-form-group">
+              <label className="sv-form-label">Vault Name</label>
+              <input
+                type="text"
+                className="sv-form-input"
+                placeholder="e.g. My Bitcoin Vault"
+                value={vaultName}
+                onChange={(e) => setVaultName(e.target.value)}
+                autoFocus
+              />
+              <p className="sv-form-hint">Give your vault a name you'll recognize.</p>
+            </div>
+          )}
 
-      <div className="gold-line"></div>
+          {step === 2 && (
+            <>
+              <div className="sv-form-group">
+                <label className="sv-form-label">Password</label>
+                <input
+                  type="password"
+                  className="sv-form-input"
+                  placeholder="At least 8 characters"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoFocus
+                />
+              </div>
+              <div className="sv-form-group">
+                <label className="sv-form-label">Confirm Password</label>
+                <input
+                  type="password"
+                  className="sv-form-input"
+                  placeholder="Re-enter your password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </div>
+              <div className="sv-vault-notice">
+                <FiLock className="sv-vault-notice-icon" />
+                <span>Your password encrypts your vault locally. We never see it.</span>
+              </div>
+            </>
+          )}
 
-  
+          {step === 3 && (
+            <div className="sv-form-group">
+              <div className="sv-vault-terms">
+                <label className="sv-vault-check-row">
+                  <input
+                    type="checkbox"
+                    checked={accepted}
+                    onChange={(e) => setAccepted(e.target.checked)}
+                  />
+                  <span>
+                    I understand that I am solely responsible for my password
+                    and recovery phrase. If I lose them, my Bitcoin cannot be
+                    recovered.
+                  </span>
+                </label>
+              </div>
+            </div>
+          )}
 
-<div className="security-grid">
+          {error && <p className="sv-form-error">{error}</p>}
 
-    <div className="security-card">
-        <div className="security-icon">🛡️</div>
-        <h3>Military Grade Encryption</h3>
-        <p>Your vault is encrypted before storage.</p>
+          <div className="sv-vault-nav">
+            {step > 1 && (
+              <button className="sv-btn-secondary sv-btn-sm" onClick={handleBack}>
+                Back
+              </button>
+            )}
+            {step < 3 ? (
+              <button className="sv-btn-primary sv-btn-sm" onClick={handleNext}>
+                Continue
+                <FiArrowRight />
+              </button>
+            ) : (
+              <button className="sv-btn-primary sv-btn-sm" onClick={handleCreate}>
+                <FiShield />
+                Create Vault
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div className="security-card">
-        <div className="security-icon">🔒</div>
-        <h3>Privacy First</h3>
-        <p>Your personal information remains yours.</p>
-    </div>
-
-    <div className="security-card">
-        <div className="security-icon">₿</div>
-        <h3>Bitcoin Only</h3>
-        <p>Built exclusively for Bitcoin security.</p>
-    </div>
-
-    <div className="security-card">
-        <div className="security-icon">🚫</div>
-        <h3>Non-Custodial</h3>
-        <p>You remain in complete control of your vault.</p>
-    </div>
-
-</div>
-
-     {message && <p>{message}</p>}
-    
-      <div className="security-warning">
-      <h3>🔐 Security Notice</h3>
-
-     <p>
-        ScraaVault is a non-custodial Bitcoin vault.
-     </p>
-
-     <p>
-        Your password and future recovery phrase are known only to you.
-         </p>
-
-         <p>  
-        If they are lost, ScraaVault cannot recover them.
-    </p>
-  </div>
-
-    <form className="vault-form"
-    onSubmit={handleSubmit}>
-
-      <h2 className="form-title">Vault Information</h2>
-     <p className="form-subtitle">
-      Create your secure ScraaVult account.
-     </p>
-        
-     
-      <label className="input-label">Username</label>
-
-      <div className="input-group">
-      <FaUser className="input-icon" />
-
-      <input
-      type="text"
-      placeholder="Enter your username"
-      />
-    </div>
-
-    
-   <label className="input-label">Email Address</label>
-
-    <div className="input-group">
-    <FaEnvelope className="input-icon" />
-
-    <input
-    type="email"
-    placeholder="Enter your email address"
-    />
-  </div>
-  
-   <label className="input-label">Password</label>
-
-    <div className="input-group">
-
-    <FaLock className="input-icon" />
-
-    <input
-        type={showPassword ? "text" : "password"}
-        placeholder="Enter your password"
-         value={password}
-        onChange={(e)=>
-      setPassword(e.target.value)}
-        />
-    </div>
-     <div className="password-strength">
-     Password Strength:
-     <span>
-        {password.length < 6
-            ? " Weak"
-            : password.length < 10
-            ? " Medium"
-            : " Strong"}
-      </span>
-</div>
-  <div className="password-checklist">
-
-    <div className={password.length >= 8 ? "check success" : "check"}>
-        {password.length >= 8 ? "✔" : "•"} At least 8 characters
-    </div>
-
-    <div className={/[A-Z]/.test(password) ? "check success" : "check"}>
-        {/[A-Z]/.test(password) ? "✔" : "•"} One uppercase letter
-    </div>
-
-    <div className={/[a-z]/.test(password) ? "check success" : "check"}>
-        {/[a-z]/.test(password) ? "✔" : "•"} One lowercase letter
-    </div>
-
-    <div className={/[0-9]/.test(password) ? "check success" : "check"}>
-        {/[0-9]/.test(password) ? "✔" : "•"} One number
-    </div>
-
-    <div className={/[^A-Za-z0-9]/.test(password) ? "check success" : "check"}>
-        {/[^A-Za-z0-9]/.test(password) ? "✔" : "•"} One special character
-    </div>
-
-</div>
-   <label className="input-label">Confirm Password</label>
-
-    <div className="input-group">
-
-    <FaLock className="input-icon" />
-
-    <input
-        type={showPassword ? "text" : "password"}
-        placeholder="Confirm  Password"
-        value={confirmPassword}
-        onChange={(e)=>
-      setConfirmPassword(e.target.value)}
-    />{
-confirmPassword.length > 0 && (
-
-<div
-className={
-password === confirmPassword
-? "password-match success"
-: "password-match error"
-}
->
-
-{password === confirmPassword
-? "✅ Passwords match"
-: "❌ Passwords do not match"}
-
-</div>
-
-)
+  )
 }
 
-</div>
-
-<button
-  type="button"
-    onClick="eye-btn"
-    onClick={() => setShowPassword(!showPassword)}
-  >
-    {showPassword ? <FaEyeSlash /> : <FaEye />}
-</button>
-
-    <button
-     type="submit"
-     disabled={loading}
-     className="view-btn"
-     >
-      {loading ? "Creating Vault..." : "🔐 Create Secure Vault"}
-    </button>
-  </form>
-     </div>
-
-</section>
-    </div>
-  );
-}
-
-export default CreateVault;
+export default CreateVault

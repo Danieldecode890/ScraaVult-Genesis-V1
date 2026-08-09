@@ -1,0 +1,120 @@
+.sv-footer {
+  margin-top: var(--sv-space-7);
+  padding: var(--sv-space-6) 24px var(--sv-space-3);
+  background: var(--sv-bg-secondary);
+  border-top: 1px solid var(--sv-border);
+}
+
+.sv-footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--sv-space-6);
+}
+
+/* — Brand — */
+.sv-footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.sv-footer-shield {
+  width: 26px;
+  height: 26px;
+  color: var(--sv-accent);
+}
+
+.sv-footer-brand h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+}
+
+.sv-footer-motto {
+  color: var(--sv-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.sv-footer-desc {
+  color: var(--sv-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  max-width: 340px;
+}
+
+/* — Links — */
+.sv-footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sv-space-4);
+}
+
+.sv-footer-col h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sv-text-primary);
+  margin-bottom: 14px;
+}
+
+.sv-footer-col a {
+  display: block;
+  color: var(--sv-text-secondary);
+  font-size: 0.86rem;
+  margin-bottom: 10px;
+  transition: color var(--sv-transition);
+}
+
+.sv-footer-col a:hover {
+  color: var(--sv-accent);
+}
+
+/* — Bottom — */
+.sv-footer-bottom {
+  max-width: 1120px;
+  margin: var(--sv-space-5) auto 0;
+  padding-top: var(--sv-space-3);
+  border-top: 1px solid var(--sv-border);
+  text-align: center;
+  color: var(--sv-text-dim);
+  font-size: 0.82rem;
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-footer {
+    margin-top: var(--sv-space-5);
+    padding: var(--sv-space-5) 20px var(--sv-space-3);
+  }
+
+  .sv-footer-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sv-space-5);
+  }
+
+  .sv-footer-brand {
+    text-align: center;
+  }
+
+  .sv-footer-logo-row {
+    justify-content: center;
+  }
+
+  .sv-footer-desc {
+    margin: 0 auto;
+  }
+
+  .sv-footer-links {
+    gap: var(--sv-space-3);
+  }
+
+  .sv-footer-col {
+    text-align: center;
+  }
+}

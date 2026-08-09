@@ -1,92 +1,77 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "../styles/Responsive.css";
-import "../styles/LiveMarket.css"
+import { useEffect, useState } from 'react'
+import { FiDollarSign, FiTrendingUp, FiTrendingDown, FiBarChart2 } from 'react-icons/fi'
+import axios from 'axios'
+import './LiveMarket.css'
+
 function LiveMarket() {
-    const[market, setMarket]= useState(null);
-    const isPositive = market && market.price_change_percentage_24h >= 0;
-    useEffect(() => {
-  const fetchMarket = async () => {
-    
-    try {
-      const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets",
-        {
-          params: {
-            vs_currency: "usd",
-            ids: "bitcoin",
-          },
-        }
-      );
+  const [market, setMarket] = useState(null)
+  const isPositive = market && market.price_change_percentage_24h >= 0
 
-         setMarket(response.data[0]);
-     } catch (error) {
-         console.error("Failed to fetch market data:", error);
-     }
-    };
+  useEffect(() => {
+    const fetchMarket = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
+          params: { vs_currency: 'usd', ids: 'bitcoin' },
+        })
+        setMarket(res.data[0])
+      } catch (e) {
+        // silent fail — UI shows "Loading..."
+      }
+    }
 
-     fetchMarket();
-      const interval = setInterval(fetchMarket,30000);
-      
-      return () => clearInterval(interval);
-    }, []);
+    fetchMarket()
+    const interval = setInterval(fetchMarket, 30000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const fmt = (val) => (market ? `$${val.toLocaleString()}` : '—')
+  const fmtB = (val) => (market ? `$${Number((val / 1e9).toFixed(2)).toLocaleString()}B` : '—')
+
   return (
-    <section className="live-market">
+    <section className="sv-section sv-market">
+      <span className="sv-eyebrow sv-market-eyebrow">
+        <span className="sv-live-dot" />
+        Live Market
+      </span>
+      <h2 className="sv-heading">Bitcoin Market Overview</h2>
+      <p className="sv-description">
+        Real-time Bitcoin data designed to keep you informed before every
+        decision.
+      </p>
 
-      <div className="market-header">
-        <span className="market-tag">
-          LIVE MARKET
-        </span>
+      <div className="sv-market-grid">
+        <div className="sv-market-card">
+          <div className="sv-market-icon"><FiDollarSign /></div>
+          <span className="sv-market-label">Bitcoin Price</span>
+          <p className="sv-market-value">{fmt(market?.current_price)}</p>
+        </div>
 
-        <h2>
-          Bitcoin Market Overview
-        </h2>
+        <div className="sv-market-card">
+          <div className="sv-market-icon">
+            {isPositive ? <FiTrendingUp /> : <FiTrendingDown />}
+          </div>
+          <span className="sv-market-label">24h Change</span>
+          <p className={`sv-market-value ${isPositive ? 'sv-pos' : 'sv-neg'}`}>
+            {market
+              ? `${isPositive ? '+' : ''}${market.price_change_percentage_24h.toFixed(2)}%`
+              : '—'}
+          </p>
+        </div>
 
-        <p>
-          Real-time Bitcoin data designed to keep you informed before every decision.
-        </p>
+        <div className="sv-market-card">
+          <div className="sv-market-icon"><FiBarChart2 /></div>
+          <span className="sv-market-label">Market Cap</span>
+          <p className="sv-market-value">{fmtB(market?.market_cap)}</p>
+        </div>
+
+        <div className="sv-market-card">
+          <div className="sv-market-icon"><FiTrendingUp /></div>
+          <span className="sv-market-label">24h Volume</span>
+          <p className="sv-market-value">{fmtB(market?.total_volume)}</p>
+        </div>
       </div>
-
-      <div className="market-grid">
-
-        <div className="market-card">
-          <h3>Bitcoin Price</h3>
-        <p className="market-value">
-          {market ? `$${market.current_price.toLocaleString()}` : "Loading..."}
-        </p>
-        </div>
-
-        <div className="market-card">
-          <h3>24h Change</h3>
-        <p className={`market-value ${isPositive ? "positive" : "negative"}`}>
-         {market
-         ? `${isPositive ? "▲" : "▼"} ${market.price_change_percentage_24h.toFixed(2)}%`
-         : "Loading..."}
-        </p>
-        </div>
-
-        <div className="market-card">
-          <h3>Market Cap</h3>
-          <p className="market-value">
-        {market
-        ? `$${Number((market.total_volume / 1e9).toFixed(2)).toLocaleString()}B`
-        : "Loading..."}
-        </p>
-        </div>
-
-        <div className="market-card">
-          <h3>24h Volume</h3>
-          <p className="market-value">
-         {market
-         ? `$${Number((market.market_cap / 1e9).toFixed(2)).toLocaleString()}B`
-        : "Loading..."}
-        </p>
-        </div>
-
-      </div>
-
     </section>
-  );
+  )
 }
 
-export default LiveMarket;
+export default LiveMarket

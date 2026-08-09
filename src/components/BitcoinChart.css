@@ -1,0 +1,52 @@
+.sv-chart-container {
+  max-width: 900px;
+  height: 360px;
+  margin: 40px auto 0;
+  padding: 28px;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-lg);
+  box-shadow: var(--sv-shadow-card);
+  position: relative;
+}
+
+.sv-chart-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 14px;
+  color: var(--sv-text-muted);
+  font-size: 0.9rem;
+}
+
+.sv-chart-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--sv-border-strong);
+  border-top-color: var(--sv-accent);
+  border-radius: 50%;
+  animation: sv-spin 0.8s linear infinite;
+}
+
+@keyframes sv-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-chart-container {
+    height: 280px;
+    padding: 16px;
+    margin-top: 32px;
+    border-radius: var(--sv-radius-md);
+  }
+}
+
+@media (max-width: 400px) {
+  .sv-chart-container {
+    height: 240px;
+    padding: 12px;
+  }
+}

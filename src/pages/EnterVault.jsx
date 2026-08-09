@@ -1,120 +1,120 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/Responsive.css";
-import vaultDoor from"../assets/hero.png";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { FiLock, FiKey, FiArrowRight, FiShield } from 'react-icons/fi'
+import './VaultPages.css'
 
 function EnterVault() {
-  const navigate = useNavigate();
-   const[message, setMessage] = useState("");
-   const[showPassword, setShowPassword] = useState(false);
-  const [loginData, setLoginData] = useState({
-   });
+  const [vaultId, setVaultId] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [entered, setEntered] = useState(false)
 
- const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const savedUser = 
-    JSON.parse(localStorage.getItem("vaultUser"));
-
-    if (!savedUser) {
-   alert("❌ No vault found. Please create a vault first.");
-    return;
+  const handleEnter = () => {
+    setError('')
+    if (!vaultId.trim()) {
+      setError('Please enter your vault ID.')
+      return
     }
-
-    if (
-      loginData.email === savedUser.email &&
-      loginData.password === savedUser.password
-    ) {    
-        alert("✅ Welcome back to ScraaVault!");
-        navigate("/dashboard");
-    } else {
-        alert("❌ No vault found. Please create a vault first.");
+    if (!password) {
+      setError('Please enter your password.')
+      return
     }
-  };
+    setEntered(true)
+  }
+
+  if (entered) {
+    return (
+      <div className="sv-vault-page">
+        <div className="sv-vault-card sv-vault-success">
+          <div className="sv-vault-success-icon">
+            <FiShield />
+          </div>
+          <h1>Vault Unlocked</h1>
+          <p>
+            Welcome back. Your vault <strong>{vaultId}</strong> is now accessible.
+          </p>
+          <div className="sv-vault-dashboard">
+            <div className="sv-vault-stat">
+              <span className="sv-vault-stat-label">Balance</span>
+              <span className="sv-vault-stat-value">— BTC</span>
+            </div>
+            <div className="sv-vault-stat">
+              <span className="sv-vault-stat-label">Status</span>
+              <span className="sv-vault-stat-value sv-pos">Secure</span>
+            </div>
+          </div>
+          <div className="sv-vault-actions">
+            <Link to="/" className="sv-btn-secondary">
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-
-        <div className="enter-vault-page">
-<section className="enter-vault-hero">
-
-<div className="vault-background">
-    <img
-        src={vaultDoor}
-        alt="Vault Door"
-        className="vault-door"
-    />
-</div>
-
-<div className="hero-overlay">
-
-<h1 className="vault-title">
-    Enter Your
-    <br />
-    <span>Secure Bitcoin Vault</span>
-</h1>
-
-<p className="vault-tagline">
-    Welcome back to ScraaVault
-</p>
-
-<p className="vault-description">
-    256-bit Encryption • Privacy First • Non-Custodial
-</p>
-
-<div className="gold-line"></div>
-      {message && <p>{message}</p>}
-
-      <form className="vault-form" 
-      onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={loginData.email}
-          onChange={(e) =>
-            setLoginData({
-              ...loginData,
-              email: e.target.value,
-            })
-          }
-        />
-       <div className="password-box">
-  <input
-    type={showPassword ? "text" : "password"}
-    placeholder="Password"
-    value={loginData.password}
-    onChange={(e) =>
-      setLoginData({
-        ...loginData,
-        password: e.target.value,
-      })
-    }
-  />
-
-  <button
-    type="button"
-    className="show-password-btn"
-    onClick={() => setShowPassword(!showPassword)}
-  >
-    👁
-  </button>
-</div>
-
-        <div className="remember-box">
-          <label>
-            <input type="checkbox" />
-            Remember this device
-          </label>
-          <a href="#">Forgot Password?</a>
+    <div className="sv-vault-page">
+      <div className="sv-vault-card sv-vault-enter">
+        <div className="sv-vault-header">
+          <div className="sv-vault-header-icon">
+            <FiLock />
+          </div>
+          <span className="sv-eyebrow" style={{ marginBottom: '12px' }}>Secure Access</span>
+          <h1>Enter Your Vault</h1>
+          <p className="sv-vault-subtitle">
+            Access your Bitcoin with privacy and confidence.
+          </p>
         </div>
-        <button type="submit">
-          🔓 Enter  Secure Vault
-        </button>
-      </form>
+
+        <div className="sv-vault-form">
+          <div className="sv-form-group">
+            <label className="sv-form-label">Vault ID</label>
+            <input
+              type="text"
+              className="sv-form-input"
+              placeholder="Enter your vault identifier"
+              value={vaultId}
+              onChange={(e) => setVaultId(e.target.value)}
+              autoFocus
+            />
+          </div>
+
+          <div className="sv-form-group">
+            <label className="sv-form-label">Password</label>
+            <input
+              type="password"
+              className="sv-form-input"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleEnter()}
+            />
+          </div>
+
+          <div className="sv-vault-notice">
+            <FiKey className="sv-vault-notice-icon" />
+            <span>Your credentials are processed locally. Nothing leaves your device.</span>
+          </div>
+
+          {error && <p className="sv-form-error">{error}</p>}
+
+          <div className="sv-vault-nav">
+            <button className="sv-btn-primary" onClick={handleEnter}>
+              <FiLock />
+              Unlock Vault
+              <FiArrowRight />
+            </button>
+          </div>
+
+          <div className="sv-vault-alt">
+            <span>Don't have a vault?</span>
+            <Link to="/create-vault">Create one</Link>
+          </div>
+        </div>
       </div>
-      </section>
     </div>
-  );
-  
+  )
 }
 
-export default EnterVault;
+export default EnterVault

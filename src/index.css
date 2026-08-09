@@ -1,114 +1,177 @@
+/* ================================================
+   SCRAAVULT DESIGN SYSTEM — Tokens & Globals
+   ================================================ */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* — Color: Backgrounds — */
+  --sv-bg-primary: #08080c;
+  --sv-bg-secondary: #0e0f15;
+  --sv-bg-elevated: #14161f;
+  --sv-bg-card: #111319;
+  --sv-bg-hover: #181a23;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* — Color: Accents (Gold/Orange) — */
+  --sv-accent: #f4b04d;
+  --sv-accent-bright: #ffc870;
+  --sv-accent-dim: #c9953a;
+  --sv-accent-muted: rgba(244, 176, 77, 0.12);
+  --sv-accent-border: rgba(244, 176, 77, 0.18);
+  --sv-accent-glow: rgba(244, 176, 77, 0.06);
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* — Color: Text — */
+  --sv-text-primary: #f5f6f8;
+  --sv-text-secondary: #b8c0ce;
+  --sv-text-muted: #7a8395;
+  --sv-text-dim: #565d6e;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* — Color: Semantic — */
+  --sv-green: #3ddc84;
+  --sv-green-muted: rgba(61, 220, 132, 0.12);
+  --sv-red: #ff5c5c;
+  --sv-red-muted: rgba(255, 92, 92, 0.12);
+
+  /* — Color: Borders — */
+  --sv-border: rgba(255, 255, 255, 0.06);
+  --sv-border-strong: rgba(255, 255, 255, 0.1);
+  --sv-border-accent: rgba(244, 176, 77, 0.15);
+
+  /* — Typography — */
+  --sv-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* — Spacing (8px base) — */
+  --sv-space-1: 8px;
+  --sv-space-2: 16px;
+  --sv-space-3: 24px;
+  --sv-space-4: 32px;
+  --sv-space-5: 40px;
+  --sv-space-6: 56px;
+  --sv-space-7: 72px;
+  --sv-space-8: 96px;
+
+  /* — Radius — */
+  --sv-radius-sm: 10px;
+  --sv-radius-md: 14px;
+  --sv-radius-lg: 18px;
+  --sv-radius-xl: 24px;
+
+  /* — Shadows — */
+  --sv-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.04);
+  --sv-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 1px rgba(244, 176, 77, 0.1);
+  --sv-shadow-glow: 0 0 40px rgba(244, 176, 77, 0.08);
+
+  /* — Transitions — */
+  --sv-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
+/* — Reset — */
+*,
+*::before,
+*::after {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+body {
+  font-family: var(--sv-font);
+  background: var(--sv-bg-primary);
+  color: var(--sv-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* — Scrollbar — */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sv-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 176, 77, 0.15);
   border-radius: 4px;
-  color: var(--text-h);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 176, 77, 0.25);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* — Shared utility classes — */
+.sv-eyebrow {
+  display: inline-block;
+  color: var(--sv-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  margin-bottom: 20px;
 }
-html{
-  scroll-behavior:smooth;
+
+.sv-heading {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.sv-description {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--sv-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.sv-section {
+  padding: var(--sv-space-7) var(--sv-space-2);
+  text-align: center;
+}
+
+.sv-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* — Light theme overrides — */
+.sv-light {
+  --sv-bg-primary: #f7f7fa;
+  --sv-bg-secondary: #ffffff;
+  --sv-bg-elevated: #ffffff;
+  --sv-bg-card: #ffffff;
+  --sv-bg-hover: #f0f1f5;
+  --sv-text-primary: #14161f;
+  --sv-text-secondary: #4a5060;
+  --sv-text-muted: #6b7280;
+  --sv-text-dim: #9ca3af;
+  --sv-border: rgba(0, 0, 0, 0.07);
+  --sv-border-strong: rgba(0, 0, 0, 0.1);
+  --sv-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 1px rgba(0, 0, 0, 0.04);
+  --sv-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1), 0 0 1px rgba(244, 176, 77, 0.15);
 }

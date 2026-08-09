@@ -1,0 +1,174 @@
+/* ================================================
+   SHARED SECTION CARD STYLES
+   ================================================ */
+
+/* — Promise cards — */
+.sv-promise-grid {
+  max-width: 960px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sv-promise-card {
+  position: relative;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-lg);
+  padding: 36px 28px 32px;
+  text-align: left;
+  transition: all var(--sv-transition);
+  overflow: hidden;
+  box-shadow: var(--sv-shadow-card);
+}
+
+.sv-promise-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sv-border-accent);
+  box-shadow: var(--sv-shadow-hover);
+}
+
+.sv-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sv-accent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--sv-transition);
+}
+
+.sv-promise-card:hover .sv-card-accent {
+  opacity: 0.6;
+}
+
+.sv-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--sv-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--sv-accent);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  margin-bottom: 20px;
+}
+
+.sv-promise-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--sv-text-primary);
+  margin-bottom: 10px;
+}
+
+.sv-promise-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--sv-text-secondary);
+}
+
+/* — Feature cards — */
+.sv-feature-grid {
+  max-width: 1080px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sv-feature-card {
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-md);
+  padding: 28px 24px;
+  text-align: left;
+  transition: all var(--sv-transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--sv-shadow-card);
+}
+
+.sv-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--sv-border-accent);
+  box-shadow: var(--sv-shadow-hover);
+}
+
+.sv-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--sv-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--sv-accent);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  flex-shrink: 0;
+}
+
+.sv-feature-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sv-text-primary);
+  margin-bottom: 8px;
+}
+
+.sv-feature-body p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--sv-text-secondary);
+}
+
+/* — Responsive — */
+@media (max-width: 1024px) {
+  .sv-promise-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 640px;
+  }
+
+  .sv-feature-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sv-promise-grid,
+  .sv-feature-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .sv-promise-card {
+    padding: 28px 22px 24px;
+  }
+
+  .sv-card-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  .sv-promise-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .sv-feature-card {
+    padding: 22px 20px;
+  }
+}

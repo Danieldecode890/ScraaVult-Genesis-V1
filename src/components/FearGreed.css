@@ -1,0 +1,81 @@
+.sv-fg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sv-fg-card {
+  max-width: 380px;
+  margin: 40px auto 0;
+  padding: 32px 28px;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-lg);
+  text-align: center;
+  box-shadow: var(--sv-shadow-card);
+}
+
+.sv-fg-gauge {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--sv-bg-hover);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.sv-fg-gauge-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.sv-fg-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.sv-fg-value {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sv-fg-label {
+  color: var(--sv-text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sv-fg-scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--sv-text-dim);
+  font-size: 0.75rem;
+}
+
+.sv-fg-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  color: var(--sv-text-muted);
+  font-size: 0.9rem;
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-fg-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+    margin-top: 32px;
+  }
+
+  .sv-fg-value {
+    font-size: 2.2rem;
+  }
+}

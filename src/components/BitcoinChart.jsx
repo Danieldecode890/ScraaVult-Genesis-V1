@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Line } from "react-chartjs-2";
-import "../styles/Responsive.css";
-import "../styles/BitcoinChart.css";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,80 +8,107 @@ import {
   PointElement,
   LineElement,
   Tooltip,
-  Legend,
-} from "chart.js";
+  Filler,
+} from 'chart.js'
+import './BitcoinChart.css'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler)
+
 function BitcoinChart() {
-useEffect(() => {
-  const fetchChart = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart",
-        {
-          params: {
-            vs_currency: "usd",
-            days: 7,
-          },
-        }
-      );
+  const [chartData, setChartData] = useState(null)
 
-      const prices = response.data.prices;
-
-      setChartData({
-        labels: prices.map((item) =>
-          new Date(item[0]).toLocaleDateString()
-        ),
-        datasets: [
-          {
-            label: "Bitcoin Price",
-            data: prices.map((item) => item[1]),
-            borderColor: "#f7931a",
-            backgroundColor: "rgba(247,147,26,0.2)",
+  useEffect(() => {
+    const fetchChart = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart', {
+          params: { vs_currency: 'usd', days: 7 },
+        })
+        const prices = res.data.prices
+        setChartData({
+          labels: prices.map((p) => new Date(p[0]).toLocaleDateString()),
+          datasets: [{
+            label: 'Bitcoin Price',
+            data: prices.map((p) => p[1]),
+            borderColor: '#f4b04d',
+            backgroundColor: (ctx) => {
+              const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300)
+              gradient.addColorStop(0, 'rgba(244, 176, 77, 0.12)')
+              gradient.addColorStop(1, 'rgba(244, 176, 77, 0)')
+              return gradient
+            },
             tension: 0.4,
-          },
-        ],
-      });
-    } catch (error) {
-      console.error(error);
+            borderWidth: 2,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: '#f4b04d',
+            fill: true,
+          }],
+        })
+      } catch (e) {
+        // silent fail
+      }
     }
-  };
 
-  fetchChart();
-}, []);
-const [chartData, setChartData] = useState(null);
+    fetchChart()
+  }, [])
 
-const options = {
+  const options = {
     responsive: true,
     maintainAspectRatio: false,
-};
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: 'rgba(8, 8, 12, 0.95)',
+        titleColor: '#f4b04d',
+        bodyColor: '#f5f6f8',
+        borderColor: 'rgba(244, 176, 77, 0.15)',
+        borderWidth: 1,
+        padding: 12,
+        cornerRadius: 10,
+        displayColors: false,
+        callbacks: {
+          label: (ctx) => `$${ctx.parsed.y.toLocaleString()}`,
+        },
+      },
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255, 255, 255, 0.03)' },
+        ticks: { color: '#565d6e', font: { size: 10 } },
+        border: { display: false },
+      },
+      y: {
+        grid: { color: 'rgba(255, 255, 255, 0.03)' },
+        ticks: {
+          color: '#565d6e',
+          font: { size: 10 },
+          callback: (v) => `$${v.toLocaleString()}`,
+        },
+        border: { display: false },
+      },
+    },
+  }
 
- return (
- <div className="bitcoin-chart">
-  <h2>Bitcoin Market Trend </h2>
-  <p className="chart-subtitle">
-    Live Bitcoin price movement over the last 7 days.
-  </p>
+  return (
+    <section className="sv-section sv-chart-section">
+      <span className="sv-eyebrow">Price Trend</span>
+      <h2 className="sv-heading">7-Day Bitcoin Market Trend</h2>
+      <p className="sv-description">
+        Live Bitcoin price movement over the last 7 days.
+      </p>
 
-  <div className="chart-card">
-    {chartData ? (
-      <Line 
-      data={chartData} 
-      options={options}
-    />
-    ) : (
-      <p>Loading chart...</p>
-    )}
-  </div>
-</div>
- )
+      <div className="sv-chart-container">
+        {chartData ? (
+          <Line data={chartData} options={options} />
+        ) : (
+          <div className="sv-chart-loading">
+            <div className="sv-chart-spinner" />
+            <span>Loading chart data...</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )
 }
 
-export default BitcoinChart;
+export default BitcoinChart

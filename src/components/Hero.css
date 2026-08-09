@@ -1,0 +1,227 @@
+.sv-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+}
+
+/* — Background glow — */
+.sv-hero-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(244, 176, 77, 0.06) 0%,
+    rgba(244, 176, 77, 0.01) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* — Content — */
+.sv-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* — Shield — */
+.sv-hero-shield-wrap {
+  margin-bottom: 28px;
+}
+
+.sv-hero-shield {
+  width: 56px;
+  height: 56px;
+  color: var(--sv-accent);
+  filter: drop-shadow(0 0 12px rgba(244, 176, 77, 0.15));
+  animation: sv-shield-float 6s ease-in-out infinite;
+}
+
+@keyframes sv-shield-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* — Eyebrow — */
+.sv-hero-eyebrow {
+  color: var(--sv-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  margin-bottom: 24px;
+}
+
+/* — Title — */
+.sv-hero-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--sv-text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+}
+
+/* — Headline — */
+.sv-hero-headline {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--sv-accent);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+/* — Text — */
+.sv-hero-text {
+  max-width: 460px;
+  color: var(--sv-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+/* — CTA — */
+.sv-hero-cta {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 44px;
+}
+
+.sv-btn-primary {
+  flex: 1;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sv-radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--sv-accent);
+  color: #0b0f19;
+  border: none;
+  transition: all var(--sv-transition);
+}
+
+.sv-btn-primary:hover {
+  background: var(--sv-accent-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 176, 77, 0.25);
+}
+
+.sv-btn-secondary {
+  flex: 1;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sv-radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--sv-text-secondary);
+  border: 1px solid var(--sv-border-strong);
+  transition: all var(--sv-transition);
+}
+
+.sv-btn-secondary:hover {
+  border-color: var(--sv-border-accent);
+  color: var(--sv-accent);
+  background: var(--sv-accent-muted);
+}
+
+/* — Trust indicators — */
+.sv-hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 24px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+}
+
+.sv-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sv-trust-icon {
+  font-size: 1rem;
+  color: var(--sv-accent);
+}
+
+.sv-trust-item span {
+  color: var(--sv-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.sv-trust-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--sv-border-strong);
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-hero {
+    min-height: auto;
+    padding: 60px 20px 48px;
+  }
+
+  .sv-hero-shield {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sv-hero-title {
+    font-size: 2rem;
+  }
+
+  .sv-hero-text {
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+  }
+
+  .sv-hero-cta {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .sv-btn-primary,
+  .sv-btn-secondary {
+    width: 100%;
+  }
+
+  .sv-hero-trust {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .sv-trust-item span {
+    font-size: 0.75rem;
+  }
+}
