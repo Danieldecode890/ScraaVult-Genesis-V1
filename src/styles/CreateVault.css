@@ -1,675 +1,509 @@
-/* =============================================== */
-/*               CREATE VAULT PAGE                  */
-/* =============================================== */
+/* =====================================================
+   SCRAAVAULT — CREATE VAULT
+   MOBILE-FIRST FOUNDATION
+===================================================== */
 
-.page{
-
-    min-height:100vh;
-
-    background:#070b14;
-
-    overflow-x:hidden;
-
-    color:#fff;
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(247, 185, 74, 0.08),
+      transparent 35%
+    ),
+    #07111f;
+  color: #ffffff;
+  box-sizing: border-box;
 }
 
-/* =============================================== */
-/*                  HERO SECTION                    */
-/* =============================================== */
+/* =====================================================
+   MAIN MOBILE SCREEN
+===================================================== */
 
-.vault-hero{
-
-    position:relative;
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:140px 20px 100px;
-
-    overflow:hidden;
+.vault-screen {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+  box-sizing: border-box;
 }
 
-/* =============================================== */
-/*               BACKGROUND IMAGE                   */
-/* =============================================== */
+/* =====================================================
+   HEADER
+===================================================== */
 
-.vault-background{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    pointer-events:none;
+.vault-header {
+  text-align: center;
+  padding: 12px 0 28px;
 }
 
-.vault-door{
-
-    width:620px;
-
-    max-width:90%;
-
-    opacity:.08;
-
-    animation:vaultFloat 8s ease-in-out infinite;
+.vault-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: 14px;
 }
 
-/* =============================================== */
-/*                 CONTENT AREA                     */
-/* =============================================== */
-
-.hero-overlay{
-
-    position:relative;
-
-    z-index:2;
-
-    width:100%;
-
-    max-width:1100px;
-
-    margin:auto;
-
-    text-align:center;
+.vault-header h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-/* =============================================== */
-/*                    TITLE                         */
-/* =============================================== */
-
-.vault-title{
-
-    font-size:72px;
-
-    font-weight:800;
-
-    line-height:1.1;
-
-    margin-bottom:20px;
+.vault-subtitle {
+  margin: 10px auto 0;
+  max-width: 330px;
+  color: #9da9b8;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.vault-title span{
+/* =====================================================
+   FORM CARD
+===================================================== */
 
-    color:#f4b04d;
+.vault-form {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 24px 18px;
+
+  background: rgba(17, 30, 48, 0.92);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
-/* =============================================== */
-/*                  TAGLINE                         */
-/* =============================================== */
-
-.vault-tagline{
-
-    font-size:18px;
-
-    color:#f4b04d;
-
-    letter-spacing:3px;
-
-    margin-bottom:25px;
-
-    text-transform:uppercase;
+.form-heading {
+  margin-bottom: 24px;
 }
 
-/* =============================================== */
-/*                DESCRIPTION                       */
-/* =============================================== */
-
-.vault-description{
-
-    max-width:720px;
-
-    margin:0 auto;
-
-    color:#d1d5db;
-
-    font-size:20px;
-
-    line-height:1.8;
+.form-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
 }
 
-/* =============================================== */
-/*                 GOLD DIVIDER                     */
-/* =============================================== */
-
-.gold-line{
-
-    width:120px;
-
-    height:4px;
-
-    background:#f4b04d;
-
-    border-radius:50px;
-
-    margin:45px auto 70px;
+.form-subtitle {
+  margin: 7px 0 0;
+  color: #8f9aaa;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-/* =============================================== */
-/*                  ANIMATION                       */
-/* =============================================== */
+/* =====================================================
+   FORM FIELDS
+===================================================== */
 
-@keyframes vaultFloat{
+.field {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-    0%{
+.input-label {
+  display: block;
+  margin-bottom: 8px;
 
-        transform:translateY(0px);
+  color: #e9edf2;
 
-    }
+  font-size: 13px;
+  font-weight: 600;
+}
 
-    50%{
+/* =====================================================
+   INPUT GROUP
+===================================================== */
 
-        transform:translateY(-10px);
+.input-group {
+  position: relative;
 
-    }
+  width: 100%;
+  min-height: 54px;
 
-    100%{
+  display: flex;
+  align-items: center;
 
-        transform:translateY(0px);
+  box-sizing: border-box;
 
-    }
+  background: #f5f7f9;
+
+  border: 1px solid transparent;
+
+  border-radius: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-group:focus-within {
+  border-color: #f7b94a;
+
+  box-shadow:
+    0 0 0 3px rgba(247, 185, 74, 0.12);
+}
+
+.input-icon {
+  flex-shrink: 0;
+
+  margin-left: 16px;
+
+  color: #7d8792;
+
+  font-size: 16px;
+}
+
+.input-group input {
+  width: 100%;
+  min-width: 0;
+
+  height: 52px;
+
+  padding: 0 14px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #17202b;
+
+  font-size: 15px;
+
+  box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+  color: #9ba3ad;
+}
+
+/* =====================================================
+   EYE BUTTON
+===================================================== */
+
+.eye-btn {
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+
+  margin-right: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: #7c8792;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}
+
+.eye-btn:hover {
+  color: #f7b94a;
+}
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+.password-strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 9px;
+
+  font-size: 12px;
+  color: #8f9aaa;
+}
+
+.password-strength strong {
+  color: #f7b94a;
+  font-weight: 600;
+}
+
+/* =====================================================
+   PASSWORD CHECKLIST
+===================================================== */
+
+.password-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 12px;
+  padding: 13px;
+
+  background: rgba(7, 17, 31, 0.55);
+
+  border-radius: 13px;
+}
+
+.check {
+  font-size: 11px;
+  color: #687587;
+}
+
+.check.success {
+  color: #67d88b;
+}
+
+/* =====================================================
+   PASSWORD MATCH
+===================================================== */
+
+.password-match {
+  margin-top: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.password-match.success {
+  color: #67d88b;
+}
+
+.password-match.error {
+  color: #ff7373;
+}
+
+/* =====================================================
+   CREATE BUTTON
+===================================================== */
+
+.view-btn {
+  width: 100%;
+  min-height: 56px;
+
+  margin-top: 6px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #f7b94a,
+    #e89b2d
+  );
+
+  color: #111923;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(247, 185, 74, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.view-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 14px 30px rgba(247, 185, 74, 0.24);
+}
+
+.view-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =====================================================
+   ENTER VAULT
+===================================================== */
+
+.login-link {
+  margin: 18px 0 0;
+
+  text-align: center;
+
+  color: #8f9aaa;
+
+  font-size: 13px;
+}
+
+.login-link span {
+  margin-left: 5px;
+
+  color: #f7b94a;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* =====================================================
+   SECURITY SECTION
+===================================================== */
+
+.vault-security {
+  margin-top: 28px;
+}
+
+.section-heading {
+  margin-bottom: 15px;
+}
+
+.section-heading span {
+  color: #f7b94a;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+  margin: 5px 0 0;
+
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+/* =====================================================
+   SECURITY GRID
+   2 x 2 ON PHONE
+===================================================== */
+
+.security-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.security-card {
+  min-height: 104px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  background: rgba(17, 30, 48, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 17px;
+
+  text-align: center;
+}
+
+.security-icon {
+  margin-bottom: 8px;
+
+  font-size: 23px;
+}
+
+.security-card p {
+  margin: 0;
+
+  color: #dce2e9;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   SECURITY WARNING
+===================================================== */
+
+.security-warning {
+  margin-top: 12px;
+
+  padding: 17px;
+
+  box-sizing: border-box;
+
+  background: rgba(247, 185, 74, 0.055);
+
+  border: 1px solid rgba(247, 185, 74, 0.18);
+
+  border-radius: 17px;
+}
+
+.security-warning h3 {
+  margin: 0 0 8px;
+
+  color: #f7b94a;
+
+  font-size: 14px;
+}
+
+.security-warning p {
+  margin: 0;
+
+  color: #9ca8b7;
+
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (min-width: 600px) {
+
+  .vault-screen {
+    padding: 38px 24px 60px;
+  }
+
+  .vault-form {
+    padding: 30px 26px;
+  }
 
 }
 
-/* =============================================== */
-/*                  VAULT LOGO                      */
-/* =============================================== */
+/* =====================================================
+   DESKTOP
+   STILL KEEPS MOBILE-FIRST FEEL
+===================================================== */
 
-.vault-logo{
+@media (min-width: 900px) {
 
-    position:absolute;
+  .vault-screen {
+    max-width: 620px;
+    padding-top: 55px;
+  }
 
-    top:35px;
+  .vault-header h1 {
+    font-size: 34px;
+  }
 
-    left:50%;
+  .vault-form {
+    padding: 34px;
+  }
 
-    transform:translateX(-50%);
+  .security-grid {
+    gap: 14px;
+  }
 
-    width:90px;
-
-    height:90px;
-
-    object-fit:contain;
-
-    z-index:20;
-
-    transition:all .35s ease;
-}
-
-.vault-logo:hover{
-
-    transform:translateX(-50%) scale(1.05);
-
-    filter:drop-shadow(0 0 20px rgba(244,176,77,.35));
-
-}
-
-/* =============================================== */
-/*                SECURITY GRID                     */
-/* =============================================== */
-
-.security-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-
-    max-width:1000px;
-
-    margin:0 auto 70px;
-}
-
-/* =============================================== */
-/*                SECURITY CARD                     */
-/* =============================================== */
-
-.security-card{
-
-    background:rgba(17,24,39,.88);
-
-    border:1px solid rgba(244,176,77,.15);
-
-    border-radius:22px;
-
-    padding:30px;
-
-    text-align:center;
-
-    backdrop-filter:blur(16px);
-
-    transition:all .35s ease;
-
-    box-shadow:0 18px 45px rgba(0,0,0,.25);
-}
-
-.security-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#f4b04d;
-
-    box-shadow:0 22px 55px rgba(244,176,77,.18);
-}
-
-/* =============================================== */
-/*                    ICON                          */
-/* =============================================== */
-
-.security-icon{
-
-    font-size:42px;
-
-    margin-bottom:18px;
-}
-
-/* =============================================== */
-/*                    TITLE                         */
-/* =============================================== */
-
-.security-card h3{
-
-    color:#ffffff;
-
-    font-size:24px;
-
-    font-weight:700;
-
-    margin-bottom:14px;
-}
-
-/* =============================================== */
-/*                 DESCRIPTION                      */
-/* =============================================== */
-
-.security-card p{
-
-    color:#d1d5db;
-
-    font-size:16px;
-
-    line-height:1.7;
-}
-
-
-/* =============================================== */
-/*              SECURITY NOTICE                     */
-/* =============================================== */
-
-.security-warning{
-
-    max-width:900px;
-
-    margin:0 auto 60px;
-
-    padding:35px;
-
-    background:rgba(244,176,77,.08);
-
-    border:1px solid rgba(244,176,77,.25);
-
-    border-left:5px solid #f4b04d;
-
-    border-radius:22px;
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:0 18px 45px rgba(0,0,0,.18);
-}
-
-/* =============================================== */
-/*                 NOTICE TITLE                     */
-/* =============================================== */
-
-.security-warning h3{
-
-    color:#f4b04d;
-
-    font-size:28px;
-
-    font-weight:700;
-
-    margin-bottom:20px;
-}
-
-/* =============================================== */
-/*                 NOTICE TEXT                      */
-/* =============================================== */
-
-.security-warning p{
-
-    color:#d1d5db;
-
-    font-size:17px;
-
-    line-height:1.9;
-
-    margin-bottom:12px;
-}
-
-.security-warning p:last-child{
-
-    margin-bottom:0;
-}
-
-/* =============================================== */
-/*                  VAULT FORM                      */
-/* =============================================== */
-
-.vault-form{
-
-    max-width:760px;
-
-    margin:0 auto 80px;
-
-    padding:45px;
-
-    background:rgba(17,24,39,.92);
-
-    border:1px solid rgba(244,176,77,.18);
-
-    border-radius:28px;
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:0 25px 60px rgba(0,0,0,.30);
-}
-
-/* =============================================== */
-/*                FORM TITLE                        */
-/* =============================================== */
-
-.form-title{
-
-    font-size:38px;
-
-    font-weight:800;
-
-    color:#ffffff;
-
-    text-align:center;
-
-    margin-bottom:12px;
-}
-
-.form-subtitle{
-
-    color:#bfc8d4;
-
-    font-size:17px;
-
-    text-align:center;
-
-    margin-bottom:40px;
-
-    line-height:1.7;
-}
-
-/* =============================================== */
-/*                 LABELS                           */
-/* =============================================== */
-
-.input-label{
-
-    display:block;
-
-    margin-bottom:10px;
-
-    margin-top:22px;
-
-    color:#f4b04d;
-
-    font-weight:600;
-
-    font-size:15px;
-}
-
-/* =============================================== */
-/*               INPUT GROUP                        */
-/* =============================================== */
-
-.input-group{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    margin-bottom:18px;
-}
-
-/* =============================================== */
-/*                 INPUT ICON                       */
-/* =============================================== */
-
-.input-icon{
-
-    position:absolute;
-
-    left:18px;
-
-    color:#f4b04d;
-
-    font-size:18px;
-
-    z-index:2;
-}
-
-/* =============================================== */
-/*                   INPUTS                         */
-/* =============================================== */
-
-.input-group input{
-
-    width:100%;
-
-    height:60px;
-
-    padding:0 20px 0 55px;
-
-    background:#0b1220;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    border-radius:16px;
-
-    color:#ffffff;
-
-    font-size:16px;
-
-    transition:all .30s ease;
-
-    outline:none;
-}
-
-.input-group input::placeholder{
-
-    color:#8b97a8;
-}
-
-.input-group input:focus{
-
-    border-color:#f4b04d;
-
-    box-shadow:0 0 0 4px rgba(244,176,77,.12);
-}
-
-/* =============================================== */
-/*             PASSWORD STRENGTH                    */
-/* =============================================== */
-
-.password-strength{
-
-    margin:18px 0 15px;
-
-    color:#cfd6df;
-
-    font-size:15px;
-
-    font-weight:600;
-}
-
-.password-strength span{
-
-    color:#f4b04d;
-
-    font-weight:700;
-}
-
-/* =============================================== */
-/*            PASSWORD CHECKLIST                    */
-/* =============================================== */
-
-.password-checklist{
-
-    margin:20px 0 30px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-    background:rgba(255,255,255,.03);
-
-    border:1px solid rgba(244,176,77,.10);
-
-    border-radius:18px;
-
-    padding:22px;
-}
-
-.check{
-
-    color:#8b97a8;
-
-    font-size:15px;
-
-    transition:.30s ease;
-}
-
-.check.success{
-
-    color:#22c55e;
-
-    font-weight:600;
-}
-
-/* =============================================== */
-/*             PASSWORD MATCH                       */
-/* =============================================== */
-
-.password-match{
-
-    margin-top:14px;
-
-    font-size:15px;
-
-    font-weight:600;
-}
-
-.password-match.success{
-
-    color:#22c55e;
-}
-
-.password-match.error{
-
-    color:#ef4444;
-}
-
-/* =============================================== */
-/*                SHOW PASSWORD                     */
-/* =============================================== */
-
-.vault-form button[type="button"]{
-
-    width:52px;
-
-    height:52px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:#111827;
-
-    color:#f4b04d;
-
-    cursor:pointer;
-
-    transition:.30s ease;
-
-    margin-top:12px;
-}
-
-.vault-form button[type="button"]:hover{
-
-    background:#f4b04d;
-
-    color:#070b14;
-
-    transform:translateY(-2px);
-}
-
-/* =============================================== */
-/*            CREATE VAULT BUTTON                   */
-/* =============================================== */
-
-.view-btn{
-
-    width:100%;
-
-    height:62px;
-
-    margin-top:35px;
-
-    border:none;
-
-    border-radius:18px;
-
-    background:linear-gradient(
-        135deg,
-        #f4b04d,
-        #ffcb73
-    );
-
-    color:#070b14;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.35s ease;
-
-    box-shadow:0 15px 35px rgba(244,176,77,.25);
-}
-
-.view-btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 20px 45px rgba(244,176,77,.35);
-}
-
-.view-btn:disabled{
-
-    opacity:.7;
-
-    cursor:not-allowed;
-
-    transform:none;
 }
