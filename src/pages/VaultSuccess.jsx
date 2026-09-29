@@ -1,115 +1,95 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FiCheckCircle, FiShield, FiLock, FiAlertTriangle, FiKey, FiArrowRight } from "react-icons/fi";
 import "../styles/VaultSuccess.css";
-import "../styles/Responsive.css";
 
 function VaultSuccess() {
   const navigate = useNavigate();
   const [score, setScore] = useState(0);
 
-useEffect(() => {
-  let current = 0;
+  useEffect(() => {
+    let current = 0;
+    const timer = setInterval(() => {
+      current++;
+      setScore(current);
+      if (current >= 70) {
+        clearInterval(timer);
+      }
+    }, 20);
+    return () => clearInterval(timer);
+  }, []);
 
-  const timer = setInterval(() => {
-    current++;
-
-    setScore(current);
-
-    if (current >= 70) {
-      clearInterval(timer);
-    }
-  }, 20);
-
-  return () => clearInterval(timer);
-}, []);
+  const checklist = [
+    { icon: FiCheckCircle, label: "Vault Created", status: "complete" },
+    { icon: FiLock, label: "Password Protected", status: "complete" },
+    { icon: FiKey, label: "Recovery Phrase Missing", status: "warning" },
+    { icon: FiShield, label: "Two-Factor Authentication", status: "pending" },
+    { icon: FiShield, label: "Email Verification", status: "pending" },
+  ];
 
   return (
-    <div className="vault-success-page">
+    <div className="sv-vault-success-page">
+      <div className="sv-vault-success-card">
+        <div className="sv-vault-success-badge">
+          <FiCheckCircle />
+        </div>
 
-      <div className="success-card">
+        <span className="sv-eyebrow">Vault Created</span>
 
-         <h1> 🎉 Vault Created Successfully</h1>
-            
-        <p>
+        <h1>Vault Created Successfully</h1>
+
+        <p className="sv-vault-success-desc">
           Your Bitcoin Vault has been created and is ready to use.
         </p>
 
-        <div className="security-score">
+        <div className="sv-security-score">
           <h2>Current Security</h2>
 
-          <div className="score-circle">
-
+          <div className="sv-score-circle">
             <span>{score}%</span>
           </div>
-           <h3>Good Security</h3>
 
-          <p>
-            Your vault is not fully protected yet.
-          </p>
+          <h3>Good Security</h3>
+
+          <p>Your vault is not fully protected yet.</p>
         </div>
 
-        ⚠ Important Security Notice
+        <div className="sv-security-checklist">
+          {checklist.map((item, i) => (
+            <div key={i} className={`sv-checklist-item sv-checklist-${item.status}`}>
+              <item.icon className="sv-checklist-icon" />
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
 
-        Your Recovery Phrase has not been saved.
+        <div className="sv-warning-card">
+          <div className="sv-warning-card-header">
+            <FiAlertTriangle className="sv-warning-card-icon" />
+            <h2>Important Security Notice</h2>
+          </div>
+          <p>Your Recovery Phrase has not been saved.</p>
+          <p>Without it, ScraaVault cannot recover your Bitcoin if your device is lost.</p>
+        </div>
 
-    Without it, ScraaVault cannot recover your Bitcoin if your device is lost.
+        <div className="sv-vault-success-actions">
+          <button
+            className="sv-btn-primary"
+            onClick={() => navigate("/recovery-phrase")}
+          >
+            <FiLock />
+            Secure My Vault Now
+            <FiArrowRight />
+          </button>
 
-   <div className="security-checklist">
-
-<div className="item complete">
-✅ Vault Created
-</div>
-
-<div className="item complete">
-✅ Password Protected
-</div>
-
-<div className="item warning">
-⚠ Recovery Phrase Missing
-</div>
-
-<div className="item pending">
-⬜ Two-Factor Authentication
-</div>
-
-<div className="item pending">
-⬜ Email Verification
-</div>
-
-</div>
-
-<div className="warning-card">
-
-<h2>⚠ Important Security Notice</h2>
-
-<p>
-Your Recovery Phrase has not been saved.
-</p>
-
-<p>
-Without it, ScraaVault cannot recover your Bitcoin if your device is lost.
-</p>
-
-</div>
-
-        <button
-          className="primary-btn"
-          onClick={() => navigate("/recovery-phrase")}
-        >
-          🔒 Secure My Vault Now
-        </button>
-
-         <br></br>
-        
-        <button
-          className="secondary-btn"
-          onClick={() => navigate("/enter-vault")}
-        >
-          Do This Later
-        </button>
-
+          <button
+            className="sv-btn-secondary"
+            onClick={() => navigate("/enter-vault")}
+          >
+            Do This Later
+          </button>
+        </div>
       </div>
-
     </div>
   );
 }
