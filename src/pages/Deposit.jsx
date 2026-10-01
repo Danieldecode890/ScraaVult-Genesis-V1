@@ -1,171 +1,134 @@
 import { useState } from "react";
-import "../styles/Dashboard.css";
-import "../styles/Responsive.css";
+import { useNavigate } from "react-router-dom";
+import {
+  FiArrowLeft,
+  FiCopy,
+  FiCheck,
+  FiLock,
+  FiShield,
+  FiAlertTriangle,
+  FiQrCode,
+} from "react-icons/fi";
+import "../styles/Deposit.css";
+
 function Deposit() {
-    const walletAddress =
-    "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  const navigate = useNavigate();
 
-    const[copied,setCopied] = useState(false);
+  const walletAddress = "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-    const copyAddress = async () => {
-  await navigator.clipboard.writeText(walletAddress);
+  const [copied, setCopied] = useState(false);
 
-  setCopied(true);
-
+  const copyAddress = async () => {
+    await navigator.clipboard.writeText(walletAddress);
+    setCopied(true);
     setTimeout(() => {
-     setCopied(false);
-  }, 2000);
-};
+      setCopied(false);
+    }, 2000);
+  };
+
+  const infoItems = [
+    { label: "Network", value: "Bitcoin" },
+    { label: "Minimum Deposit", value: "0.0001 BTC" },
+    { label: "Confirmations", value: "3 Required" },
+  ];
 
   return (
-    <div className="page">
-      <div className="deposit-header">
+    <div className="sv-deposit-page">
+      <button
+        className="sv-deposit-back-btn"
+        onClick={() => navigate("/dashboard")}
+      >
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
 
-    <div>
-
-        <h1 className="deposit-title">
-
-            Deposit Crypto
-
-        </h1>
-         <br></br>
-        <p className="deposit-subtitle">
-
+      <div className="sv-deposit-header">
+        <div>
+          <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
+            Receive Funds
+          </span>
+          <h1 className="sv-deposit-title">Deposit Crypto</h1>
+          <p className="sv-deposit-subtitle">
             Securely receive cryptocurrency into your ScraaVault.
-
-        </p>
-
-    </div>
-
-    <div className="deposit-status">
-
-        🟢 Deposit Ready
-
-    </div>
-
-</div>
-
-      <div className="wallet-card deposit-card">
-        <div className="deposit-summary">
-
-    <div>
-
-        <h2>
-
-            Receive Cryptocurrency
-
-        </h2>
-
-        <p>
-
-            Select an asset to generate a secure deposit address.
-
-        </p>
-
-    </div>
-
-    <div className="secure-badge">
-
-       🔒 AES-256
-
-    </div>
-
+          </p>
+        </div>
+        <div className="sv-deposit-status">
+          <span className="sv-deposit-status-dot" />
+          Deposit Ready
+        </div>
       </div>
 
-    <label className="deposit-label">
+      <div className="sv-deposit-card">
+        <div className="sv-deposit-summary">
+          <div>
+            <h2>Receive Cryptocurrency</h2>
+            <p>Select an asset to generate a secure deposit address.</p>
+          </div>
+          <div className="sv-secure-badge">
+            <FiLock className="sv-secure-badge-icon" />
+            AES-256
+          </div>
+        </div>
 
-    Select Asset
+        <div className="sv-form-group">
+          <label className="sv-form-label">Select Asset</label>
+          <select className="sv-deposit-select">
+            <option>Bitcoin (BTC)</option>
+            <option>Ethereum (ETH)</option>
+            <option>Tether (USDT)</option>
+            <option>Litecoin (LTC)</option>
+          </select>
+        </div>
 
-    </label>
+        <div className="sv-form-group">
+          <label className="sv-form-label">Deposit Address</label>
+          <div className="sv-address-box">
+            <span className="sv-address-label">Secure Wallet Address</span>
+            <p className="sv-wallet-address">{walletAddress}</p>
+          </div>
+        </div>
 
-        <select className="input">
-          <option>Bitcoin (BTC)</option>
-          <option>Ethereum (ETH)</option>
-          <option>Tether (USDT)</option>
-          <option>Litecoin (LTC)</option>
-        </select>
-
-        <br /><br />
-
-        <label className="deposit-label">
-          Deposit Address
-          </label> 
-           
-          <div className="address-box premium-address">
-
-    <span className="address-label">
-
-        Secure Wallet Address
-
-    </span>
-
-    <p className="wallet-address">
-
-        {walletAddress}
-
-    </p>
-
-</div>
-    
-
-        <br />
-
-        <button 
-        className="view-btn"
-        onClick={copyAddress}
-        >
-         {copied ?"✅ Address Copied" : "📋 Copy Address"}
+        <button className="sv-deposit-copy-btn" onClick={copyAddress}>
+          {copied ? (
+            <>
+              <FiCheck />
+              Address Copied
+            </>
+          ) : (
+            <>
+              <FiCopy />
+              Copy Address
+            </>
+          )}
         </button>
-        <div className="qr-box premium-qr">
+
+        <div className="sv-qr-section">
           <h3>
+            <FiQrCode className="sv-qr-icon" />
             Scan QR Code
           </h3>
-            <div className="fake-qr">
-             QR CODE
+          <div className="sv-fake-qr">QR CODE</div>
+        </div>
+
+        <div className="sv-deposit-info-grid">
+          {infoItems.map((item, i) => (
+            <div key={i} className="sv-info-item">
+              <strong>{item.label}</strong>
+              <span>{item.value}</span>
             </div>
-            </div>
-          <div className="info-item">
+          ))}
+        </div>
 
-<strong>Network</strong>
-
-<span>Bitcoin</span>
-
-</div>
-
-<div className="info-item">
-
-<strong>Minimum Deposit</strong>
-
-<span>0.0001 BTC</span>
-
-</div>
-
-<div className="info-item">
-
-<strong>Confirmations</strong>
-
-<span>3 Required</span>
-
-</div>
-
-        <br /><br />
-        <div className="security-notice premium-security">
-  <h3>
-    🛡ScraaVault Security Notice</h3>
-
-  <p>
-    Only send the selected cryptocurrency to this address.
-  </p>
-
-  <p>
-    Sending the wrong asset or network may result in permanent loss.
-  </p>
-
-  <p>
-    ScraaVult will never ask for your recovery phrase or private keys.
-  </p>
-</div>
-</div>
+        <div className="sv-deposit-notice">
+          <div className="sv-deposit-notice-header">
+            <FiAlertTriangle className="sv-deposit-notice-icon" />
+            <h3>ScraaVault Security Notice</h3>
+          </div>
+          <p>Only send the selected cryptocurrency to this address.</p>
+          <p>Sending the wrong asset or network may result in permanent loss.</p>
+          <p>ScraaVault will never ask for your recovery phrase or private keys.</p>
+        </div>
+      </div>
     </div>
   );
 }
