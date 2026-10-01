@@ -1,0 +1,247 @@
+/* ================================================
+   SCRAAVAULT — Asset Details
+   Matches the EnterVault / Dashboard / Portfolio
+   design system
+   ================================================ */
+
+.sv-asset-details-page {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  min-height: calc(100vh - 64px - 280px);
+  padding: 48px 24px;
+  position: relative;
+}
+
+.sv-asset-details-page::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(244, 176, 77, 0.03) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* — Back button — */
+.sv-asset-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--sv-radius-sm);
+  border: 1px solid var(--sv-border-strong);
+  background: var(--sv-bg-card);
+  color: var(--sv-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--sv-transition);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.sv-asset-back-btn:hover {
+  border-color: var(--sv-border-accent);
+  color: var(--sv-accent);
+}
+
+/* — Main card — */
+.sv-asset-details-card {
+  position: relative;
+  z-index: 2;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--sv-shadow-card), var(--sv-shadow-glow);
+  animation: svAssetFadeUp 0.6s ease;
+}
+
+@keyframes svAssetFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* — Header — */
+.sv-asset-details-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.sv-asset-details-token {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  color: var(--sv-accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  letter-spacing: 0.5px;
+}
+
+.sv-asset-details-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  margin-bottom: 4px;
+}
+
+.sv-asset-details-symbol {
+  color: var(--sv-text-muted);
+  font-size: 0.88rem;
+}
+
+/* — Balance — */
+.sv-asset-details-balance {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sv-asset-details-label {
+  color: var(--sv-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.sv-asset-details-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sv-asset-details-lock {
+  color: var(--sv-text-dim);
+  font-size: 1.1rem;
+}
+
+.sv-asset-details-value span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sv-text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* — Status — */
+.sv-asset-details-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-green-muted);
+  border: 1px solid rgba(61, 220, 132, 0.15);
+  color: var(--sv-green);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.sv-asset-details-shield {
+  font-size: 1rem;
+}
+
+/* — Divider — */
+.sv-asset-details-divider {
+  border: none;
+  border-top: 1px solid var(--sv-border);
+  margin: 28px 0 24px;
+}
+
+/* — Actions — */
+.sv-asset-details-actions-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  margin-bottom: 16px;
+}
+
+.sv-asset-details-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.sv-asset-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px 12px;
+  border-radius: var(--sv-radius-md);
+  border: 1px solid var(--sv-border);
+  background: var(--sv-bg-elevated);
+  color: var(--sv-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--sv-transition);
+  text-align: center;
+}
+
+.sv-asset-action-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--sv-border-accent);
+  color: var(--sv-accent);
+  box-shadow: var(--sv-shadow-hover);
+}
+
+.sv-asset-action-icon {
+  font-size: 1.4rem;
+  color: var(--sv-accent);
+}
+
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-asset-details-page {
+    padding: 32px 16px;
+  }
+
+  .sv-asset-details-card {
+    padding: 28px 20px;
+    border-radius: var(--sv-radius-lg);
+  }
+
+  .sv-asset-details-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .sv-asset-details-value span {
+    font-size: 1.6rem;
+  }
+
+  .sv-asset-details-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-asset-action-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+}
