@@ -1,168 +1,127 @@
 import { useState } from "react";
+import {
+  FiArrowLeft,
+  FiCheckCircle,
+  FiCopy,
+  FiCheck,
+  FiGlobe,
+  FiArrowDown,
+  FiShield,
+} from "react-icons/fi";
 import "../styles/TransactionDetails.css";
-import "../styles/Responsive.css";
+
 function TransactionDetails() {
-    const txid = "8f7a2c9d0a4b7e6c123456789abcdef";
+  const txid = "8f7a2c9d0a4b7e6c123456789abcdef";
 
-const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-const copyTxid = async () => {
-  await navigator.clipboard.writeText(txid);
+  const copyTxid = async () => {
+    await navigator.clipboard.writeText(txid);
 
-  setCopied(true);
+    setCopied(true);
 
-  setTimeout(() => {
-    setCopied(false);
-  }, 2000);
-};
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
+  const detailItems = [
+    { label: "Amount", value: "+0.005 BTC", highlight: "in" },
+    { label: "Status", value: "Completed", highlight: "complete" },
+    { label: "Network", value: "Bitcoin" },
+    { label: "Confirmations", value: "6 / 6" },
+    { label: "Date", value: "22 July 2026" },
+    { label: "Transaction Fee", value: "0.00002 BTC" },
+  ];
+
   return (
-    <div className="page">
-      <div className="details-header">
+    <div className="sv-td-page">
+      <button
+        className="sv-td-back-btn"
+        onClick={() => window.history.back()}
+      >
+        <FiArrowLeft />
+        Back
+      </button>
 
-    <div>
-
-        <h1 className="details-title">
-
-            Transaction Details
-
-        </h1>
-
-        <p className="details-subtitle">
-
+      <div className="sv-td-header">
+        <div>
+          <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
+            On-Chain Record
+          </span>
+          <h1 className="sv-td-title">Transaction Details</h1>
+          <p className="sv-td-subtitle">
             Secure blockchain transaction record.
+          </p>
+        </div>
+        <div className="sv-td-status">
+          <FiCheckCircle className="sv-td-status-icon" />
+          Confirmed
+        </div>
+      </div>
 
-        </p>
-
-    </div>
-
-    <div className="details-status">
-
-        ✅ Confirmed
-
-    </div>
-
-</div>
-
-      <div className="wallet-card details-card">
-        <div className="details-summary">
-
-    <div>
-
-        <h2>
-
-            Bitcoin Deposit
-
-        </h2>
-
-        <p>
-
-            Verified on the Bitcoin Blockchain.
-
-        </p>
-
-    </div>
-
-    <div className="network-badge">
-
-        BTC Network
-
+      <div className="sv-td-card">
+        <div className="sv-td-summary">
+          <div className="sv-td-summary-left">
+            <div className="sv-td-summary-icon">
+              <FiArrowDown />
+            </div>
+            <div>
+              <h2>Bitcoin Deposit</h2>
+              <p>Verified on the Bitcoin Blockchain.</p>
+            </div>
+          </div>
+          <div className="sv-td-network-badge">BTC Network</div>
         </div>
 
-    </div>
+        <div className="sv-td-details-list">
+          {detailItems.map((item, i) => (
+            <div key={i} className="sv-td-detail-item">
+              <span className="sv-td-detail-label">{item.label}</span>
+              <span
+                className={
+                  "sv-td-detail-value" +
+                  (item.highlight === "in" ? " sv-td-detail-value--in" : "") +
+                  (item.highlight === "complete" ? " sv-td-detail-value--complete" : "")
+                }
+              >
+                {item.value}
+              </span>
+            </div>
+          ))}
+        </div>
 
-        <div className="detail-item">
+        <hr className="sv-td-divider" />
 
-<strong>Amount</strong>
-
-<span>
-
-+0.005 BTC
-
-</span>
-
-</div>
-        <div className="detail-item">
-
-<strong>Status</strong>
-
-<span className="complete">
-
-Completed
-
-</span>
-
-</div>
-       
-<div className="detail-item">
-
-<strong>Network</strong>
-
-<span>
-
-Bitcoin
-
-</span>
-
-</div>
-        <div className="detail-item">
-
-<strong>Confirmations</strong>
-
-<span>
-
-6 / 6
-
-</span>
-
-</div>
-        <div className="detail-item">
-
-<strong>Date</strong>
-
-<span>
-
-22 July 2026
-
-</span>
-
-</div>
-        
-<div className="detail-item">
-
-<strong>Transaction Fee</strong>
-
-<span>
-
-0.00002 BTC
-
-</span>
-
-</div>
-
-
-        <hr />
-
-        <h3 className="txid-title">
+        <h3 className="sv-td-txid-title">
+          <FiShield className="sv-td-txid-icon" />
           Blockchain Transaction ID
-          </h3>
+        </h3>
 
-        <div className="address-box premium-txid">
+        <div className="sv-td-txid-box">
           {txid}
         </div>
 
-        <br />
-
-        <button 
-        className="view-btn"
-        onClick={copyTxid}
+        <button
+          className="sv-td-copy-btn"
+          onClick={copyTxid}
         >
-         {copied ? " ✅ TXID Copied":"📋 Copy TXID"}
+          {copied ? (
+            <>
+              <FiCheck />
+              TXID Copied
+            </>
+          ) : (
+            <>
+              <FiCopy />
+              Copy TXID
+            </>
+          )}
         </button>
 
-        <br /><br />
-
-        <button className="view-btn explorer-btn">
-          🌐 View on Blockchain Explorer
+        <button className="sv-td-explorer-btn">
+          <FiGlobe />
+          View on Blockchain Explorer
         </button>
       </div>
     </div>
