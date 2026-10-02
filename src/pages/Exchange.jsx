@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
+import {
+  FiArrowDown,
+  FiRefreshCw,
+  FiTrash2,
+  FiActivity,
+  FiClock,
+  FiTrendingUp,
+} from "react-icons/fi";
 import "../styles/Exchange.css";
-import "../styles/Responsive.css";
 
 function Exchange() {
   const [amount, setAmount] = useState("");
@@ -62,223 +69,206 @@ function Exchange() {
 
     return () => clearInterval(interval);
   }, []);
+
   const handleExchange = () => {
+    if (loading) {
+      alert("Prices are still loading. Please wait a moment.");
+      return;
+    }
+
+    if (!amount) {
+      alert("Please enter an amount.");
+      return;
+    }
+
+    const cryptoPrice = prices[coin];
+    console.log("Coin",);
+    console.log("Prices",prices);
+    console.log("Selected prices:", prices[coin]);
+
+    if (!cryptoPrice) {
+      alert("Crypto price not available.");
+      return;
+    }
+
+    const rate = exchangeRates[currency];
+
+    if (!rate) {
+      alert("Exchange rate not available.");
+      return;
+    }
+
+    const usdValue = Number(amount) * cryptoPrice;
+    const convertedValue = usdValue * rate;
+
+    setResult(convertedValue.toLocaleString());
+
+    setHistory((prev) => [
+      {
+        coin,
+        currency,
+        amount,
+        result: convertedValue.toLocaleString(),
+        time: new Date().toLocaleTimeString(),
+      },
+      ...prev,
+    ]);
+  };
+
+  const clearHistory = () => {
+    setHistory([]);
+  };
+
   if (loading) {
-    alert("Prices are still loading. Please wait a moment.");
-    return;
+    return (
+      <div className="sv-exchange-page">
+        <div className="sv-exchange-loading">
+          <FiRefreshCw className="sv-exchange-loading-spinner" />
+          <p>Loading live prices...</p>
+        </div>
+      </div>
+    );
   }
 
-  if (!amount) {
-    alert("Please enter an amount.");
-    return;
-  }
-
-  const cryptoPrice = prices[coin];
-  console.log("Coin",);
-  console.log("Prices",prices);
-  console.log("Selected prices:", prices[coin]);
-  
-  if (!cryptoPrice) {
-    alert("Crypto price not available.");
-    return;
-  }
-
-  const rate = exchangeRates[currency];
-
-  if (!rate) {
-    alert("Exchange rate not available.");
-    return;
-  }
-
-  const usdValue = Number(amount) * cryptoPrice;
-  const convertedValue = usdValue * rate;
-
-  setResult(convertedValue.toLocaleString());
-
-  setHistory((prev) => [
-    {
-      coin,
-      currency,
-      amount,
-      result: convertedValue.toLocaleString(),
-      time: new Date().toLocaleTimeString(),
-    },
-    ...prev,
-  ]);
-};
-
-const clearHistory = () => {
-  setHistory([]);
-};
-
-if (loading) {
-  return <h2>Loading live prices...</h2>;
-}
-
-return (
-  <div className="page">
-    <div className="exchange-header">
-
-    <div>
-
-        <h1 className="exchange-title">
-
-            Exchange Center
-
-        </h1>
-
-        <p className="exchange-subtitle">
-
+  return (
+    <div className="sv-exchange-page">
+      <div className="sv-exchange-header">
+        <div>
+          <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
+            Live Conversion
+          </span>
+          <h1 className="sv-exchange-title">Exchange Center</h1>
+          <p className="sv-exchange-subtitle">
             Convert digital assets using live market prices.
+          </p>
+        </div>
+        <div className="sv-exchange-status">
+          <span className="sv-exchange-status-dot" />
+          Live Market
+        </div>
+      </div>
 
-        </p>
-
-    </div>
-
-    <div className="market-status">
-
-        🟢 Live Market
-
-    </div>
-
-</div>
-
-    <div className="wallet-card
-    exchange-card">
-      <div className="exchange-summary">
-
-    <div>
-
-        <h2>
-
-            Convert {coin}
-
-        </h2>
-
-        <p>
-
-            Live exchange powered by ScraaVault.
-
-        </p>
-
-    </div>
-
-    <div className="live-badge">
-
-        LIVE
-
-    </div>
-
-</div>
-
-
-      <label className="exchange-label">
-        From
-
-      </label>
-
-      <select
-        value={coin}
-        onChange={(e) => setCoin(e.target.value)}
-      >
-        <option value="BTC">Bitcoin (BTC)</option>
-        <option value="ETH">Ethereum (ETH)</option>
-        <option value="USDT">Tether (USDT)</option>
-        <option value="LTC">Litecoin (LTC)</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label className="exchange-label">
-        Convert To
-
-      </label>
-
-      <select
-        value={currency}
-        onChange={(e) => setCurrency(e.target.value)}
-      >
-        <option value="USD">US Dollar (USD)</option>
-        <option value="NGN">Nigerian Naira (NGN)</option>
-        <option value="EUR">Euro (EUR)</option>
-        <option value="GBP">British Pound (GBP)</option>
-      </select>
-
-      <br />
-      <br />
-
-      <label className="exchange-label">
-
-        Amount
-        
-        </label>
-
-      <input
-        type="number"
-        value={amount}
-        placeholder="Enter amount"
-        onChange={(e) => setAmount(e.target.value)}
-      />
-
-      <br />
-      <br />
-
-      <button
-        onClick={handleExchange}
-        disabled={loading}
-      >
-        {loading ? "Loading..." : "💱 Exchange"}
-      </button>
-
-      <br />
-      <br />
-
-      {result && (
-        <h3>
-          Estimated Value: {result} {currency}
-        </h3>
-      )}
-
-      <hr />
-
-      <h3 className="history-title">
-        Exchanges History
-        </h3>
-
-      <button onClick={clearHistory}>
-        🗑️ Clear History
-      </button>
-
-      {history.length === 0 ? (
-        <p>No exchanges yet.</p>
-      ) : (
-        history.map((item, index) => (
-          <div
-            key={index}
-            className="history-card premium-history"
-          >
-            <strong>{item.coin}</strong> → {item.currency}
-
-            <br />
-
-            Amount: {item.amount}
-
-            <br />
-
-            Result: {item.result} {item.currency}
-
-            <br />
-
-            <small>{item.time}</small>
-
-            <hr />
+      <div className="sv-exchange-card">
+        <div className="sv-exchange-summary">
+          <div>
+            <h2>Convert {coin}</h2>
+            <p>Live exchange powered by ScraaVault.</p>
           </div>
-        ))
-      )}
+          <div className="sv-live-badge">
+            <FiActivity className="sv-live-badge-icon" />
+            LIVE
+          </div>
+        </div>
+
+        {/* From */}
+        <div className="sv-exchange-form-group">
+          <label className="sv-exchange-label">From</label>
+          <div className="sv-exchange-select-wrapper">
+            <select
+              value={coin}
+              onChange={(e) => setCoin(e.target.value)}
+              className="sv-exchange-select"
+            >
+              <option value="BTC">Bitcoin (BTC)</option>
+              <option value="ETH">Ethereum (ETH)</option>
+              <option value="USDT">Tether (USDT)</option>
+              <option value="LTC">Litecoin (LTC)</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Swap arrow */}
+        <div className="sv-exchange-swap-arrow">
+          <FiArrowDown />
+        </div>
+
+        {/* To */}
+        <div className="sv-exchange-form-group">
+          <label className="sv-exchange-label">Convert To</label>
+          <div className="sv-exchange-select-wrapper">
+            <select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              className="sv-exchange-select"
+            >
+              <option value="USD">US Dollar (USD)</option>
+              <option value="NGN">Nigerian Naira (NGN)</option>
+              <option value="EUR">Euro (EUR)</option>
+              <option value="GBP">British Pound (GBP)</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Amount */}
+        <div className="sv-exchange-form-group">
+          <label className="sv-exchange-label">Amount</label>
+          <input
+            type="number"
+            value={amount}
+            placeholder="Enter amount"
+            onChange={(e) => setAmount(e.target.value)}
+            className="sv-exchange-input"
+          />
+        </div>
+
+        <button
+          className="sv-exchange-btn"
+          onClick={handleExchange}
+          disabled={loading}
+        >
+          <FiTrendingUp />
+          {loading ? "Loading..." : "Exchange"}
+        </button>
+
+        {result && (
+          <div className="sv-exchange-result">
+            <span className="sv-exchange-result-label">Estimated Value</span>
+            <h3>{result} {currency}</h3>
+          </div>
+        )}
+
+        <hr className="sv-exchange-divider" />
+
+        {/* History */}
+        <div className="sv-exchange-history-header">
+          <h3>
+            <FiClock className="sv-exchange-history-icon" />
+            Exchange History
+          </h3>
+          <button
+            className="sv-exchange-clear-btn"
+            onClick={clearHistory}
+          >
+            <FiTrash2 />
+            Clear History
+          </button>
+        </div>
+
+        {history.length === 0 ? (
+          <p className="sv-exchange-empty">No exchanges yet.</p>
+        ) : (
+          <div className="sv-exchange-history-list">
+            {history.map((item, index) => (
+              <div key={index} className="sv-exchange-history-card">
+                <div className="sv-exchange-history-top">
+                  <span className="sv-exchange-history-pair">
+                    {item.coin} → {item.currency}
+                  </span>
+                  <small className="sv-exchange-history-time">{item.time}</small>
+                </div>
+                <div className="sv-exchange-history-details">
+                  <span>Amount: {item.amount}</span>
+                  <span className="sv-exchange-history-result">
+                    {item.result} {item.currency}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default Exchange;
