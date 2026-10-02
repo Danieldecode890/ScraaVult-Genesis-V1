@@ -1,150 +1,144 @@
 import { useNavigate } from "react-router-dom";
+import {
+  FiArrowLeft,
+  FiLock,
+  FiShield,
+  FiAlertTriangle,
+  FiChevronDown,
+  FiClock,
+  FiDollarSign,
+  FiUserCheck,
+  FiWallet,
+} from "react-icons/fi";
 import "../styles/Withdraw.css";
-import "../styles/Responsive.css";
+
 function Withdraw() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const summaryItems = [
+    { icon: FiDollarSign, label: "Network Fee", value: "Calculated automatically" },
+    { icon: FiClock, label: "Estimated Arrival", value: "10–30 Minutes" },
+    { icon: FiUserCheck, label: "Security", value: "Identity Verification Required" },
+  ];
+
   return (
-    <div className="page">
-      <div className="withdraw-header">
+    <div className="sv-withdraw-page">
+      <button
+        className="sv-withdraw-back-btn"
+        onClick={() => navigate("/dashboard")}
+      >
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
 
-    <div>
-
-        <h1 className="withdraw-title">
-
-            Withdraw Crypto
-
-        </h1>
-
-        <p className="withdraw-subtitle">
-
+      <div className="sv-withdraw-header">
+        <div>
+          <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
+            Send Funds
+          </span>
+          <h1 className="sv-withdraw-title">Withdraw Crypto</h1>
+          <p className="sv-withdraw-subtitle">
             Transfer your digital assets securely from your ScraaVault.
-
-        </p>
-
-    </div>
-
-    <div className="withdraw-status">
-
-        🔒 Protected
-
-    </div>
-
-</div>
-
-      <div className="wallet-card withdraw-card">
-        <div className="withdraw-summary">
-
-    <div>
-
-        <h2>
-
-            Secure Withdrawal
-
-        </h2>
-
-        <p>
-
-            Every withdrawal passes through multiple security checks.
-
-        </p>
-
-     </div>
-
-      <div className="verify-badge">
-
-        KYC Required
-
-     </div>
-
-    </div>
-
-        <p>
-          Withdrawals require identity verification before any transaction can
-          be completed.
-        </p>
-
-        <hr />
-
-        <label className="withdraw-label">
-          Select Asset
-          </label>
-        <select>
-          <option>Bitcoin (BTC)</option>
-          <option>Ethereum (ETH)</option>
-          <option>Tether (USDT)</option>
-          <option>Litecoin (LTC)</option>
-        </select>
-
-        <br /><br />
-
-        <label className="withdraw-label">
-          Recipient Wallet Address
-          </label>
-        <input
-          type="text"
-          placeholder="Enter wallet address"
-        />
-
-        <br /><br />
-
-        <label className="withdraw-label">
-          Withdrawal Amount
-          </label>
-        <input
-          type="number"
-          placeholder="{0.00000000000 BTC}    {MAX}"
-        />
-        <br /><br />
-        <div className="balance-card">
-        <p className="balance">
-            Available Balance:
-            <strong>******* BTC</strong>
-        </p>
+          </p>
         </div>
-<hr />
+        <div className="sv-withdraw-status">
+          <FiLock className="sv-withdraw-status-icon" />
+          Protected
+        </div>
+      </div>
 
-<h2 className="summary-title">
-  Transaction Summary
-  </h2>
+      <div className="sv-withdraw-card">
+        <div className="sv-withdraw-summary">
+          <div>
+            <h2>Secure Withdrawal</h2>
+            <p>Every withdrawal passes through multiple security checks.</p>
+          </div>
+          <div className="sv-verify-badge">KYC Required</div>
+        </div>
 
-<p>
-  <strong>Network Fee:</strong> Calculated automatically
-</p>
+        <div className="sv-withdraw-kyc-notice">
+          <FiUserCheck className="sv-withdraw-kyc-icon" />
+          <p>
+            Withdrawals require identity verification before any transaction can
+            be completed.
+          </p>
+        </div>
 
-<p>
-  <strong>Estimated Arrival:</strong> 10–30 Minutes
-</p>
+        <hr className="sv-withdraw-divider" />
 
-<p>
-  <strong>Security:</strong> Identity Verification Required
-</p>
-    <div className="security-notice
-    premium-security">
+        <div className="sv-withdraw-form-group">
+          <label className="sv-withdraw-label">Select Asset</label>
+          <div className="sv-withdraw-select-wrapper">
+            <select className="sv-withdraw-select">
+              <option>Bitcoin (BTC)</option>
+              <option>Ethereum (ETH)</option>
+              <option>Tether (USDT)</option>
+              <option>Litecoin (LTC)</option>
+            </select>
+            <FiChevronDown className="sv-withdraw-select-arrow" />
+          </div>
+        </div>
 
-<h3>🛡️ScraaVault Security Notice
+        <div className="sv-withdraw-form-group">
+          <label className="sv-withdraw-label">Recipient Wallet Address</label>
+          <input
+            type="text"
+            className="sv-withdraw-input"
+            placeholder="Enter wallet address"
+          />
+        </div>
 
-</h3>
+        <div className="sv-withdraw-form-group">
+          <label className="sv-withdraw-label">Withdrawal Amount</label>
+          <input
+            type="number"
+            className="sv-withdraw-input"
+            placeholder="{0.00000000000 BTC}    {MAX}"
+          />
+        </div>
 
-<p>
-Always verify the recipient address before sending.
-</p>
+        <div className="sv-withdraw-balance-card">
+          <FiWallet className="sv-withdraw-balance-icon" />
+          <div>
+            <p className="sv-withdraw-balance-label">Available Balance</p>
+            <p className="sv-withdraw-balance-value">******* BTC</p>
+          </div>
+        </div>
 
-<p>
-Blockchain transactions cannot be reversed once confirmed.
-</p>
+        <hr className="sv-withdraw-divider" />
 
-<p>
-ScraaVult protects your assets but cannot recover funds sent to the wrong address.
-</p>
+        <h2 className="sv-withdraw-section-title">Transaction Summary</h2>
 
-</div>
+        <div className="sv-withdraw-summary-grid">
+          {summaryItems.map((item, i) => (
+            <div key={i} className="sv-withdraw-summary-item">
+              <item.icon className="sv-withdraw-summary-icon" />
+              <div>
+                <strong>{item.label}</strong>
+                <span>{item.value}</span>
+              </div>
+            </div>
+          ))}
+        </div>
 
+        <div className="sv-withdraw-notice">
+          <div className="sv-withdraw-notice-header">
+            <FiAlertTriangle className="sv-withdraw-notice-icon" />
+            <h3>ScraaVault Security Notice</h3>
+          </div>
+          <p>Always verify the recipient address before sending.</p>
+          <p>Blockchain transactions cannot be reversed once confirmed.</p>
+          <p>
+            ScraaVault protects your assets but cannot recover funds sent to the
+            wrong address.
+          </p>
+        </div>
 
-
-        <button 
-        className="view-btn withdraw-btn"
-        onClick={() => navigate("/kyc")}
+        <button
+          className="sv-withdraw-btn"
+          onClick={() => navigate("/kyc")}
         >
+          <FiUserCheck />
           Complete identity verification (KYC)
         </button>
       </div>
