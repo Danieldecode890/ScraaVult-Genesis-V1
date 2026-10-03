@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { FiLock, FiKey, FiArrowRight, FiShield } from 'react-icons/fi'
+import { Link, useNavigate } from 'react-router-dom'
+import { FiLock, FiKey, FiArrowRight } from 'react-icons/fi'
 import './VaultPages.css'
 
 function EnterVault() {
+  const navigate = useNavigate()
   const [vaultId, setVaultId] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [entered, setEntered] = useState(false)
 
   const handleEnter = () => {
     setError('')
@@ -19,42 +19,7 @@ function EnterVault() {
       setError('Please enter your password.')
       return
     }
-    setEntered(true)
-  }
-
-  if (entered) {
-    return (
-      <div className="sv-vault-page">
-        <div className="sv-vault-card sv-vault-success">
-          <div className="sv-vault-success-icon">
-            <FiShield />
-          </div>
-          <h1>Vault Unlocked</h1>
-          <p>
-            Welcome back. Your vault <strong>{vaultId}</strong> is now accessible.
-          </p>
-          <div className="sv-vault-dashboard">
-            <div className="sv-vault-stat">
-              <span className="sv-vault-stat-label">Balance</span>
-              <span className="sv-vault-stat-value">— BTC</span>
-            </div>
-            <div className="sv-vault-stat">
-              <span className="sv-vault-stat-label">Status</span>
-              <span className="sv-vault-stat-value sv-pos">Secure</span>
-            </div>
-          </div>
-          <div className="sv-vault-actions">
-            <Link to="/dashboard" className="sv-btn-primary">
-              Continue to Dashboard
-              <FiArrowRight />
-            </Link>
-            <Link to="/" className="sv-btn-secondary">
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
+    navigate('/dashboard')
   }
 
   return (
