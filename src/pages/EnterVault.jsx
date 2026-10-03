@@ -44,6 +44,10 @@ function EnterVault() {
             </div>
           </div>
           <div className="sv-vault-actions">
+            <Link to="/dashboard" className="sv-btn-primary">
+              Continue to Dashboard
+              <FiArrowRight />
+            </Link>
             <Link to="/" className="sv-btn-secondary">
               Back to Home
             </Link>

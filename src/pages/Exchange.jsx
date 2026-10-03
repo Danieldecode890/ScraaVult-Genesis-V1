@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiArrowDown,
+  FiArrowLeft,
   FiRefreshCw,
   FiTrash2,
   FiActivity,
@@ -10,6 +12,7 @@ import {
 import "../styles/Exchange.css";
 
 function Exchange() {
+  const navigate = useNavigate();
   const [amount, setAmount] = useState("");
   const [coin, setCoin] = useState("BTC");
   const [currency, setCurrency] = useState("USD");
@@ -122,6 +125,13 @@ function Exchange() {
   if (loading) {
     return (
       <div className="sv-exchange-page">
+        <button
+          className="sv-exchange-back-btn"
+          onClick={() => navigate("/dashboard")}
+        >
+          <FiArrowLeft />
+          Back to Dashboard
+        </button>
         <div className="sv-exchange-loading">
           <FiRefreshCw className="sv-exchange-loading-spinner" />
           <p>Loading live prices...</p>
@@ -132,6 +142,13 @@ function Exchange() {
 
   return (
     <div className="sv-exchange-page">
+      <button
+        className="sv-exchange-back-btn"
+        onClick={() => navigate("/dashboard")}
+      >
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
       <div className="sv-exchange-header">
         <div>
           <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
