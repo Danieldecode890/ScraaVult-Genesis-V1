@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiArrowLeft,
   FiCheckCircle,
@@ -11,6 +12,7 @@ import {
 import "../styles/TransactionDetails.css";
 
 function TransactionDetails() {
+  const navigate = useNavigate();
   const txid = "8f7a2c9d0a4b7e6c123456789abcdef";
 
   const [copied, setCopied] = useState(false);
@@ -38,7 +40,7 @@ function TransactionDetails() {
     <div className="sv-td-page">
       <button
         className="sv-td-back-btn"
-        onClick={() => window.history.back()}
+        onClick={() => navigate("/transactions")}
       >
         <FiArrowLeft />
         Back

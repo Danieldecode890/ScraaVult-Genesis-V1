@@ -8,7 +8,7 @@ import {
   FiClock,
   FiDollarSign,
   FiUserCheck,
-  FiWallet,
+  FiBriefcase,
 } from "react-icons/fi";
 import "../styles/Withdraw.css";
 
@@ -98,7 +98,7 @@ function Withdraw() {
         </div>
 
         <div className="sv-withdraw-balance-card">
-          <FiWallet className="sv-withdraw-balance-icon" />
+          <FiBriefcase className="sv-withdraw-balance-icon" />
           <div>
             <p className="sv-withdraw-balance-label">Available Balance</p>
             <p className="sv-withdraw-balance-value">******* BTC</p>

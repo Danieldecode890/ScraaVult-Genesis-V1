@@ -7,7 +7,7 @@ import {
   FiLock,
   FiShield,
   FiAlertTriangle,
-  FiQrCode,
+  FiGrid,
 } from "react-icons/fi";
 import "../styles/Deposit.css";
 
@@ -104,7 +104,7 @@ function Deposit() {
 
         <div className="sv-qr-section">
           <h3>
-            <FiQrCode className="sv-qr-icon" />
+            <FiGrid className="sv-qr-icon" />
             Scan QR Code
           </h3>
           <div className="sv-fake-qr">QR CODE</div>
