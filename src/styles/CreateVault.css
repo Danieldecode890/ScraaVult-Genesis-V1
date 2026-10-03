@@ -1,509 +1,177 @@
-/* =====================================================
+/* ================================================
    SCRAAVAULT — CREATE VAULT
-   MOBILE-FIRST FOUNDATION
-===================================================== */
+   Build on the VaultPages.css design system.
+   Only styles unique to Create Vault live here.
+   ================================================ */
 
-.page {
-  min-height: 100vh;
-  width: 100%;
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(247, 185, 74, 0.08),
-      transparent 35%
-    ),
-    #07111f;
-  color: #ffffff;
-  box-sizing: border-box;
-}
-
-/* =====================================================
-   MAIN MOBILE SCREEN
-===================================================== */
-
-.vault-screen {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 24px 18px 40px;
-  box-sizing: border-box;
-}
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.vault-header {
-  text-align: center;
-  padding: 12px 0 28px;
-}
-
-.vault-logo {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  margin-bottom: 14px;
-}
-
-.vault-header h1 {
-  margin: 0;
-  font-size: 30px;
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.vault-subtitle {
-  margin: 10px auto 0;
-  max-width: 330px;
-  color: #9da9b8;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* =====================================================
-   FORM CARD
-===================================================== */
-
-.vault-form {
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 24px 18px;
-
-  background: rgba(17, 30, 48, 0.92);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  border-radius: 22px;
-
-  box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.28);
-}
-
-.form-heading {
-  margin-bottom: 24px;
-}
-
-.form-title {
-  margin: 0;
-  font-size: 21px;
-  font-weight: 700;
-}
-
-.form-subtitle {
-  margin: 7px 0 0;
-  color: #8f9aaa;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-/* =====================================================
-   FORM FIELDS
-===================================================== */
-
-.field {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.input-label {
-  display: block;
-  margin-bottom: 8px;
-
-  color: #e9edf2;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* =====================================================
-   INPUT GROUP
-===================================================== */
-
-.input-group {
+/* — Password input wrapper (eye toggle) — */
+.sv-password-wrapper {
   position: relative;
-
-  width: 100%;
-  min-height: 54px;
-
   display: flex;
   align-items: center;
-
-  box-sizing: border-box;
-
-  background: #f5f7f9;
-
-  border: 1px solid transparent;
-
-  border-radius: 14px;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-.input-group:focus-within {
-  border-color: #f7b94a;
-
-  box-shadow:
-    0 0 0 3px rgba(247, 185, 74, 0.12);
-}
-
-.input-icon {
-  flex-shrink: 0;
-
-  margin-left: 16px;
-
-  color: #7d8792;
-
-  font-size: 16px;
-}
-
-.input-group input {
+.sv-password-input {
   width: 100%;
-  min-width: 0;
+  padding-right: 42px;
+}
 
-  height: 52px;
-
-  padding: 0 14px;
-
-  border: none;
-  outline: none;
-
+.sv-eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
-
-  color: #17202b;
-
-  font-size: 15px;
-
-  box-sizing: border-box;
-}
-
-.input-group input::placeholder {
-  color: #9ba3ad;
-}
-
-/* =====================================================
-   EYE BUTTON
-===================================================== */
-
-.eye-btn {
-  flex-shrink: 0;
-
-  width: 44px;
-  height: 44px;
-
-  margin-right: 5px;
-
+  border: none;
+  color: var(--sv-text-muted);
+  font-size: 1rem;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border: none;
-  border-radius: 11px;
-
-  background: transparent;
-
-  color: #7c8792;
-
-  cursor: pointer;
-
-  font-size: 16px;
+  padding: 4px;
+  border-radius: var(--sv-radius-sm);
+  transition: color var(--sv-transition);
 }
 
-.eye-btn:hover {
-  color: #f7b94a;
+.sv-eye-btn:hover {
+  color: var(--sv-accent);
 }
 
-/* =====================================================
-   PASSWORD STRENGTH
-===================================================== */
-
-.password-strength {
+/* — Password strength — */
+.sv-password-strength {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-top: 9px;
-
-  font-size: 12px;
-  color: #8f9aaa;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--sv-text-dim);
 }
 
-.password-strength strong {
-  color: #f7b94a;
+.sv-password-strength strong {
+  color: var(--sv-accent);
   font-weight: 600;
 }
 
-/* =====================================================
-   PASSWORD CHECKLIST
-===================================================== */
-
-.password-checklist {
+/* — Password checklist — */
+.sv-password-checklist {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  gap: 8px;
-
-  margin-top: 12px;
-  padding: 13px;
-
-  background: rgba(7, 17, 31, 0.55);
-
-  border-radius: 13px;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--sv-bg-primary);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-sm);
 }
 
-.check {
-  font-size: 11px;
-  color: #687587;
+.sv-check {
+  font-size: 0.72rem;
+  color: var(--sv-text-dim);
 }
 
-.check.success {
-  color: #67d88b;
+.sv-check--done {
+  color: var(--sv-green);
 }
 
-/* =====================================================
-   PASSWORD MATCH
-===================================================== */
-
-.password-match {
-  margin-top: 8px;
-
-  font-size: 12px;
+/* — Password match indicator — */
+.sv-password-match {
+  margin-top: 4px;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
-.password-match.success {
-  color: #67d88b;
+.sv-password-match--ok {
+  color: var(--sv-green);
 }
 
-.password-match.error {
-  color: #ff7373;
+.sv-password-match--err {
+  color: var(--sv-red);
 }
 
-/* =====================================================
-   CREATE BUTTON
-===================================================== */
+/* — Alt link (clickable span variant) — */
+.sv-vault-alt-link {
+  color: var(--sv-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
 
-.view-btn {
+.sv-vault-alt-link:hover {
+  text-decoration: underline;
+}
+
+/* — Security features section below card — */
+.sv-create-security {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  min-height: 56px;
+  max-width: 420px;
+  margin: 32px auto 0;
+}
 
-  margin-top: 6px;
+.sv-create-security-heading {
+  margin-bottom: 16px;
+}
 
-  border: none;
-  border-radius: 15px;
-
-  background: linear-gradient(
-    135deg,
-    #f7b94a,
-    #e89b2d
-  );
-
-  color: #111923;
-
-  font-size: 15px;
+.sv-create-security-eyebrow {
+  display: block;
+  color: var(--sv-accent);
+  font-size: 0.65rem;
   font-weight: 700;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 10px 24px rgba(247, 185, 74, 0.18);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.view-btn:hover {
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 14px 30px rgba(247, 185, 74, 0.24);
-}
-
-.view-btn:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* =====================================================
-   ENTER VAULT
-===================================================== */
-
-.login-link {
-  margin: 18px 0 0;
-
-  text-align: center;
-
-  color: #8f9aaa;
-
-  font-size: 13px;
-}
-
-.login-link span {
-  margin-left: 5px;
-
-  color: #f7b94a;
-
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-/* =====================================================
-   SECURITY SECTION
-===================================================== */
-
-.vault-security {
-  margin-top: 28px;
-}
-
-.section-heading {
-  margin-bottom: 15px;
-}
-
-.section-heading span {
-  color: #f7b94a;
-
-  font-size: 10px;
-  font-weight: 700;
-
   letter-spacing: 1.5px;
+  margin-bottom: 5px;
 }
 
-.section-heading h2 {
-  margin: 5px 0 0;
-
-  font-size: 20px;
+.sv-create-security-heading h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
   line-height: 1.25;
 }
 
-/* =====================================================
-   SECURITY GRID
-   2 x 2 ON PHONE
-===================================================== */
-
-.security-grid {
+.sv-create-security-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
 }
 
-.security-card {
-  min-height: 104px;
-
+.sv-create-security-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  padding: 14px;
-
-  box-sizing: border-box;
-
-  background: rgba(17, 30, 48, 0.82);
-
-  border: 1px solid rgba(255, 255, 255, 0.07);
-
-  border-radius: 17px;
-
+  gap: 8px;
+  padding: 16px 12px;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-md);
   text-align: center;
 }
 
-.security-icon {
-  margin-bottom: 8px;
-
-  font-size: 23px;
+.sv-create-security-icon {
+  font-size: 1.25rem;
+  color: var(--sv-accent);
 }
 
-.security-card p {
+.sv-create-security-card p {
   margin: 0;
-
-  color: #dce2e9;
-
-  font-size: 12px;
+  color: var(--sv-text-secondary);
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
-/* =====================================================
-   SECURITY WARNING
-===================================================== */
-
-.security-warning {
-  margin-top: 12px;
-
-  padding: 17px;
-
-  box-sizing: border-box;
-
-  background: rgba(247, 185, 74, 0.055);
-
-  border: 1px solid rgba(247, 185, 74, 0.18);
-
-  border-radius: 17px;
-}
-
-.security-warning h3 {
-  margin: 0 0 8px;
-
-  color: #f7b94a;
-
-  font-size: 14px;
-}
-
-.security-warning p {
-  margin: 0;
-
-  color: #9ca8b7;
-
-  font-size: 12px;
-  line-height: 1.65;
-}
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (min-width: 600px) {
-
-  .vault-screen {
-    padding: 38px 24px 60px;
+/* — Responsive — */
+@media (max-width: 768px) {
+  .sv-create-security {
+    max-width: 100%;
   }
 
-  .vault-form {
-    padding: 30px 26px;
+  .sv-create-security-grid {
+    gap: 8px;
   }
 
-}
-
-/* =====================================================
-   DESKTOP
-   STILL KEEPS MOBILE-FIRST FEEL
-===================================================== */
-
-@media (min-width: 900px) {
-
-  .vault-screen {
-    max-width: 620px;
-    padding-top: 55px;
+  .sv-password-checklist {
+    grid-template-columns: 1fr 1fr;
   }
-
-  .vault-header h1 {
-    font-size: 34px;
-  }
-
-  .vault-form {
-    padding: 34px;
-  }
-
-  .security-grid {
-    gap: 14px;
-  }
-
 }

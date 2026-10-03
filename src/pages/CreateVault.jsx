@@ -1,750 +1,284 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import vaultDoor from"../assets/hero.png";
-import logo from "../assets/logo.png";
-import "../styles/CreateVault.css";
-import "../styles/Responsive.css";
-
 import {
-  FaUser,
-  FaEnvelope,
-  FaLock,
-  FaEye,
-  FaEyeSlash,
-  FaShieldAlt
-} from "react-icons/fa";
+  FiUser,
+  FiMail,
+  FiLock,
+  FiEye,
+  FiEyeOff,
+  FiKey,
+  FiArrowRight,
+  FiShield,
+} from "react-icons/fi";
+import "./VaultPages.css";
+import "../styles/CreateVault.css";
+
 function CreateVault() {
-  
-    const navigate = useNavigate();
-    const[formData, setFormData] =useState({
-        username:"",
-        email:"",
-        password:"",
-        confirmPassword:"",
-    });
-    const[message,setMessage] = useState("");
-    const[showPassword, setShowPassword] = useState(false);
-    const[password, setPassword] = useState("");
-    const[confirmPassword, setConfirmPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [vaultCreated, setVaultCreated] = useState(false);
-    
-    const handleSubmit = async (e) => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-      setLoading(true);
-
-      await new Promise(resolve =>
-        setTimeout(resolve, 2000)
-      );    
-       
-        setLoading(false);
-
     if (formData.password !== formData.confirmPassword) {
-        setMessage("❌Passwords do not match!");
-        setLoading(false);
-        return;
+      setMessage("Passwords do not match!");
+      return;
     }
 
-  setMessage("✅Your vault has been created successfully!");
-  
-  localStorage.setItem(
-    "vaultUser", 
-    JSON.stringify(formData)
- );
- console.log(formData);
- console.log(localStorage.getItem("vaultUser"));
+    setLoading(true);
 
-      navigate("/loading-vault");
-    
-    };
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    setLoading(false);
+
+    setMessage("Your vault has been created successfully!");
+
+    localStorage.setItem("vaultUser", JSON.stringify(formData));
+
+    navigate("/loading-vault");
+  };
 
   return (
-  <div className="page">
-
-    <main className="vault-screen">
-
-      {/* HEADER */}
-      <header className="vault-header">
-
-        <img
-          src={logo}
-          alt="ScraaVult"
-          className="vault-logo"
-        />
-
-        <h1>
-          Create Vault
-        </h1>
-
-        <p className="vault-subtitle">
-          Secure your Bitcoin. Keep control of your keys.
-        </p>
-
-      </header>
-
-      {/* CREATE VAULT FORM */}
-      <form
-        id="create-vault-form"
-        className="vault-form"
-        onSubmit={handleSubmit}
-      >
-
-        <div className="form-heading">
-          <h2 className="form-title">
-            Vault Information
-          </h2>
-
-          <p className="form-subtitle">
-            Set up your secure ScraaVult account.
+    <div className="sv-vault-page">
+      <div className="sv-vault-card sv-vault-enter">
+        {/* Header */}
+        <div className="sv-vault-header">
+          <div className="sv-vault-header-icon">
+            <FiShield />
+          </div>
+          <span className="sv-eyebrow" style={{ marginBottom: "12px" }}>
+            Secure Access
+          </span>
+          <h1>Create Your Vault</h1>
+          <p className="sv-vault-subtitle">
+            Secure your Bitcoin. Keep control of your keys.
           </p>
         </div>
 
-        {/* USERNAME */}
-        <div className="field">
-
-          <label className="input-label">
-            Username
-          </label>
-
-          <div className="input-group">
-
-            <FaUser className="input-icon" />
-
+        {/* Create Vault Form */}
+        <form className="sv-vault-form" onSubmit={handleSubmit}>
+          {/* Username */}
+          <div className="sv-form-group">
+            <label className="sv-form-label">Username</label>
             <input
               type="text"
+              className="sv-form-input"
               placeholder="Enter your username"
               value={formData.username}
               onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  username: e.target.value
-                });
+                setFormData({ ...formData, username: e.target.value });
               }}
+              autoFocus
             />
-
           </div>
 
-        </div>
-
-        {/* EMAIL */}
-        <div className="field">
-
-          <label className="input-label">
-            Email Address
-          </label>
-
-          <div className="input-group">
-
-            <FaEnvelope className="input-icon" />
-
+          {/* Email */}
+          <div className="sv-form-group">
+            <label className="sv-form-label">Email Address</label>
             <input
               type="email"
+              className="sv-form-input"
               placeholder="Enter your email address"
               value={formData.email}
               onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  email: e.target.value
-                });
+                setFormData({ ...formData, email: e.target.value });
               }}
             />
-
           </div>
 
-        </div>
+          {/* Password */}
+          <div className="sv-form-group">
+            <label className="sv-form-label">Password</label>
+            <div className="sv-password-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="sv-form-input sv-password-input"
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setFormData({ ...formData, password: e.target.value });
+                }}
+              />
+              <button
+                type="button"
+                className="sv-eye-btn"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            </div>
 
-        {/* PASSWORD */}
-        <div className="field">
+            {/* Password Strength */}
+            <div className="sv-password-strength">
+              <span>Password strength</span>
+              <strong>
+                {password.length < 6
+                  ? "Weak"
+                  : password.length < 10
+                  ? "Medium"
+                  : "Strong"}
+              </strong>
+            </div>
 
-          <label className="input-label">
-            Password
-          </label>
+            {/* Password Requirements */}
+            <div className="sv-password-checklist">
+              <div
+                className={
+                  password.length >= 8 ? "sv-check sv-check--done" : "sv-check"
+                }
+              >
+                {password.length >= 8 ? "✓" : "○"} 8+ characters
+              </div>
+              <div
+                className={
+                  /[A-Z]/.test(password)
+                    ? "sv-check sv-check--done"
+                    : "sv-check"
+                }
+              >
+                {/[A-Z]/.test(password) ? "✓" : "○"} Uppercase
+              </div>
+              <div
+                className={
+                  /[a-z]/.test(password)
+                    ? "sv-check sv-check--done"
+                    : "sv-check"
+                }
+              >
+                {/[a-z]/.test(password) ? "✓" : "○"} Lowercase
+              </div>
+              <div
+                className={
+                  /[0-9]/.test(password)
+                    ? "sv-check sv-check--done"
+                    : "sv-check"
+                }
+              >
+                {/[0-9]/.test(password) ? "✓" : "○"} Number
+              </div>
+            </div>
+          </div>
 
-          <div className="input-group">
+          {/* Confirm Password */}
+          <div className="sv-form-group">
+            <label className="sv-form-label">Confirm Password</label>
+            <div className="sv-password-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="sv-form-input sv-password-input"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  setFormData({
+                    ...formData,
+                    confirmPassword: e.target.value,
+                  });
+                }}
+              />
+              <button
+                type="button"
+                className="sv-eye-btn"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            </div>
 
-            <FaLock className="input-icon" />
+            {confirmPassword.length > 0 && (
+              <div
+                className={
+                  password === confirmPassword
+                    ? "sv-password-match sv-password-match--ok"
+                    : "sv-password-match sv-password-match--err"
+                }
+              >
+                {password === confirmPassword
+                  ? "✓ Passwords match"
+                  : "Passwords do not match"}
+              </div>
+            )}
+          </div>
 
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => {
+          {/* Security Notice */}
+          <div className="sv-vault-notice">
+            <FiKey className="sv-vault-notice-icon" />
+            <span>
+              ScraaVult is non-custodial. Your password and recovery phrase
+              remain under your control.
+            </span>
+          </div>
 
-                setPassword(e.target.value);
+          {/* Error / Message */}
+          {message && <p className="sv-form-error">{message}</p>}
 
-                setFormData({
-                  ...formData,
-                  password: e.target.value
-                });
-
-              }}
-            />
-
+          {/* Create Button */}
+          <div className="sv-vault-nav">
             <button
-              type="button"
-              className="eye-btn"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
+              type="submit"
+              className="sv-btn-primary"
+              disabled={loading}
             >
-              {showPassword
-                ? <FaEyeSlash />
-                : <FaEye />
-              }
+              <FiLock />
+              {loading ? "Creating Vault..." : "Create Secure Vault"}
+              <FiArrowRight />
             </button>
-
           </div>
 
-          {/* PASSWORD STRENGTH */}
-          <div className="password-strength">
-
-            <span>Password strength</span>
-
-            <strong>
-              {password.length < 6
-                ? "Weak"
-                : password.length < 10
-                ? "Medium"
-                : "Strong"
-              }
-            </strong>
-
-          </div>
-
-          {/* PASSWORD REQUIREMENTS */}
-          <div className="password-checklist">
-
-            <div className={
-              password.length >= 8
-                ? "check success"
-                : "check"
-            }>
-              {password.length >= 8 ? "✓" : "○"}
-              {" "}8+ characters
-            </div>
-
-            <div className={
-              /[A-Z]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[A-Z]/.test(password) ? "✓" : "○"}
-              {" "}Uppercase
-            </div>
-
-            <div className={
-              /[a-z]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[a-z]/.test(password) ? "✓" : "○"}
-              {" "}Lowercase
-            </div>
-
-            <div className={
-              /[0-9]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[0-9]/.test(password) ? "✓" : "○"}
-              {" "}Number
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* CONFIRM PASSWORD */}
-        <div className="field">
-
-          <label className="input-label">
-            Confirm Password
-          </label>
-
-          <div className="input-group">
-
-            <FaLock className="input-icon" />
-
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => {
-
-                setConfirmPassword(e.target.value);
-
-                setFormData({
-                  ...formData,
-                  confirmPassword: e.target.value
-                });
-
-              }}
-            />
-
-            <button
-              type="button"
-              className="eye-btn"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
+          {/* Already have a vault */}
+          <div className="sv-vault-alt">
+            <span>Already have a vault?</span>
+            <span
+              className="sv-vault-alt-link"
+              onClick={() => navigate("/enter-vault")}
             >
-              {showPassword
-                ? <FaEyeSlash />
-                : <FaEye />
-              }
-            </button>
-
+              Enter Vault →
+            </span>
           </div>
+        </form>
+      </div>
 
-          {confirmPassword.length > 0 && (
-
-            <div
-              className={
-                password === confirmPassword
-                  ? "password-match success"
-                  : "password-match error"
-              }
-            >
-              {password === confirmPassword
-                ? "✓ Passwords match"
-                : "Passwords do not match"
-              }
-            </div>
-
-          )}
-
+      {/* Security Features */}
+      <div className="sv-create-security">
+        <div className="sv-create-security-heading">
+          <span className="sv-create-security-eyebrow">SECURITY</span>
+          <h2>Built around your privacy.</h2>
         </div>
 
-        {/* CREATE BUTTON */}
-        <button
-          type="submit"
-          disabled={loading}
-          className="view-btn"
-        >
-          {loading
-            ? "Creating Vault..."
-            : "Create Secure Vault"
-          }
-        </button>
-
-        {/* ENTER EXISTING VAULT */}
-        <p className="login-link">
-
-          Already have a vault?
-
-          <span
-            onClick={() => navigate("/enter-vault")}
-          >
-            Enter Vault →
-          </span>
-
-        </p>
-
-      </form>
-
-      {/* SECURITY FEATURES */}
-      <section className="vault-security">
-
-        <div className="section-heading">
-
-          <span>
-            SECURITY
-          </span>
-
-          <h2>
-            Built around your privacy.
-          </h2>
-
-        </div>
-
-        <div className="security-grid">
-
-          <div className="security-card">
-            <div className="security-icon">🛡️</div>
+        <div className="sv-create-security-grid">
+          <div className="sv-create-security-card">
+            <FiShield className="sv-create-security-icon" />
             <p>Military Grade</p>
           </div>
-
-          <div className="security-card">
-            <div className="security-icon">🔒</div>
+          <div className="sv-create-security-card">
+            <FiLock className="sv-create-security-icon" />
             <p>Privacy First</p>
           </div>
-
-          <div className="security-card">
-            <div className="security-icon">₿</div>
+          <div className="sv-create-security-card">
+            <FiKey className="sv-create-security-icon" />
             <p>Bitcoin Only</p>
           </div>
-
-          <div className="security-card">
-            <div className="security-icon">🚫</div>
+          <div className="sv-create-security-card">
+            <FiShield className="sv-create-security-icon" />
             <p>Self Custody</p>
           </div>
-
         </div>
-
-        <div className="security-warning">
-
-          <h3>
-            🔐 Security Notice
-          </h3>
-
-          <p>
-            ScraaVult is non-custodial.
-            Your password and recovery phrase
-            remain under your control.
-          </p>
-
-        </div>
-
-      </section>
-
-    </main>
-
-  </div>
-);return (
-  <div className="page">
-
-    <main className="vault-screen">
-
-      {/* HEADER */}
-      <header className="vault-header">
-
-        <img
-          src={logo}
-          alt="ScraaVult"
-          className="vault-logo"
-        />
-
-        <h1>
-          Create Vault
-        </h1>
-
-        <p className="vault-subtitle">
-          Secure your Bitcoin. Keep control of your keys.
-        </p>
-
-      </header>
-
-      {/* CREATE VAULT FORM */}
-      <form
-        id="create-vault-form"
-        className="vault-form"
-        onSubmit={handleSubmit}
-      >
-
-        <div className="form-heading">
-          <h2 className="form-title">
-            Vault Information
-          </h2>
-
-          <p className="form-subtitle">
-            Set up your secure ScraaVult account.
-          </p>
-        </div>
-
-        {/* USERNAME */}
-        <div className="field">
-
-          <label className="input-label">
-            Username
-          </label>
-
-          <div className="input-group">
-
-            <FaUser className="input-icon" />
-
-            <input
-              type="text"
-              placeholder="Enter your username"
-              value={formData.username}
-              onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  username: e.target.value
-                });
-              }}
-            />
-
-          </div>
-
-        </div>
-
-        {/* EMAIL */}
-        <div className="field">
-
-          <label className="input-label">
-            Email Address
-          </label>
-
-          <div className="input-group">
-
-            <FaEnvelope className="input-icon" />
-
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              value={formData.email}
-              onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  email: e.target.value
-                });
-              }}
-            />
-
-          </div>
-
-        </div>
-
-        {/* PASSWORD */}
-        <div className="field">
-
-          <label className="input-label">
-            Password
-          </label>
-
-          <div className="input-group">
-
-            <FaLock className="input-icon" />
-
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => {
-
-                setPassword(e.target.value);
-
-                setFormData({
-                  ...formData,
-                  password: e.target.value
-                });
-
-              }}
-            />
-
-            <button
-              type="button"
-              className="eye-btn"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
-            >
-              {showPassword
-                ? <FaEyeSlash />
-                : <FaEye />
-              }
-            </button>
-
-          </div>
-
-          {/* PASSWORD STRENGTH */}
-          <div className="password-strength">
-
-            <span>Password strength</span>
-
-            <strong>
-              {password.length < 6
-                ? "Weak"
-                : password.length < 10
-                ? "Medium"
-                : "Strong"
-              }
-            </strong>
-
-          </div>
-
-          {/* PASSWORD REQUIREMENTS */}
-          <div className="password-checklist">
-
-            <div className={
-              password.length >= 8
-                ? "check success"
-                : "check"
-            }>
-              {password.length >= 8 ? "✓" : "○"}
-              {" "}8+ characters
-            </div>
-
-            <div className={
-              /[A-Z]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[A-Z]/.test(password) ? "✓" : "○"}
-              {" "}Uppercase
-            </div>
-
-            <div className={
-              /[a-z]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[a-z]/.test(password) ? "✓" : "○"}
-              {" "}Lowercase
-            </div>
-
-            <div className={
-              /[0-9]/.test(password)
-                ? "check success"
-                : "check"
-            }>
-              {/[0-9]/.test(password) ? "✓" : "○"}
-              {" "}Number
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* CONFIRM PASSWORD */}
-        <div className="field">
-
-          <label className="input-label">
-            Confirm Password
-          </label>
-
-          <div className="input-group">
-
-            <FaLock className="input-icon" />
-
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => {
-
-                setConfirmPassword(e.target.value);
-
-                setFormData({
-                  ...formData,
-                  confirmPassword: e.target.value
-                });
-
-              }}
-            />
-
-            <button
-              type="button"
-              className="eye-btn"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
-            >
-              {showPassword
-                ? <FaEyeSlash />
-                : <FaEye />
-              }
-            </button>
-
-          </div>
-
-          {confirmPassword.length > 0 && (
-
-            <div
-              className={
-                password === confirmPassword
-                  ? "password-match success"
-                  : "password-match error"
-              }
-            >
-              {password === confirmPassword
-                ? "✓ Passwords match"
-                : "Passwords do not match"
-              }
-            </div>
-
-          )}
-
-        </div>
-
-        {/* CREATE BUTTON */}
-        <button
-          type="submit"
-          disabled={loading}
-          className="view-btn"
-        >
-          {loading
-            ? "Creating Vault..."
-            : "Create Secure Vault"
-          }
-        </button>
-
-        {/* ENTER EXISTING VAULT */}
-        <p className="login-link">
-
-          Already have a vault?
-
-          <span
-            onClick={() => navigate("/enter-vault")}
-          >
-            Enter Vault →
-          </span>
-
-        </p>
-
-      </form>
-
-      {/* SECURITY FEATURES */}
-      <section className="vault-security">
-
-        <div className="section-heading">
-
-          <span>
-            SECURITY
-          </span>
-
-          <h2>
-            Built around your privacy.
-          </h2>
-
-        </div>
-
-        <div className="security-grid">
-
-          <div className="security-card">
-            <div className="security-icon">🛡️</div>
-            <p>Military Grade</p>
-          </div>
-
-          <div className="security-card">
-            <div className="security-icon">🔒</div>
-            <p>Privacy First</p>
-          </div>
-
-          <div className="security-card">
-            <div className="security-icon">₿</div>
-            <p>Bitcoin Only</p>
-          </div>
-
-          <div className="security-card">
-            <div className="security-icon">🚫</div>
-            <p>Self Custody</p>
-          </div>
-
-        </div>
-
-        <div className="security-warning">
-
-          <h3>
-            🔐 Security Notice
-          </h3>
-
-          <p>
-            ScraaVult is non-custodial.
-            Your password and recovery phrase
-            remain under your control.
-          </p>
-
-        </div>
-
-      </section>
-
-    </main>
-
-  </div>
-);
-  
+      </div>
+    </div>
+  );
 }
 
 export default CreateVault;
