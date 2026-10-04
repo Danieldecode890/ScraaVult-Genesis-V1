@@ -4,21 +4,11 @@
    Only styles unique to Create Vault live here.
    ================================================ */
 
-/* — Page override: allow two-column layout — */
+/* — Page override: vertical flow, security below form — */
 .sv-create-vault-page {
-  align-items: flex-start;
-}
-
-/* — Two-column layout wrapper — */
-.sv-create-layout {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 880px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 
 /* — Password input wrapper (eye toggle) — */
@@ -117,15 +107,17 @@
   text-decoration: underline;
 }
 
-/* — Security features section (right column) — */
+/* — Security features section (below the form card) — */
 .sv-create-security {
   position: relative;
   z-index: 2;
   width: 100%;
+  max-width: 420px;
 }
 
 .sv-create-security-heading {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .sv-create-security-eyebrow {
@@ -180,24 +172,13 @@
    RESPONSIVE
    ================================================ */
 
-/* — Tablet: reduce gap, keep two columns — */
-@media (max-width: 1024px) {
-  .sv-create-layout {
-    max-width: 760px;
-    gap: 20px;
-  }
-}
-
-/* — Mobile: single column, form first, security below — */
 @media (max-width: 768px) {
   .sv-create-vault-page {
-    align-items: center;
+    gap: 28px;
   }
 
-  .sv-create-layout {
-    max-width: 420px;
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .sv-create-security {
+    max-width: 100%;
   }
 
   .sv-create-security-grid {
@@ -209,10 +190,8 @@
   }
 }
 
-/* — Small phones — */
 @media (max-width: 400px) {
-  .sv-create-layout {
-    max-width: 100%;
+  .sv-create-vault-page {
     gap: 24px;
   }
 
