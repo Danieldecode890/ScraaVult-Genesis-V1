@@ -51,8 +51,10 @@ function CreateVault() {
   };
 
   return (
-    <div className="sv-vault-page">
-      <div className="sv-vault-card sv-vault-enter">
+    <div className="sv-vault-page sv-create-vault-page">
+      <div className="sv-create-layout">
+        {/* Form Column */}
+        <div className="sv-vault-card sv-vault-enter">
         {/* Header */}
         <div className="sv-vault-header">
           <div className="sv-vault-header-icon">
@@ -251,7 +253,7 @@ function CreateVault() {
         </form>
       </div>
 
-      {/* Security Features */}
+      {/* Security Column */}
       <div className="sv-create-security">
         <div className="sv-create-security-heading">
           <span className="sv-create-security-eyebrow">SECURITY</span>
@@ -276,6 +278,7 @@ function CreateVault() {
             <p>Self Custody</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
