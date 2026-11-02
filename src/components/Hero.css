@@ -45,7 +45,7 @@
 .sv-hero-shield {
   width: 56px;
   height: 56px;
-  color: var(--sv-accent);
+  object-fit: contain;
   filter: drop-shadow(0 0 12px rgba(244, 176, 77, 0.15));
   animation: sv-shield-float 6s ease-in-out infinite;
 }

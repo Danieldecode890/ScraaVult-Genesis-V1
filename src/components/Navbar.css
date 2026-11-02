@@ -34,7 +34,7 @@
 .sv-nav-shield {
   width: 28px;
   height: 28px;
-  color: var(--sv-accent);
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 

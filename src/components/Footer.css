@@ -24,7 +24,7 @@
 .sv-footer-shield {
   width: 26px;
   height: 26px;
-  color: var(--sv-accent);
+  object-fit: contain;
 }
 
 .sv-footer-brand h2 {
