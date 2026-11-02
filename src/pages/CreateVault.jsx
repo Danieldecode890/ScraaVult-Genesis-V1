@@ -45,7 +45,10 @@ function CreateVault() {
 
     setMessage("Your vault has been created successfully!");
 
-    localStorage.setItem("vaultUser", JSON.stringify(formData));
+    localStorage.setItem(
+      "vaultUser",
+      JSON.stringify({ username: formData.username, email: formData.email })
+    );
 
     navigate("/loading-vault");
   };

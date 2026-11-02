@@ -29,7 +29,9 @@ function Dashboard() {
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("vaultUser"));
     if (savedUser) {
-      setUser(savedUser);
+      const profile = { username: savedUser.username, email: savedUser.email };
+      localStorage.setItem("vaultUser", JSON.stringify(profile));
+      setUser(profile);
     }
   }, []);
 
