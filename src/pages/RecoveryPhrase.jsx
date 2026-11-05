@@ -1,133 +1,108 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/RecoveryPhrase.css";
-import logo from "../assets/logo.png";
-import "../styles/Responsive.css";
-
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import {
+  FiCheck,
+  FiCopy,
+  FiShield,
+  FiAlertTriangle,
+} from 'react-icons/fi'
+import logo from '../assets/logo.png'
+import '../styles/RecoveryPhrase.css'
 
 function RecoveryPhrase() {
-const navigate = useNavigate();
+  const navigate = useNavigate()
 
-const words = [
-  "apple","river","forest","shadow","planet","gold",
-  "mirror","rocket","ocean","victory","silent","tiger",
-  "falcon","stone","light","future","thunder","freedom",
-  "mountain","energy","wallet","secure","privacy","vault",
-  "bitcoin","orange","galaxy","bridge","winter","summer"
-];
+  const words = [
+    'apple','river','forest','shadow','planet','gold',
+    'mirror','rocket','ocean','victory','silent','tiger',
+    'falcon','stone','light','future','thunder','freedom',
+    'mountain','energy','wallet','secure','privacy','vault',
+    'bitcoin','orange','galaxy','bridge','winter','summer',
+  ]
 
-const [seedPhrase, setSeedPhrase] = useState([]);
-const [confirmed, setConfirmed] = useState(false);
-const [copied, setCopied] = useState(false);
+  const [seedPhrase, setSeedPhrase] = useState([])
+  const [confirmed, setConfirmed] = useState(false)
+  const [copied, setCopied] = useState(false)
 
-const generateSeedPhrase = () => {
-  const shuffled = [...words].sort(() => Math.random() - 0.5);
-  setSeedPhrase(shuffled.slice(0,12));
-};
-      const copySeedPhrase = async () => {
-  const phrase = seedPhrase.join(" ");
+  const generateSeedPhrase = () => {
+    const shuffled = [...words].sort(() => Math.random() - 0.5)
+    setSeedPhrase(shuffled.slice(0, 12))
+  }
 
-  await navigator.clipboard.writeText(phrase);
- 
- setCopied(true);
- 
-  setTimeout(() => {
-    setCopied(false);
-  }, 2000);
-};
+  const copySeedPhrase = async () => {
+    const phrase = seedPhrase.join(' ')
+    await navigator.clipboard.writeText(phrase)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
+  useEffect(() => {
+    generateSeedPhrase()
+  }, [])
 
-useEffect(() =>{
-  generateSeedPhrase();
-},[]);
-return (
+  return (
+    <div className="sv-recovery-page">
+      <div className="sv-recovery-card">
+        <div className="sv-recovery-logo">
+          <img src={logo} alt="ScraaVult Logo" />
+        </div>
 
-  <div className="recovery-container">
+        <span className="sv-eyebrow">Critical backup</span>
+        <h1 className="sv-recovery-title">Recovery Seed Phrase</h1>
 
-    <div className="recovery-card">
+        <p className="sv-recovery-warning-text">
+          These 12 words are the ONLY way to recover your Bitcoin vault.
+        </p>
+        <p className="sv-recovery-warning-sub">
+          Write them down on paper and keep them somewhere safe.
+        </p>
 
-      <div className="recovery-logo">
-        <img src={logo} alt="ScraaVult Logo"/>
-      </div>
-
-      <h1 className="recovery-title">
-         Recovery Seed Phrase</h1>
-
-      <br></br>
-
-      <p className="warning-text">
-        These 12 words are the ONLY way to recover your Bitcoin vault.
-      </p>
-
-      <p className="warning">
-        Write them down on paper and keep them somewhere safe.
-      </p>
-      <div className="security-status">
-
-    <div className="status-circle">
-
-        98%
-
-    </div>
-
-    <div>
-
-        <h3>Security Score</h3>
-
-        <p>Military Grade Encryption Active</p>
-
-    </div>
-
-</div>
-      
-      <div className="seed-grid premium-grid">
-
-        {seedPhrase.map((word, index) => (
-          <div key={index} className="seed-word">
-            <span>{index + 1}.</span> {word}
+        <div className="sv-recovery-security-status">
+          <div className="sv-recovery-status-circle">98%</div>
+          <div>
+            <h3>Security Score</h3>
+            <p>Military Grade Encryption Active</p>
           </div>
-        ))}
-       
-      </div>
-      <button
-        className="copy-button"
-        onClick={copySeedPhrase}
-    >
-        {copied ? "✅ Recovery Phrase Copied!" : "📋 Copy Recovery Phrase"}
+        </div>
+
+        <div className="sv-recovery-seed-grid">
+          {seedPhrase.map((word, index) => (
+            <div key={index} className="sv-recovery-seed-word">
+              <span>{index + 1}.</span> {word}
+            </div>
+          ))}
+        </div>
+
+        <button className="sv-recovery-copy-btn" onClick={copySeedPhrase}>
+          {copied ? <><FiCheck /> Recovery Phrase Copied!</> : <><FiCopy /> Copy Recovery Phrase</>}
         </button>
 
-<div className="confirmation-card">
+        <div className="sv-recovery-confirmation">
+          <h3><FiShield /> Security Confirmation</h3>
+          <label className="sv-recovery-confirm-label">
+            <input
+              type="checkbox"
+              checked={confirmed}
+              onChange={() => setConfirmed(!confirmed)}
+            />
+            I have written down my Recovery Phrase and stored it safely.
+          </label>
+          <p className="sv-recovery-confirm-warning">
+            <FiAlertTriangle />
+            ScraaVult cannot recover this Recovery Phrase if it is lost.
+          </p>
+        </div>
 
-  <h3>🛡 Security Confirmation</h3>
-
-  <label className="confirm-label">
-
-    <input
-      type="checkbox"
-      checked={confirmed}
-      onChange={() => setConfirmed(!confirmed)}
-    />
-
-    I have written down my Recovery Phrase and stored it safely.
-
-  </label>
-
-  <p className="confirm-warning">
-    ScraaVault cannot recover this Recovery Phrase if it is lost.
-  </p>
-
-</div>
-
-<button
-    className="continue-btn"
-    disabled={!confirmed}
-    onClick={() => navigate("/verify-recovery-phrase")}
->
-    Verify Recovery Phrase
-</button>
+        <button
+          className="sv-recovery-continue-btn"
+          disabled={!confirmed}
+          onClick={() => navigate('/verify-recovery-phrase')}
+        >
+          Verify Recovery Phrase
+        </button>
+      </div>
     </div>
-
-  </div>
-);
+  )
 }
-export default RecoveryPhrase;
+
+export default RecoveryPhrase

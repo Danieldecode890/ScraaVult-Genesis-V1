@@ -1,0 +1,284 @@
+.sv-language-page,
+.sv-currency-page,
+.sv-about-page,
+.sv-search-page {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: calc(100vh - 64px - 280px);
+  padding: 48px 24px;
+  position: relative;
+}
+
+.sv-language-page::before,
+.sv-currency-page::before,
+.sv-about-page::before,
+.sv-search-page::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sv-accent-glow), transparent 70%);
+  pointer-events: none;
+}
+
+.sv-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--sv-radius-sm);
+  border: 1px solid var(--sv-border-strong);
+  background: var(--sv-bg-card);
+  color: var(--sv-text-secondary);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--sv-transition);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.sv-back-btn:hover {
+  border-color: var(--sv-border-accent);
+  color: var(--sv-accent);
+}
+
+.sv-language-header,
+.sv-currency-header,
+.sv-about-header,
+.sv-search-header {
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.sv-language-header h1,
+.sv-currency-header h1,
+.sv-about-header h1,
+.sv-search-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.sv-language-header p,
+.sv-currency-header p,
+.sv-about-header p,
+.sv-search-header p {
+  color: var(--sv-text-secondary);
+  font-size: 0.9rem;
+}
+
+.sv-language-card,
+.sv-currency-card,
+.sv-about-card,
+.sv-search-card {
+  position: relative;
+  z-index: 1;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--sv-shadow-card), var(--sv-shadow-glow);
+  animation: svUtilityFadeUp 0.6s ease;
+}
+
+@keyframes svUtilityFadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sv-language-section-heading,
+.sv-currency-section-heading,
+.sv-about-section-heading,
+.sv-search-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sv-language-section-heading h2,
+.sv-currency-section-heading h2,
+.sv-about-section-heading h2,
+.sv-search-section-heading h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+}
+
+.sv-language-section-icon,
+.sv-currency-section-icon,
+.sv-about-section-icon,
+.sv-search-section-icon {
+  color: var(--sv-accent);
+  font-size: 1.1rem;
+}
+
+.sv-language-select,
+.sv-currency-select,
+.sv-search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 40px 0 16px;
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-bg-elevated);
+  border: 1px solid var(--sv-border-strong);
+  color: var(--sv-text-primary);
+  font: inherit;
+  font-size: 0.92rem;
+  transition: all var(--sv-transition);
+}
+
+.sv-language-select,
+.sv-currency-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f4b04d' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.sv-language-select:focus,
+.sv-currency-select:focus,
+.sv-search-input:focus {
+  outline: none;
+  border-color: var(--sv-accent);
+  box-shadow: 0 0 0 3px rgba(244, 176, 77, 0.08);
+}
+
+.sv-search-input-wrapper {
+  position: relative;
+}
+
+.sv-search-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sv-text-dim);
+  font-size: 1.05rem;
+  pointer-events: none;
+}
+
+.sv-search-input {
+  padding: 0 16px 0 44px;
+}
+
+.sv-search-input::placeholder {
+  color: var(--sv-text-dim);
+}
+
+.sv-language-notice,
+.sv-currency-notice,
+.sv-about-notice {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+}
+
+.sv-language-notice h3,
+.sv-currency-notice h3,
+.sv-about-notice h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--sv-accent);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.sv-language-notice p,
+.sv-currency-notice p,
+.sv-about-notice p {
+  color: var(--sv-text-secondary);
+  font-size: 0.88rem;
+}
+
+.sv-about-notice p { margin-bottom: 6px; }
+.sv-about-notice p:last-child { margin-bottom: 0; }
+.sv-about-notice { margin-bottom: 16px; }
+
+.sv-language-btn,
+.sv-currency-btn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-accent);
+  color: var(--sv-bg-primary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--sv-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sv-language-btn:hover,
+.sv-currency-btn:hover {
+  background: var(--sv-accent-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 176, 77, 0.25);
+}
+
+/* — Search result — */
+.sv-search-result {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-bg-elevated);
+  border: 1px solid var(--sv-border);
+}
+
+.sv-search-result h3 {
+  color: var(--sv-text-primary);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.sv-search-result p {
+  color: var(--sv-text-secondary);
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.sv-search-empty {
+  color: var(--sv-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .sv-language-page,
+  .sv-currency-page,
+  .sv-about-page,
+  .sv-search-page { padding: 36px 16px; }
+
+  .sv-language-card,
+  .sv-currency-card,
+  .sv-about-card,
+  .sv-search-card { padding: 28px 20px; }
+
+  .sv-language-header h1,
+  .sv-currency-header h1,
+  .sv-about-header h1,
+  .sv-search-header h1 { font-size: 1.4rem; }
+}

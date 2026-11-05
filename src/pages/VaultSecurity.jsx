@@ -1,164 +1,140 @@
-import "./../styles/SecurityCenter.css";
-import logo from "../assets/logo.png";
-import "../styles/Responsive.css";
+import {
+  FiAlertTriangle,
+  FiCheckCircle,
+  FiCpu,
+  FiEye,
+  FiKey,
+  FiLock,
+  FiMonitor,
+  FiSettings,
+  FiShield,
+  FiUserCheck,
+} from 'react-icons/fi'
+import logo from '../assets/logo.png'
+import '../styles/SecurityCenter.css'
 
 function VaultSecurity() {
   return (
-    <div className="security-page sv-security-page">
-
-      <div className="security-container">
-
-        <div className="security-header">
-
-          <img
-            src={logo}
-            alt="ScraaVult"
-            className="security-logo"
-          />
-
+    <div className="sv-security-page">
+      <div className="sv-security-container">
+        <div className="sv-security-header">
+          <img src={logo} alt="ScraaVult" className="sv-security-logo" />
+          <span className="sv-eyebrow">Protection center</span>
           <h1>Security Center</h1>
-
-          <p>
-            Your vault is protected with enterprise-grade encryption.
-          </p>
-
+          <p>Your vault is protected with enterprise-grade encryption.</p>
         </div>
 
-        <div className="security-score">
-
+        <section className="sv-security-score-card">
           <h2>Overall Security</h2>
-
-          <div className="score-circle">
-
+          <div className="sv-security-score-circle">
             <span>98%</span>
-
           </div>
-
-          <div className="score-bar">
-
-            <div className="score-fill"></div>
-
+          <div className="sv-security-score-bar">
+            <div className="sv-security-score-fill" />
           </div>
+          <p className="sv-security-score-status">Excellent Protection</p>
+        </section>
 
-          <p className="score-status">
-
-            Excellent Protection
-
-          </p>
-
-        </div>
-
-        <div className="security-card">
-
-          <h2>🛡 Vault Protection</h2>
-
-          <div className="security-item">
+        <section className="sv-security-section-card">
+          <div className="sv-security-card-heading">
+            <FiShield className="sv-security-card-icon" />
+            <h2>Vault Protection</h2>
+          </div>
+          <div className="sv-security-item">
             <span>Vault Status</span>
-            <span className="active">Protected</span>
+            <span className="sv-security-active">Protected</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Encryption</span>
-            <span className="active">AES-256 Active</span>
+            <span className="sv-security-active">AES-256 Active</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Identity</span>
-            <span className="active">Verified</span>
+            <span className="sv-security-active">Verified</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Recovery</span>
-            <span className="active">Ready</span>
+            <span className="sv-security-active">Ready</span>
           </div>
+        </section>
 
-        </div>
-        <div className="security-card">
-
-          <h2>💻 Trusted Device</h2>
-
-          <div className="security-item">
+        <section className="sv-security-section-card">
+          <div className="sv-security-card-heading">
+            <FiMonitor className="sv-security-card-icon" />
+            <h2>Trusted Device</h2>
+          </div>
+          <div className="sv-security-item">
             <span>Device</span>
             <span>Windows Laptop</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Last Active</span>
             <span>Today</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Status</span>
-            <span className="active">Trusted</span>
+            <span className="sv-security-active">Trusted</span>
           </div>
+          <button className="sv-security-gold-btn">Manage Devices</button>
+        </section>
 
-          <button className="gold-btn">
-            Manage Devices
-          </button>
-
-        </div>
-
-        <div className="security-card">
-
-          <h2>🔑 Recovery Kit</h2>
-
-          <div className="security-item">
+        <section className="sv-security-section-card">
+          <div className="sv-security-card-heading">
+            <FiKey className="sv-security-card-icon" />
+            <h2>Recovery Kit</h2>
+          </div>
+          <div className="sv-security-item">
             <span>Recovery Phrase</span>
-            <span className="active">Backed Up</span>
+            <span className="sv-security-active">Backed Up</span>
           </div>
-
-          <div className="security-item">
+          <div className="sv-security-item">
             <span>Recovery Status</span>
-            <span className="active">100% Secure</span>
+            <span className="sv-security-active">100% Secure</span>
           </div>
+          <button className="sv-security-gold-btn">View Recovery Status</button>
+        </section>
 
-          <button className="gold-btn">
-            View Recovery Status
-          </button>
-
-        </div>
-
-        <div className="security-card">
-
-          <h2>⚙ Security Controls</h2>
-
-          <button className="gold-btn">
-            Change Vault PIN
-          </button>
-
-          <button className="gold-btn">
-            Enable Fingerprint
-          </button>
-
-          <button className="gold-btn">
-            Enable Face ID
-          </button>
-
-          <button className="danger-btn">
+        <section className="sv-security-section-card">
+          <div className="sv-security-card-heading">
+            <FiSettings className="sv-security-card-icon" />
+            <h2>Security Controls</h2>
+          </div>
+          <button className="sv-security-gold-btn">Change Vault PIN</button>
+          <button className="sv-security-gold-btn">Enable Fingerprint</button>
+          <button className="sv-security-gold-btn">Enable Face ID</button>
+          <button className="sv-security-danger-btn">
+            <FiAlertTriangle />
             Emergency Lock
           </button>
+        </section>
 
-        </div>
-
-        <div className="security-card">
-
-          <h2>📜 Recent Security Activity</h2>
-
-          <p>✅ Vault Created Successfully</p>
-
-          <p>🔑 Password Verified</p>
-
-          <p>💻 Trusted Device Connected</p>
-
-          <p>🟢 No Suspicious Activity Detected</p>
-
-        </div>
-
+        <section className="sv-security-section-card">
+          <div className="sv-security-card-heading">
+            <FiEye className="sv-security-card-icon" />
+            <h2>Recent Security Activity</h2>
+          </div>
+          <div className="sv-security-activity-list">
+            <div className="sv-security-activity-item">
+              <FiCheckCircle className="sv-security-activity-icon sv-security-activity-icon--success" />
+              Vault Created Successfully
+            </div>
+            <div className="sv-security-activity-item">
+              <FiKey className="sv-security-activity-icon" />
+              Password Verified
+            </div>
+            <div className="sv-security-activity-item">
+              <FiMonitor className="sv-security-activity-icon" />
+              Trusted Device Connected
+            </div>
+            <div className="sv-security-activity-item">
+              <FiShield className="sv-security-activity-icon sv-security-activity-icon--success" />
+              No Suspicious Activity Detected
+            </div>
+          </div>
+        </section>
       </div>
-
     </div>
-
-  );
+  )
 }
 
-export default VaultSecurity;
+export default VaultSecurity

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   FiArrowDown,
   FiArrowLeft,
+  FiAlertCircle,
   FiRefreshCw,
   FiTrash2,
   FiActivity,
@@ -25,6 +26,7 @@ function Exchange() {
   const [loading, setLoading] = useState(true);
 
   const [history, setHistory] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchPrices() {
@@ -74,30 +76,29 @@ function Exchange() {
   }, []);
 
   const handleExchange = () => {
+    setError("");
+
     if (loading) {
-      alert("Prices are still loading. Please wait a moment.");
+      setError("Prices are still loading. Please wait a moment.");
       return;
     }
 
     if (!amount) {
-      alert("Please enter an amount.");
+      setError("Please enter an amount.");
       return;
     }
 
     const cryptoPrice = prices[coin];
-    console.log("Coin",);
-    console.log("Prices",prices);
-    console.log("Selected prices:", prices[coin]);
 
     if (!cryptoPrice) {
-      alert("Crypto price not available.");
+      setError("Crypto price not available.");
       return;
     }
 
     const rate = exchangeRates[currency];
 
     if (!rate) {
-      alert("Exchange rate not available.");
+      setError("Exchange rate not available.");
       return;
     }
 
@@ -236,6 +237,13 @@ function Exchange() {
           <FiTrendingUp />
           {loading ? "Loading..." : "Exchange"}
         </button>
+
+        {error && (
+          <div className="sv-exchange-error">
+            <FiAlertCircle />
+            {error}
+          </div>
+        )}
 
         {result && (
           <div className="sv-exchange-result">

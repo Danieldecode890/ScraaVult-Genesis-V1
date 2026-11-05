@@ -1,0 +1,189 @@
+.sv-verify-identity-page {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: calc(100vh - 64px - 280px);
+  padding: 48px 24px;
+  position: relative;
+}
+
+.sv-verify-identity-page::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sv-accent-glow), transparent 70%);
+  pointer-events: none;
+}
+
+.sv-verify-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.sv-verify-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.sv-verify-subtitle {
+  color: var(--sv-text-secondary);
+  font-size: 0.9rem;
+}
+
+.sv-verify-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid var(--sv-border-accent);
+  border-radius: var(--sv-radius-xl);
+  background: var(--sv-accent-muted);
+  color: var(--sv-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.sv-verify-card {
+  position: relative;
+  z-index: 1;
+  background: var(--sv-bg-card);
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--sv-shadow-card), var(--sv-shadow-glow);
+  animation: svVerifyFadeUp 0.6s ease;
+}
+
+@keyframes svVerifyFadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sv-verify-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--sv-border);
+}
+
+.sv-verify-summary h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sv-text-primary);
+  margin-bottom: 6px;
+}
+
+.sv-verify-summary p {
+  color: var(--sv-text-muted);
+  font-size: 0.85rem;
+}
+
+.sv-verify-badge {
+  padding: 8px 16px;
+  border-radius: var(--sv-radius-xl);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+  color: var(--sv-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.sv-verify-message {
+  padding: 20px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-bg-elevated);
+  border: 1px solid var(--sv-border);
+  margin-bottom: 24px;
+}
+
+.sv-verify-message p {
+  color: var(--sv-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.sv-verify-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-accent);
+  color: var(--sv-bg-primary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--sv-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.sv-verify-btn:hover {
+  background: var(--sv-accent-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 176, 77, 0.25);
+}
+
+.sv-verify-btn--secondary {
+  background: var(--sv-bg-elevated);
+  border: 1px solid var(--sv-border-strong);
+  color: var(--sv-text-secondary);
+}
+
+.sv-verify-btn--secondary:hover {
+  border-color: var(--sv-border-accent);
+  color: var(--sv-accent);
+  background: var(--sv-accent-muted);
+  box-shadow: none;
+}
+
+.sv-verify-notice {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--sv-radius-md);
+  background: var(--sv-accent-muted);
+  border: 1px solid var(--sv-border-accent);
+}
+
+.sv-verify-notice h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--sv-accent);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.sv-verify-notice p {
+  color: var(--sv-text-secondary);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+  .sv-verify-identity-page { padding: 36px 16px; }
+  .sv-verify-card { padding: 28px 20px; }
+  .sv-verify-title { font-size: 1.4rem; }
+  .sv-verify-header { flex-direction: column; }
+}
