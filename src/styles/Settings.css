@@ -1,295 +1,223 @@
-/* ===========================
-   ScraaVault Success Page
-=========================== */
-
-.vault-success-page{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:45px 20px;
-
-    background:
-    radial-gradient(circle at top,
-    rgba(24,70,120,.28),
-    transparent 45%),
-
-    linear-gradient(
-    180deg,
-    #061018,
-    #0b1728,
-    #04070d);
-
+.sv-settings-page,
+.sv-notifications-page,
+.sv-profile-page {
+  width: 100%;
+  max-width: 800px;
+  min-height: calc(100vh - 64px - 280px);
+  margin: 0 auto;
+  padding: 48px 24px;
+  position: relative;
 }
 
-.success-card{
-
-    width:min(900px,100%);
-
-    background:rgba(16,30,48,.92);
-
-    border:1px solid rgba(247,185,74,.18);
-
-    border-radius:28px;
-
-    padding:45px;
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:
-    0 0 40px rgba(0,0,0,.40),
-    0 0 20px rgba(247,185,74,.08);
-
-    animation:fadeUp .6s ease;
-
+.sv-settings-page::before,
+.sv-notifications-page::before,
+.sv-profile-page::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sv-accent-glow), transparent 70%);
+  pointer-events: none;
 }
 
-.success-card h1{
-
-    text-align:center;
-
-    color:#f7b94a;
-
-    font-size:2.3rem;
-
-    margin-bottom:18px;
-
+.sv-settings-header,
+.sv-notifications-header,
+.sv-profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sv-space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sv-space-4);
+  position: relative;
+  z-index: 1;
 }
 
-.success-card>p{
-
-    text-align:center;
-
-    color:#d5dfeb;
-
-    margin-bottom:35px;
-
-    line-height:1.7;
-
+.sv-settings-title,
+.sv-notifications-title,
+.sv-profile-title {
+  color: var(--sv-text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
 }
 
-.security-score{
-
-    background:#11253b;
-
-    border-radius:22px;
-
-    padding:30px;
-
-    margin-bottom:30px;
-
-    text-align:center;
-
-    border:1px solid rgba(247,185,74,.18);
-
+.sv-settings-subtitle,
+.sv-notifications-subtitle,
+.sv-profile-subtitle {
+  color: var(--sv-text-secondary);
+  font-size: 0.9rem;
 }
 
-.settings-page .score-circle{
-
-    width:140px;
-
-    height:140px;
-
-    margin:25px auto;
-
-    border-radius:50%;
-
-    border:7px solid #f7b94a;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#f7b94a;
-
-    font-size:2rem;
-
-    font-weight:bold;
-
-    box-shadow:
-    0 0 18px rgba(247,185,74,.25);
-
+.sv-settings-status,
+.sv-notifications-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid rgba(61, 220, 132, 0.2);
+  border-radius: var(--sv-radius-xl);
+  background: var(--sv-green-muted);
+  color: var(--sv-green);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
-.security-score h2{
-
-    color:white;
-
+.sv-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sv-green);
+  box-shadow: 0 0 10px var(--sv-green);
 }
 
-.security-score h3{
-
-    color:#42d392;
-
-    margin-top:20px;
-
+.sv-settings-card,
+.sv-settings-tip,
+.sv-notifications-card,
+.sv-profile-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-lg);
+  background: var(--sv-bg-card);
+  box-shadow: var(--sv-shadow-card);
 }
 
-.security-score p{
-
-    color:#c8d3df;
-
-    margin-top:12px;
-
+.sv-security-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sv-space-3);
+  padding: 28px 24px;
+  margin-bottom: var(--sv-space-2);
 }
 
-.security-checklist{
-
-    margin-top:30px;
-
-    margin-bottom:30px;
-
+.sv-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.settings-page .item{
-
-    padding:16px 20px;
-
-    border-radius:14px;
-
-    margin-bottom:15px;
-
-    background:#122742;
-
-    color:white;
-
+.sv-card-heading h2,
+.sv-settings-tip h2 {
+  color: var(--sv-text-primary);
+  font-size: 1.05rem;
 }
 
-.settings-page .complete{
-
-    border-left:5px solid #42d392;
-
+.sv-card-icon,
+.sv-settings-tip-icon {
+  color: var(--sv-accent);
 }
 
-.settings-page .warning{
-
-    border-left:5px solid #f7b94a;
-
+.sv-security-summary p,
+.sv-settings-tip p {
+  color: var(--sv-text-secondary);
+  font-size: 0.9rem;
 }
 
-.settings-page .pending{
-
-    border-left:5px solid #6b7280;
-
+.sv-settings-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+  border: 5px solid var(--sv-accent);
+  border-radius: 50%;
+  color: var(--sv-accent);
+  font-size: 1.55rem;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(244, 176, 77, 0.12);
 }
 
-.settings-page .warning-card{
-
-    padding:24px;
-
-    border-radius:20px;
-
-    background:#10253d;
-
-    border:1px solid rgba(247,185,74,.18);
-
-    margin-bottom:35px;
-
+.sv-settings-checks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: var(--sv-space-2);
 }
 
-.settings-page .warning-card h2{
-
-    color:#f7b94a;
-
-    margin-bottom:15px;
-
+.sv-settings-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--sv-border);
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-bg-elevated);
+  color: var(--sv-text-secondary);
+  font-size: 0.88rem;
 }
 
-.settings-page .warning-card p{
+.sv-settings-check svg { flex-shrink: 0; }
+.sv-settings-check--success svg { color: var(--sv-green); }
+.sv-settings-check--warning svg { color: var(--sv-accent); }
 
-    color:#d6dfeb;
-
-    line-height:1.7;
-
-}
-.primary-btn{
-
-    width:100%;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:16px;
-
-    cursor:pointer;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-    background:
-
-    linear-gradient(
-    135deg,
-    #f7b94a,
-    #d89b2b);
-
-    color:#07131f;
-
-    transition:.35s;
-
+.sv-settings-tip {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  margin-bottom: var(--sv-space-2);
+  border-color: var(--sv-border-accent);
+  background: var(--sv-accent-muted);
 }
 
-.primary-btn:hover{
+.sv-settings-tip-icon { flex-shrink: 0; margin-top: 3px; }
+.sv-settings-tip h2 { margin-bottom: 6px; }
 
-    transform:translateY(-3px);
-
-    box-shadow:
-    0 12px 28px rgba(247,185,74,.30);
-
+.sv-settings-options {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
 }
 
-.secondary-btn{
-
-    width:100%;
-
-    padding:18px;
-
-    margin-top:18px;
-
-    border-radius:16px;
-
-    border:1px solid rgba(247,185,74,.20);
-
-    background:#11253b;
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+.sv-settings-btn,
+.sv-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--sv-border-strong);
+  border-radius: var(--sv-radius-sm);
+  background: var(--sv-bg-elevated);
+  color: var(--sv-text-secondary);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--sv-transition);
 }
 
-.secondary-btn:hover{
-
-    border-color:#f7b94a;
-
-}
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
+.sv-settings-btn:hover,
+.sv-profile-btn:hover {
+  border-color: var(--sv-border-accent);
+  background: var(--sv-accent-muted);
+  color: var(--sv-accent);
+  transform: translateY(-2px);
 }
 
-to{
+@media (max-width: 640px) {
+  .sv-settings-page,
+  .sv-notifications-page,
+  .sv-profile-page {
+    padding: 36px 16px;
+  }
 
-opacity:1;
+  .sv-settings-header,
+  .sv-notifications-header {
+    flex-direction: column;
+  }
 
-transform:translateY(0);
-
-}
-
+  .sv-settings-status,
+  .sv-notifications-status { align-self: flex-start; }
+  .sv-settings-checks { grid-template-columns: 1fr; }
+  .sv-security-summary { align-items: flex-start; }
 }
