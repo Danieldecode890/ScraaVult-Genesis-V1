@@ -89,7 +89,7 @@
 
 }
 
-.score-circle{
+.settings-page .score-circle{
 
     width:140px;
 
@@ -148,7 +148,7 @@
 
 }
 
-.item{
+.settings-page .item{
 
     padding:16px 20px;
 
@@ -162,25 +162,25 @@
 
 }
 
-.complete{
+.settings-page .complete{
 
     border-left:5px solid #42d392;
 
 }
 
-.warning{
+.settings-page .warning{
 
     border-left:5px solid #f7b94a;
 
 }
 
-.pending{
+.settings-page .pending{
 
     border-left:5px solid #6b7280;
 
 }
 
-.warning-card{
+.settings-page .warning-card{
 
     padding:24px;
 
@@ -194,7 +194,7 @@
 
 }
 
-.warning-card h2{
+.settings-page .warning-card h2{
 
     color:#f7b94a;
 
@@ -202,7 +202,7 @@
 
 }
 
-.warning-card p{
+.settings-page .warning-card p{
 
     color:#d6dfeb;
 

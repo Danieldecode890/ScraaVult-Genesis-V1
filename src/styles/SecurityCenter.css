@@ -82,7 +82,7 @@
 
 }
 
-.score-circle{
+.security-page .score-circle{
 
     width:150px;
 
@@ -149,7 +149,7 @@
 
 }
 
-.security-card{
+.security-page .security-card{
 
     background:rgba(255,255,255,.04);
 
@@ -163,7 +163,7 @@
 
 }
 
-.security-card h2{
+.security-page .security-card h2{
 
     color:white;
 
@@ -183,7 +183,7 @@
 
 }
 
-.active{
+.security-page .active{
 
     color:#56d364;
 
@@ -191,7 +191,7 @@
 
 }
 
-.gold-btn{
+.security-page .gold-btn{
 
     width:100%;
 
@@ -222,13 +222,13 @@
 
 }
 
-.gold-btn:hover{
+.security-page .gold-btn:hover{
 
     transform:translateY(-2px);
 
 }
 
-.danger-btn{
+.security-page .danger-btn{
 
     width:100%;
 
@@ -252,13 +252,13 @@
 
 }
 
-.danger-btn:hover{
+.security-page .danger-btn:hover{
 
     background:#d92d20;
 
 }
 
-.security-card{
+.security-page .security-card{
 
     animation:fadeUp .6s ease;
 
