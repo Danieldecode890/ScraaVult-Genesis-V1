@@ -4,7 +4,7 @@ import "../styles/Responsive.css";
 
 function VaultSecurity() {
   return (
-    <div className="security-page">
+    <div className="security-page sv-security-page">
 
       <div className="security-container">
 

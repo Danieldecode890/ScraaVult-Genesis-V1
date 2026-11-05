@@ -7,7 +7,7 @@ function Settings({ theme, toggleTheme }){
     const navigate = useNavigate();
 
       return (
-    <div className="page">
+    <div className="page settings-page">
      <div className="settings-header">
 
     <div>

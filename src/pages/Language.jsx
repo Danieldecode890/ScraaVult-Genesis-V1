@@ -7,7 +7,7 @@ function Language() {
   const [language, setLanguage] = useState("English");
 
   return (
-    <div className="page">
+    <div className="page language-page">
       <h1>🌍 Language</h1>
 
       <div className="wallet-card">

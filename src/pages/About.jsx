@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="page">
+    <div className="page about-page">
 
       <h1>ℹ️ About ScraaVult</h1>
 

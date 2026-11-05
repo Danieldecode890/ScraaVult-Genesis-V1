@@ -3,7 +3,7 @@ import "../styles/Responsive.css";
 function VerifyIdentity() {
     const navigate = useNavigate();
   return (
-    <div className="page">
+    <div className="page verify-identity-page">
        <div className="verify-header">
 
     <div>

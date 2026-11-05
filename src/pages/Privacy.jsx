@@ -7,7 +7,7 @@ function Privacy() {
   const [analytics, setAnalytics] = useState(false);
 
   return (
-    <div className="page">
+    <div className="page privacy-page">
 
       <h1>🔒 Privacy Settings</h1>
 

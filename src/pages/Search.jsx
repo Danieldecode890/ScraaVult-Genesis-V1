@@ -4,7 +4,7 @@ function Search() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="page">
+    <div className="page search-page">
       <h1>🔍 Search</h1>
 
       <div className="wallet-card">

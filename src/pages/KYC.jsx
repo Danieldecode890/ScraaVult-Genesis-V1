@@ -8,7 +8,7 @@ function KYC() {
   useState(false);
 
   return (
-    <div className="page">
+    <div className="page kyc-page">
 <div className="kyc-header">
 
     <div>

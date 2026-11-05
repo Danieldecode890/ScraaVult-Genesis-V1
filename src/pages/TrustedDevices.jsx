@@ -1,6 +1,6 @@
 function TrustedDevices() {
   return (
-    <div className="page">
+    <div className="page trusted-devices-page">
 
       <h1>💻 Trusted Devices</h1>
 

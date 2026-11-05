@@ -1,6 +1,6 @@
 function Profile() {
   return (
-    <div className="page">
+    <div className="page profile-page">
       <h1>👤 My Profile</h1>
 
       <div className="wallet-card">

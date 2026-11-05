@@ -4,7 +4,7 @@ function Currency() {
   const [currency, setCurrency] = useState("USD");
 
   return (
-    <div className="page">
+    <div className="page currency-page">
 
       <h1>💵 Preferred Currency</h1>
 

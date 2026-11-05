@@ -1,6 +1,6 @@
 function Notifications() {
   return (
-    <div className="page">
+    <div className="page notifications-page">
       <div className="notification-header">
 
     <div>
