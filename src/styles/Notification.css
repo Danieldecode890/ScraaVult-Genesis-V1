@@ -2,7 +2,7 @@
    SCRAAVAULT NOTIFICATIONS
 ================================ */
 
-.page{
+.notifications-page{
 
     min-height:100vh;
 
@@ -186,7 +186,7 @@
 
 }
 
-hr{
+.notifications-page hr{
 
     border:none;
 

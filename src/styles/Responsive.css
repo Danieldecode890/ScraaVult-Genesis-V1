@@ -59,7 +59,7 @@ overflow-x:hidden;
 
 }
 
-.page{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page){
 
 padding:25px 15px;
 
@@ -960,11 +960,11 @@ font-size:16px;
 
 /* CARDS */
 
-.wallet-card,
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .wallet-card,
 
-.card,
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .card,
 
-.history-card{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .history-card{
 
 padding:22px;
 
@@ -1006,11 +1006,11 @@ grid-template-columns:1fr;
 
 /* BUTTONS */
 
-button,
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) button,
 
-.view-btn,
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .view-btn,
 
-.verify-btn{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .verify-btn{
 
 min-height:54px;
 
@@ -1020,19 +1020,19 @@ font-size:16px;
 
 /* TYPOGRAPHY */
 
-h1{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) h1{
 
 font-size:34px;
 
 }
 
-h2{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) h2{
 
 font-size:24px;
 
 }
 
-p{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) p{
 
 font-size:16px;
 
@@ -1160,7 +1160,7 @@ flex-direction:row;
 
 @media (max-width:768px){
 
-.page{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page){
 
     overflow-x:hidden;
 
@@ -1237,19 +1237,19 @@ flex-direction:row;
 
 }
 
-.security-card{
+.sv-security-page .security-card{
 
     padding:24px;
 
 }
 
-.security-card h3{
+.sv-security-page .security-card h3{
 
     font-size:1.3rem;
 
 }
 
-.security-card p{
+.sv-security-page .security-card p{
 
     font-size:.95rem;
 
@@ -1349,7 +1349,7 @@ flex-direction:row;
 
 @media (max-width:768px){
 
-.view-btn{
+:is(.kyc-page, .notifications-page, .settings-page, .verify-identity-page, .language-page, .currency-page, .privacy-page, .trusted-devices-page, .about-page, .profile-page, .search-page) .view-btn{
 
     height:56px;
 
