@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import {
   FiAlertTriangle,
+  FiArrowLeft,
   FiBell,
   FiCheckCircle,
   FiDollarSign,
@@ -20,6 +21,10 @@ function Settings({ theme, toggleTheme }) {
 
   return (
     <div className="sv-settings-page">
+      <button className="sv-back-btn" onClick={() => navigate('/dashboard')}>
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
       <div className="sv-settings-header">
         <div>
           <span className="sv-eyebrow">Account control</span>

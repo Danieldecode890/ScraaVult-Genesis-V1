@@ -1,10 +1,16 @@
-import { FiCheckCircle, FiEdit3, FiKey, FiUser } from 'react-icons/fi'
+import { FiArrowLeft, FiCheckCircle, FiEdit3, FiKey, FiUser } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 import '../styles/AccountPages.css'
 import '../styles/Profile.css'
 
 function Profile() {
+  const navigate = useNavigate()
   return (
     <div className="sv-profile-page">
+      <button className="sv-back-btn" onClick={() => navigate('/dashboard')}>
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
       <div className="sv-profile-header">
         <div className="sv-profile-avatar"><FiUser /></div>
         <div>

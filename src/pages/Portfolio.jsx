@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  FiArrowLeft,
   FiShield,
   FiLock,
   FiKey,
@@ -10,7 +11,7 @@ import {
   FiLayers,
 } from "react-icons/fi";
 import "../styles/Portfolio.css";
-
+import "../styles/AccountPages.css";
 function Portfolio() {
   const navigate = useNavigate();
 
@@ -31,6 +32,13 @@ function Portfolio() {
 
   return (
     <div className="sv-portfolio-page">
+      <button
+        className="sv-back-btn"
+        onClick={() => navigate("/dashboard")}
+      >
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
       {/* Header */}
       <div className="sv-portfolio-header">
         <div>

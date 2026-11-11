@@ -1,10 +1,16 @@
-import { FiCheckCircle, FiLock, FiShield } from 'react-icons/fi'
+import { FiArrowLeft, FiCheckCircle, FiLock, FiShield } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
 import '../styles/AccountPages.css'
 import '../styles/Notification.css'
 
 function Notifications() {
+  const navigate = useNavigate()
   return (
     <div className="sv-notifications-page">
+      <button className="sv-back-btn" onClick={() => navigate('/dashboard')}>
+        <FiArrowLeft />
+        Back to Dashboard
+      </button>
       <div className="sv-notifications-header">
         <div>
           <span className="sv-eyebrow">Vault activity</span>
