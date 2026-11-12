@@ -1,9 +1,15 @@
-import { FiCheck, FiInfo, FiLock, FiShield, FiZap } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
+import { FiArrowLeft, FiCheck, FiInfo, FiLock, FiShield, FiZap } from 'react-icons/fi'
 import '../styles/Language.css'
 
 function About() {
+  const navigate = useNavigate()
   return (
     <div className="sv-about-page">
+      <button className="sv-back-btn" onClick={() => navigate('/settings')}>
+        <FiArrowLeft />
+        Back to Settings
+      </button>
       <div className="sv-about-header">
         <span className="sv-eyebrow">Product information</span>
         <h1>About ScraaVult</h1>

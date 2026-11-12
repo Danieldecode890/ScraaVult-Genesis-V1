@@ -1,14 +1,21 @@
 import { useState } from 'react'
-import { FiCheck, FiLock, FiShield } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
+import { FiArrowLeft, FiCheck, FiLock, FiShield } from 'react-icons/fi'
 import '../styles/Privacy.css'
+import '../styles/Language.css'
 
 function Privacy() {
   const [hideBalance, setHideBalance] = useState(true)
   const [privateMode, setPrivateMode] = useState(false)
   const [analytics, setAnalytics] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <div className="sv-privacy-page">
+      <button className="sv-back-btn" onClick={() => navigate('/settings')}>
+        <FiArrowLeft />
+        Back to Settings
+      </button>
       <div className="sv-privacy-header">
         <div>
           <span className="sv-eyebrow">Account control</span>

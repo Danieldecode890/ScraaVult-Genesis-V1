@@ -1,12 +1,18 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { FiArrowLeft, FiCheck, FiDollarSign } from 'react-icons/fi'
 import '../styles/Language.css'
 
 function Currency() {
   const [currency, setCurrency] = useState('USD')
+  const navigate = useNavigate()
 
   return (
     <div className="sv-currency-page">
+      <button className="sv-back-btn" onClick={() => navigate('/settings')}>
+        <FiArrowLeft />
+        Back to Settings
+      </button>
       <div className="sv-currency-header">
         <span className="sv-eyebrow">Preference</span>
         <h1>Preferred Currency</h1>

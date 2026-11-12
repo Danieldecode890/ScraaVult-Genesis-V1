@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom'
 import {
+  FiArrowLeft,
   FiCheckCircle,
   FiMonitor,
   FiPlus,
@@ -6,10 +8,16 @@ import {
   FiTrash2,
 } from 'react-icons/fi'
 import '../styles/TrustedDevices.css'
+import '../styles/Language.css'
 
 function TrustedDevices() {
+  const navigate = useNavigate()
   return (
     <div className="sv-trusted-devices-page">
+      <button className="sv-back-btn" onClick={() => navigate('/settings')}>
+        <FiArrowLeft />
+        Back to Settings
+      </button>
       <div className="sv-trusted-devices-header">
         <div>
           <span className="sv-eyebrow">Device management</span>
